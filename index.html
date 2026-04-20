@@ -18,6 +18,10 @@
   --mint3:     #a8f0c8;
   --mint-dim:  rgba(61,220,132,0.08);
   --mint-glow: rgba(61,220,132,0.22);
+  --yellow:    #f5c842;
+  --yellow2:   #ffd94a;
+  --yellow-dim:rgba(245,200,66,0.12);
+  --yellow-glow:rgba(245,200,66,0.28);
   --text:      #e8f5ee;
   --text2:     #7aad8e;
   --text3:     #3d5e48;
@@ -44,79 +48,95 @@ body::after{
 }
 
 /* ── Custom cursor ── */
-#cur{position:fixed;width:10px;height:10px;background:var(--mint);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;mix-blend-mode:screen;}
-#cur2{position:fixed;width:36px;height:36px;border:1px solid rgba(61,220,132,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;}
-#cur.big{width:18px;height:18px;}
+#cur{position:fixed;width:10px;height:10px;background:var(--yellow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;mix-blend-mode:screen;}
+#cur2{position:fixed;width:36px;height:36px;border:1px solid rgba(245,200,66,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;}
+#cur.big{width:18px;height:18px;background:var(--mint);}
 #cur2.big{width:54px;height:54px;border-color:var(--mint);}
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-thumb{background:var(--mint3);border-radius:2px;}
+::-webkit-scrollbar-thumb{background:var(--yellow);border-radius:2px;}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 3.5rem;
-  background:rgba(10,18,13,.75);
+  background:rgba(10,18,13,.85);
   backdrop-filter:blur(28px);
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(245,200,66,0.12);
   animation:navIn .9s ease both;
 }
 @keyframes navIn{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
 .logo{
   font-family:'Playfair Display',serif;
   font-size:1.5rem;font-style:italic;font-weight:700;
-  color:var(--mint);letter-spacing:-.5px;
+  color:var(--yellow);letter-spacing:-.5px;
 }
 .logo sup{font-size:.55rem;letter-spacing:1px;opacity:.6;font-style:normal;font-family:'Geist Mono',monospace;vertical-align:super;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{
   color:var(--text2);text-decoration:none;font-size:.85rem;
   font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  transition:color .2s;position:relative;
+  transition:color .2s;position:relative;cursor:pointer;
 }
-.nav-links a:hover{color:var(--mint);}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--mint);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
+.nav-links a:hover{color:var(--yellow);}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--yellow);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
 .nav-links a:hover::after{transform:scaleX(1);}
 .nav-cta{
   font-family:'Geist Mono',monospace;
-  background:var(--mint);color:var(--ink);
+  background:var(--yellow);color:var(--ink);
   border:none;padding:.6rem 1.6rem;border-radius:50px;
-  font-weight:500;font-size:.82rem;cursor:pointer;
+  font-weight:700;font-size:.82rem;cursor:pointer;
   transition:all .25s;letter-spacing:.5px;
-  box-shadow:0 0 24px var(--mint-glow);
+  box-shadow:0 0 24px var(--yellow-glow);
 }
-.nav-cta:hover{background:var(--mint3);box-shadow:0 0 40px rgba(61,220,132,.45);transform:scale(1.04);}
+.nav-cta:hover{background:var(--yellow2);box-shadow:0 0 40px rgba(245,200,66,.5);transform:scale(1.04);}
 
 /* ── HERO ── */
 .hero{
   min-height:100vh;display:flex;align-items:center;
   padding:9rem 3.5rem 5rem;
   position:relative;overflow:hidden;
+  background:linear-gradient(160deg, #f5c842 0%, #f5c842 45%, #0a120d 45%);
+}
+.hero::before{
+  content:'';position:absolute;left:0;top:0;width:47%;height:100%;
+  background:var(--yellow);
+  clip-path:polygon(0 0,100% 0,88% 100%,0 100%);
+  z-index:0;
 }
 .hero-ambient{
-  position:absolute;inset:0;z-index:0;
+  position:absolute;inset:0;z-index:1;
   background:
-    radial-gradient(ellipse 55% 65% at 60% 30%,rgba(61,220,132,.09) 0%,transparent 70%),
-    radial-gradient(ellipse 35% 45% at 10% 70%,rgba(45,201,111,.06) 0%,transparent 60%);
+    radial-gradient(ellipse 40% 50% at 75% 35%,rgba(61,220,132,.1) 0%,transparent 70%),
+    radial-gradient(ellipse 25% 35% at 90% 70%,rgba(45,201,111,.07) 0%,transparent 60%);
 }
 .hero-lines{
   position:absolute;right:0;top:0;bottom:0;width:55%;
-  opacity:.04;
+  opacity:.035;
   background:repeating-linear-gradient(90deg,var(--mint) 0,var(--mint) 1px,transparent 0,transparent 60px);
+  z-index:1;
 }
-.hero-content{position:relative;z-index:1;max-width:580px;}
+
+/* big yellow decorative number */
+.hero-deco-num{
+  position:absolute;left:2%;top:50%;transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:22vw;font-weight:900;font-style:italic;
+  color:rgba(0,0,0,0.07);line-height:1;z-index:0;pointer-events:none;letter-spacing:-4px;
+}
+
+.hero-content{position:relative;z-index:2;max-width:520px;}
 .hero-tag{
   display:inline-flex;align-items:center;gap:.5rem;
   font-family:'Geist Mono',monospace;font-size:.7rem;
-  color:var(--mint2);letter-spacing:2px;text-transform:uppercase;
-  border:1px solid var(--border2);border-radius:50px;
+  color:var(--ink);letter-spacing:2px;text-transform:uppercase;
+  border:1.5px solid rgba(0,0,0,0.2);border-radius:50px;
   padding:.35rem .9rem;margin-bottom:2rem;
-  background:var(--mint-dim);
+  background:rgba(0,0,0,0.08);
   animation:up .8s .2s ease both;
 }
-.hero-tag::before{content:'●';animation:blink 2s infinite;}
+.live-dot{width:7px;height:7px;background:var(--ink);border-radius:50%;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
 h1{
@@ -125,17 +145,36 @@ h1{
   line-height:1.02;letter-spacing:-2px;font-weight:900;
   margin-bottom:1.5rem;
   animation:up .8s .4s ease both;
+  color:var(--ink);
 }
-.mint-word{color:var(--mint);}
-.italic-word{font-style:italic;color:var(--text2);}
+.mint-word{color:var(--mint);-webkit-text-stroke:1px rgba(0,0,0,0.1);}
+.italic-word{font-style:italic;color:rgba(0,0,0,0.55);}
 .hero-desc{
-  font-size:1.05rem;line-height:1.8;color:var(--text2);
-  margin-bottom:2.5rem;font-weight:300;
+  font-size:1.05rem;line-height:1.8;color:rgba(0,0,0,0.7);
+  margin-bottom:2.5rem;font-weight:400;
   animation:up .8s .6s ease both;
 }
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:up .8s .8s ease both;}
 
 @keyframes up{from{transform:translateY(28px);opacity:0}to{transform:none;opacity:1}}
+
+.btn-dark{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--ink);color:var(--yellow);border:none;
+  padding:.9rem 2.2rem;border-radius:50px;
+  font-weight:700;font-size:.95rem;cursor:pointer;
+  transition:all .3s;letter-spacing:.3px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.3);text-decoration:none;
+}
+.btn-dark:hover{background:#162019;transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.4);}
+.btn-outline-dark{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:transparent;color:var(--ink);
+  border:2px solid rgba(0,0,0,0.3);padding:.9rem 2.2rem;
+  border-radius:50px;font-weight:700;font-size:.95rem;
+  cursor:pointer;transition:all .3s;text-decoration:none;
+}
+.btn-outline-dark:hover{border-color:var(--ink);background:rgba(0,0,0,0.08);transform:translateY(-2px);}
 
 .btn-mint{
   display:inline-flex;align-items:center;gap:.6rem;
@@ -160,24 +199,25 @@ h1{
   display:flex;gap:2.5rem;margin-top:4rem;flex-wrap:wrap;
   animation:up .8s 1s ease both;
 }
-.hm{border-left:2px solid var(--border2);padding-left:1.2rem;}
-.hm-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--mint);}
-.hm-key{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;margin-top:.1rem;font-family:'Geist Mono',monospace;}
+.hm{border-left:3px solid rgba(0,0,0,0.25);padding-left:1.2rem;}
+.hm-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ink);}
+.hm-key{font-size:.72rem;color:rgba(0,0,0,0.55);text-transform:uppercase;letter-spacing:1.5px;margin-top:.1rem;font-family:'Geist Mono',monospace;}
 
 /* ── BENTO PHONE MOCKUP ── */
 .hero-visual{
-  position:absolute;right:4rem;top:50%;transform:translateY(-50%);
-  z-index:1;
+  position:absolute;right:5rem;top:50%;transform:translateY(-50%);
+  z-index:2;
   animation:up .9s 1.1s ease both, floatPhone 7s 2s ease-in-out infinite;
 }
 @keyframes floatPhone{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 16px))}}
 
 .phone{
   width:285px;height:585px;
-  background:linear-gradient(160deg,#182a1d,#0f1a12);
+  background:linear-gradient(160deg,#1a2e1e,#0f1a12);
   border-radius:48px;
   border:1px solid rgba(61,220,132,.2);
-  box-shadow:0 0 100px rgba(61,220,132,.15),0 50px 120px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);
+  box-shadow:0 0 100px rgba(61,220,132,.15),0 50px 120px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05),
+             -20px 0 60px rgba(245,200,66,.12);
   position:relative;overflow:hidden;padding:22px 16px 16px;
 }
 .phone::before{
@@ -189,45 +229,39 @@ h1{
   overflow:hidden;display:flex;flex-direction:column;
 }
 
-/* App UI inside phone */
 .app-header{
   padding:1.5rem 1rem 1rem;
-  background:linear-gradient(180deg,rgba(61,220,132,.12),transparent);
+  background:linear-gradient(180deg,rgba(245,200,66,.15),transparent);
 }
 .app-greeting{font-family:'Geist Mono',monospace;font-size:.6rem;color:var(--text3);letter-spacing:1px;margin-bottom:.2rem;}
 .app-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text);font-style:italic;}
 .app-balance-label{font-size:.55rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:.8rem;font-family:'Geist Mono',monospace;}
-.app-balance{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--mint);line-height:1;}
+.app-balance{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--yellow);line-height:1;}
 .app-balance sup{font-size:.7rem;vertical-align:super;font-family:'Geist Mono',monospace;}
 
-/* Bento grid */
 .bento{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;}
 .b{background:var(--card);border-radius:18px;padding:.7rem .75rem;border:1px solid var(--border);transition:background .3s;}
 .b.span2{grid-column:1/-1;}
 .b-label{font-size:.5rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:.35rem;font-family:'Geist Mono',monospace;}
 .b-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;}
 .b-val.green{color:var(--mint);}
+.b-val.yellow{color:var(--yellow);}
 .b-val.red{color:#f87171;}
 .b-val.dim{color:var(--text2);font-size:.85rem;}
 
-/* micro chart */
 .mchart{display:flex;align-items:flex-end;gap:2px;height:28px;margin-top:.3rem;}
-.mcbar{border-radius:2px 2px 0 0;background:var(--mint);opacity:.5;flex:1;transition:height .4s;}
-.mcbar.hi{opacity:1;}
+.mcbar{border-radius:2px 2px 0 0;background:var(--yellow);opacity:.4;flex:1;transition:height .4s;}
+.mcbar.hi{opacity:1;background:var(--mint);}
 
-.b-pill{
-  display:inline-block;background:rgba(61,220,132,.12);
-  color:var(--mint);font-size:.5rem;border-radius:50px;
-  padding:.15rem .5rem;font-family:'Geist Mono',monospace;margin-top:.2rem;
-}
+.b-pill{display:inline-block;background:rgba(61,220,132,.12);color:var(--mint);font-size:.5rem;border-radius:50px;padding:.15rem .5rem;font-family:'Geist Mono',monospace;margin-top:.2rem;}
 .b-pill.neg{background:rgba(248,113,113,.1);color:#f87171;}
+.b-pill.yel{background:rgba(245,200,66,.12);color:var(--yellow);}
 
-/* transaction list */
 .tx-item{display:flex;align-items:center;gap:.5rem;padding:.45rem 0;border-bottom:1px solid var(--border);}
 .tx-item:last-child{border:none;}
-.tx-dot{width:22px;height:22px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;}
+.tx-dot{width:22px;height:22px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .tx-d1{background:rgba(61,220,132,.15);}
-.tx-d2{background:rgba(251,191,36,.1);}
+.tx-d2{background:rgba(245,200,66,.12);}
 .tx-d3{background:rgba(248,113,113,.1);}
 .tx-info{flex:1;}
 .tx-name{font-size:.55rem;font-weight:700;color:var(--text);}
@@ -239,23 +273,25 @@ h1{
 .phone-glow{
   position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
   width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(var(--mint),transparent 65%);
-  filter:blur(50px);opacity:.35;pointer-events:none;
+  background:radial-gradient(var(--yellow),transparent 65%);
+  filter:blur(60px);opacity:.3;pointer-events:none;
 }
+
+/* ── SVG ICONS ── */
+.icon{display:inline-block;vertical-align:middle;}
 
 /* ── SECTIONS ── */
 section{padding:7rem 3.5rem;position:relative;}
-.s-label{font-family:'Geist Mono',monospace;font-size:.68rem;color:var(--mint2);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
+.s-label{font-family:'Geist Mono',monospace;font-size:.68rem;color:var(--yellow);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1rem;}
 .s-sub{color:var(--text2);line-height:1.75;font-size:1rem;font-weight:300;}
 .max{max-width:1180px;margin:0 auto;}
 
-/* ── PILLARS (bento layout) ── */
+/* ── PILLARS ── */
 .pillars-bg{background:var(--deep);}
 .pillars-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto auto;
   gap:1.2rem;margin-top:3.5rem;
 }
 .pillar{
@@ -268,24 +304,56 @@ section{padding:7rem 3.5rem;position:relative;}
 .pillar.vis{animation:up .6s ease forwards;}
 .pillar::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(61,220,132,.06),transparent);
+  background:linear-gradient(135deg,rgba(245,200,66,.05),transparent);
   opacity:0;transition:opacity .35s;
 }
 .pillar:hover::before{opacity:1;}
-.pillar:hover{border-color:var(--border2);transform:translateY(-5px);box-shadow:0 0 40px var(--mint-glow);}
+.pillar:hover{border-color:rgba(245,200,66,.25);transform:translateY(-5px);box-shadow:0 0 40px rgba(245,200,66,.12);}
 .pillar.wide{grid-column:span 2;}
-.pillar.tall{grid-row:span 2;}
-.p-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--mint);opacity:.12;position:absolute;top:1rem;right:1.5rem;line-height:1;}
-.p-icon{font-size:1.6rem;margin-bottom:1.2rem;}
+.p-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--yellow);opacity:.1;position:absolute;top:1rem;right:1.5rem;line-height:1;}
+.p-icon{width:44px;height:44px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
 .p-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:.6rem;}
 .p-desc{color:var(--text2);font-size:.88rem;line-height:1.7;}
 .p-chip{
-  display:inline-block;background:var(--mint-dim);
-  border:1px solid var(--border2);color:var(--mint);
+  display:inline-block;background:var(--yellow-dim);
+  border:1px solid rgba(245,200,66,.2);color:var(--yellow);
   font-size:.65rem;font-family:'Geist Mono',monospace;
   padding:.25rem .7rem;border-radius:50px;margin-top:.8rem;
   letter-spacing:.5px;
 }
+
+/* ── APP SCREEN SHOWCASE ── */
+.screens-section{background:var(--ink);overflow:hidden;}
+.screens-track{
+  display:flex;gap:1.5rem;margin-top:3rem;
+  animation:scrollTrack 30s linear infinite;
+  width:max-content;
+}
+.screens-track:hover{animation-play-state:paused;}
+@keyframes scrollTrack{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.screen-card{
+  width:200px;height:380px;flex-shrink:0;
+  background:var(--card2);border-radius:28px;
+  border:1px solid var(--border);overflow:hidden;
+  position:relative;
+}
+.screen-inner{width:100%;height:100%;display:flex;flex-direction:column;}
+.sc-hdr{padding:1rem .8rem .6rem;font-family:'Playfair Display',serif;font-size:.8rem;font-weight:700;font-style:italic;color:var(--yellow);}
+.sc-bal{padding:0 .8rem;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--text);}
+.sc-sub{padding:.2rem .8rem;font-size:.55rem;font-family:'Geist Mono',monospace;color:var(--text3);}
+.sc-bar{height:3px;margin:.6rem .8rem;background:linear-gradient(90deg,var(--yellow),var(--mint));border-radius:2px;}
+.sc-list{flex:1;padding:.5rem .8rem;display:flex;flex-direction:column;gap:.4rem;}
+.sc-row{display:flex;align-items:center;justify-content:space-between;padding:.4rem .5rem;background:var(--card);border-radius:10px;border:1px solid var(--border);}
+.sc-row-l{font-size:.55rem;color:var(--text2);}
+.sc-row-r{font-size:.55rem;font-family:'Geist Mono',monospace;font-weight:700;}
+.sc-row-r.g{color:var(--mint);}
+.sc-row-r.r{color:#f87171;}
+.sc-row-r.y{color:var(--yellow);}
+.sc-chart{margin:.5rem .8rem;height:50px;display:flex;align-items:flex-end;gap:3px;}
+.sc-b{border-radius:3px 3px 0 0;flex:1;}
+.sc-footer{padding:.6rem .8rem;border-top:1px solid var(--border);display:flex;justify-content:space-around;}
+.sc-nav-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);}
+.sc-nav-dot.a{background:var(--yellow);}
 
 /* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto;}
@@ -300,10 +368,10 @@ section{padding:7rem 3.5rem;position:relative;}
 .stack-item:last-child{border:none;}
 .si-key{font-family:'Geist Mono',monospace;font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;}
 .si-val{font-size:.82rem;color:var(--text);font-weight:700;}
-.si-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 8px var(--mint);}
+.si-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px var(--yellow);}
 
 /* ── PRICING ── */
-.pricing-bg{background:var(--ink);}
+.pricing-bg{background:var(--deep);}
 .pricing-grid{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:3.5rem;}
 .p-card{
   background:var(--card);border-radius:24px;border:1px solid var(--border);
@@ -311,188 +379,141 @@ section{padding:7rem 3.5rem;position:relative;}
   position:relative;overflow:hidden;
 }
 .p-card.featured{
-  border-color:var(--mint2);
-  box-shadow:0 0 60px rgba(61,220,132,.2);
-  background:linear-gradient(145deg,#1a2e1e,var(--card));
+  border-color:rgba(245,200,66,.5);
+  box-shadow:0 0 60px rgba(245,200,66,.15);
+  background:linear-gradient(145deg,#201c0a,var(--card));
 }
 .p-card.featured::after{
-  content:'RECOMMENDED';position:absolute;top:1rem;right:1rem;
-  background:var(--mint);color:var(--ink);
+  content:'POPULAR';position:absolute;top:1rem;right:1rem;
+  background:var(--yellow);color:var(--ink);
   font-size:.55rem;font-weight:700;font-family:'Geist Mono',monospace;
   padding:.2rem .6rem;border-radius:50px;letter-spacing:1px;
 }
-.p-card:hover{transform:translateY(-6px);border-color:var(--border2);}
+.p-card:hover{transform:translateY(-6px);}
 .p-tier{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem;}
 .p-price{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1;margin-bottom:.2rem;}
-.p-price.green{color:var(--mint);}
+.p-price.yellow{color:var(--yellow);}
 .p-cycle{font-size:.78rem;color:var(--text3);margin-bottom:1.5rem;font-family:'Geist Mono',monospace;}
 .p-list{list-style:none;margin-bottom:1.8rem;}
 .p-list li{font-size:.87rem;color:var(--text2);padding:.38rem 0;display:flex;gap:.6rem;align-items:flex-start;line-height:1.5;}
-.p-list li::before{content:'✦';color:var(--mint);font-size:.5rem;flex-shrink:0;margin-top:.3rem;}
+.p-list li::before{content:'';display:inline-block;width:6px;height:6px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:.45rem;}
 
 /* ── TESTIMONIALS ── */
-.testi-bg{background:var(--deep);}
+.testi-bg{background:var(--ink);}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-top:3.5rem;}
 .t-card{
   background:var(--card);border-radius:20px;border:1px solid var(--border);
   padding:1.8rem;transition:all .35s;
 }
-.t-card:hover{border-color:var(--border2);transform:translateY(-4px);}
-.t-stars{color:var(--mint);font-size:.85rem;letter-spacing:2px;margin-bottom:1rem;}
+.t-card:hover{border-color:rgba(245,200,66,.25);transform:translateY(-4px);box-shadow:0 0 30px rgba(245,200,66,.08);}
+.t-stars{color:var(--yellow);font-size:.85rem;letter-spacing:2px;margin-bottom:1rem;}
 .t-text{color:var(--text2);font-size:.88rem;line-height:1.7;font-style:italic;margin-bottom:1.2rem;}
 .t-author{display:flex;align-items:center;gap:.8rem;}
 .t-av{
   width:38px;height:38px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:.75rem;color:var(--ink);background:var(--mint);
+  font-weight:700;font-size:.75rem;color:var(--ink);background:var(--yellow);
 }
 .t-name{font-weight:700;font-size:.85rem;}
 .t-role{color:var(--text3);font-size:.73rem;font-family:'Geist Mono',monospace;}
 
+/* ── LEGAL CARDS ── */
+.legal-section{background:var(--deep);}
+.legal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin-top:3rem;}
+.leg-card{
+  background:var(--card);border-radius:20px;border:1px solid var(--border);
+  padding:1.8rem;cursor:pointer;transition:all .35s;
+}
+.leg-card:hover{border-color:rgba(245,200,66,.3);transform:translateY(-3px);box-shadow:0 0 24px rgba(245,200,66,.1);}
+.leg-card-hdr{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;}
+.leg-icon{width:38px;height:38px;background:var(--yellow-dim);border:1px solid rgba(245,200,66,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.leg-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;}
+.leg-preview{font-size:.82rem;color:var(--text2);line-height:1.65;margin-bottom:1rem;}
+.leg-expand-btn{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:.4rem;transition:gap .2s;}
+.leg-expand-btn:hover{gap:.7rem;}
+.leg-body{
+  max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.4,0,0.2,1);
+  font-size:.82rem;color:var(--text2);line-height:1.75;
+}
+.leg-body.open{max-height:1200px;}
+.leg-body h3{font-family:'Playfair Display',serif;color:var(--text);font-size:.9rem;margin:1.2rem 0 .4rem;font-style:italic;}
+.leg-body h3:first-child{margin-top:.8rem;}
+.leg-body p{margin-bottom:.7rem;}
+.leg-body ul{padding-left:1.1rem;margin-bottom:.7rem;}
+.leg-body li{margin-bottom:.3rem;}
+.leg-date{font-family:'Geist Mono',monospace;font-size:.62rem;color:var(--text3);margin-bottom:.8rem;}
+
 /* ── DOWNLOAD CTA ── */
-.dl-section{background:var(--ink);text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;}
+.dl-section{background:var(--yellow);text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;}
 .dl-section::before{
-  content:'';position:absolute;width:600px;height:600px;
-  background:radial-gradient(var(--mint),transparent 65%);
-  filter:blur(130px);opacity:.08;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  border-radius:50%;pointer-events:none;
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:400px;height:400px;border-radius:50%;
+  background:rgba(0,0,0,0.05);pointer-events:none;
 }
-.store-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;}
-.store-btn{
-  display:flex;align-items:center;gap:.9rem;
-  background:var(--card);border:1px solid var(--border);
-  border-radius:16px;padding:.85rem 1.6rem;
-  cursor:pointer;transition:all .3s;color:var(--text);
-  text-decoration:none;
+.dl-section::after{
+  content:'MINTY';
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+  font-family:'Playfair Display',serif;font-weight:900;font-style:italic;
+  font-size:18vw;color:rgba(0,0,0,0.06);line-height:1;pointer-events:none;white-space:nowrap;
 }
-.store-btn:hover{border-color:var(--mint);background:var(--card2);transform:translateY(-3px);box-shadow:0 0 30px var(--mint-glow);}
-.sb-icon{font-size:1.8rem;}
-.sb-sub{font-size:.58rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace;}
-.sb-name{font-weight:700;font-size:.95rem;}
+.dl-section .s-label{color:rgba(0,0,0,0.5);}
+.dl-section .s-title{color:var(--ink);}
+.dl-section .s-sub{color:rgba(0,0,0,0.6);}
+.dl-link{
+  display:inline-flex;align-items:center;gap:.9rem;
+  background:var(--ink);color:var(--yellow);
+  border:none;border-radius:18px;padding:1rem 2.2rem;
+  cursor:pointer;transition:all .35s;text-decoration:none;
+  font-weight:700;font-size:1rem;
+  box-shadow:0 12px 40px rgba(0,0,0,0.25);
+  position:relative;z-index:1;
+}
+.dl-link:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.35);}
+.dl-badge{
+  display:inline-block;background:var(--yellow);color:var(--ink);
+  font-size:.55rem;font-family:'Geist Mono',monospace;font-weight:700;
+  padding:.15rem .5rem;border-radius:50px;letter-spacing:1px;margin-left:.3rem;
+  vertical-align:middle;
+}
 
 /* ── FOOTER ── */
 footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.5rem 2rem;}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto;}
-.f-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--mint);margin-bottom:.8rem;font-weight:700;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;}
+.f-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--yellow);margin-bottom:.8rem;font-weight:700;}
 .f-desc{color:var(--text3);font-size:.82rem;line-height:1.7;max-width:240px;}
 .f-col h4{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:1.2rem;}
 .f-col ul{list-style:none;}
 .f-col ul li{margin-bottom:.6rem;}
 .f-col ul a{color:var(--text3);text-decoration:none;font-size:.83rem;transition:color .2s;cursor:pointer;}
-.f-col ul a:hover{color:var(--mint);}
-.f-bottom{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:3rem;max-width:1100px;margin:2.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.f-col ul a:hover{color:var(--yellow);}
+.f-bottom{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:3rem;max-width:1000px;margin:2.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .f-bottom p{color:var(--text3);font-size:.75rem;font-family:'Geist Mono',monospace;}
 .socials{display:flex;gap:.6rem;}
-.soc{width:34px;height:34px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;transition:all .2s;text-decoration:none;}
-.soc:hover{border-color:var(--mint);background:var(--mint-dim);transform:translateY(-2px);}
+.soc{width:34px;height:34px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;text-decoration:none;}
+.soc:hover{border-color:var(--yellow);background:var(--yellow-dim);transform:translateY(-2px);}
 
-/* ── RAZORPAY MODAL ── */
-.overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.88);
-  backdrop-filter:blur(14px);z-index:1000;
-  display:none;align-items:center;justify-content:center;
-  animation:fadeIn .3s ease;
-}
-.overlay.on{display:flex;}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.rzp{
-  background:#fff;border-radius:20px;width:390px;max-width:95vw;
-  overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.6);
-  animation:slideUp .38s ease;color:#2c2c2c;
-  position:relative;
-}
-@keyframes slideUp{from{transform:translateY(36px) scale(.97);opacity:0}to{transform:none;opacity:1}}
-.rzp-head{
-  background:linear-gradient(140deg,#004B32,#007A52);
-  padding:1.5rem;display:flex;align-items:center;justify-content:space-between;
-  color:#fff;
-}
-.rzp-brand{display:flex;flex-direction:column;}
-.rzp-wordmark{font-weight:700;font-size:1rem;letter-spacing:-.3px;}
-.rzp-wordmark span{color:#9ef4c6;}
-.rzp-secure{font-size:.65rem;opacity:.65;margin-top:.15rem;letter-spacing:.3px;}
-.rzp-amt-block{text-align:right;}
-.rzp-amt{font-size:1.5rem;font-weight:700;}
-.rzp-plan{font-size:.68rem;opacity:.7;margin-top:.1rem;}
-.rzp-body{padding:1.5rem;}
-.rzp-tabs{display:flex;border:1px solid #e8e8e8;border-radius:10px;overflow:hidden;margin-bottom:1.4rem;}
-.rtab{flex:1;padding:.65rem;background:#f7f7f7;color:#888;font-size:.75rem;font-weight:700;border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px;transition:all .2s;}
-.rtab.on{background:#fff;color:#004B32;box-shadow:inset 0 -2px 0 #007A52;}
-.rfield{margin-bottom:1rem;}
-.rfield label{font-size:.68rem;font-weight:700;color:#999;display:block;margin-bottom:.38rem;letter-spacing:.5px;}
-.rfield input{
-  width:100%;padding:.72rem;border:1.5px solid #ebebeb;border-radius:10px;
-  font-size:.9rem;outline:none;font-family:inherit;color:#2c2c2c;background:#fafafa;
-  transition:border-color .2s;
-}
-.rfield input:focus{border-color:#007A52;background:#fff;}
-.rrow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
-.rzp-btn{
-  width:100%;background:linear-gradient(135deg,#004B32,#007A52);
-  color:#fff;border:none;padding:1rem;border-radius:10px;
-  font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;
-  transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem;
-  margin-top:.3rem;
-}
-.rzp-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,122,82,.4);}
-.rzp-note{font-size:.65rem;color:#aaa;text-align:center;margin-top:.7rem;}
-.rzp-note a{color:#007A52;cursor:pointer;text-decoration:underline;}
-.rzp-foot{padding:.8rem 1.5rem;border-top:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;}
-.rzp-foot span{font-size:.65rem;color:#bbb;}
-.rzp-x{position:absolute;top:.8rem;right:.8rem;background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
-
-/* UPI */
-.qr-box{width:110px;height:110px;background:#f0f0f0;border-radius:12px;margin:.5rem auto 1rem;display:flex;align-items:center;justify-content:center;font-size:3rem;}
-
-/* Success */
-.rzp-ok{display:none;flex-direction:column;align-items:center;padding:3rem 2rem;text-align:center;}
-.ok-icon{width:72px;height:72px;background:linear-gradient(135deg,#22c55e,#16a34a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:1.5rem;animation:pop .4s ease;}
-@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-.rzp-ok h3{color:#2c2c2c;font-size:1.2rem;margin-bottom:.5rem;}
-.rzp-ok p{color:#888;font-size:.85rem;line-height:1.6;margin-bottom:.5rem;}
-.rzp-ok small{font-size:.7rem;color:#bbb;font-family:'Geist Mono',monospace;}
-
-/* ── LEGAL MODAL ── */
-.legal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.92);
-  backdrop-filter:blur(22px);z-index:2000;
-  display:none;align-items:center;justify-content:center;padding:2rem;
-}
-.legal-overlay.on{display:flex;}
-.legal-box{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:28px;max-width:680px;width:100%;max-height:82vh;
-  overflow:hidden;display:flex;flex-direction:column;
-  animation:slideUp .38s ease;
-}
-.legal-head{
-  padding:1.4rem 2rem;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.legal-head h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;}
-.legal-close{
-  width:34px;height:34px;background:var(--card2);border:1px solid var(--border);
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;color:var(--text2);font-size:.9rem;transition:all .2s;
-}
-.legal-close:hover{border-color:#f87171;color:#f87171;}
-.legal-body{padding:2rem;overflow-y:auto;color:var(--text2);font-size:.87rem;line-height:1.85;}
-.legal-body h3{font-family:'Playfair Display',serif;color:var(--text);font-size:.95rem;margin:1.5rem 0 .5rem;font-style:italic;}
-.legal-body h3:first-child{margin-top:0;}
-.legal-body p{margin-bottom:.9rem;}
-.legal-body ul{padding-left:1.2rem;margin-bottom:.9rem;}
-.legal-body li{margin-bottom:.35rem;}
-.legal-date{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--text3);margin-bottom:1.2rem;}
-
-/* scroll reveal utility */
+/* ── scroll reveal ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.vis{opacity:1;transform:none;}
+
+/* ── floating particles ── */
+.particle{position:absolute;border-radius:50%;pointer-events:none;animation:drift linear infinite;}
+@keyframes drift{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-120vh) rotate(720deg);opacity:0}}
+
+/* ── yellow section divider ── */
+.ydivider{
+  height:3px;background:linear-gradient(90deg,transparent,var(--yellow),var(--mint),transparent);
+  border:none;margin:0;
+}
+
+/* ── animated number ticker ── */
+@keyframes countUp{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
 
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
-  .hero{padding:8rem 1.5rem 4rem;flex-direction:column;}
+  .hero{padding:8rem 1.5rem 4rem;flex-direction:column;background:var(--yellow);}
+  .hero::before{display:none;}
   .hero-visual{position:relative;right:auto;top:auto;transform:none;margin:3rem auto 0;animation:floatPhone2 7s ease-in-out infinite;}
   @keyframes floatPhone2{0%,100%{transform:none}50%{transform:translateY(-14px)}}
   .pillars-grid{grid-template-columns:1fr 1fr;}
@@ -508,36 +529,53 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
 <div id="cur"></div>
 <div id="cur2"></div>
 
+<!-- Particles container -->
+<div id="particles" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;"></div>
+
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="logo">Minty<sup>™</sup></div>
   <ul class="nav-links">
-    <li><a href="#pillars">Features</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#reviews">Reviews</a></li>
+    <li><a onclick="scrollTo('pillars')">Features</a></li>
+    <li><a onclick="scrollTo('about')">About</a></li>
+    <li><a onclick="scrollTo('pricing')">Pricing</a></li>
+    <li><a onclick="scrollTo('reviews')">Reviews</a></li>
+    <li><a onclick="scrollTo('legal')">Legal</a></li>
   </ul>
-  <button class="nav-cta" onclick="openPay('pro')">Get Minty</button>
+  <a class="nav-cta" href="https://github.com/" target="_blank">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    Open Source
+  </a>
 </nav>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-ambient"></div>
   <div class="hero-lines"></div>
+  <div class="hero-deco-num">₹</div>
 
   <div class="hero-content">
-    <div class="hero-tag">● Financial Consciousness Platform</div>
+    <div class="hero-tag">
+      <div class="live-dot"></div>
+      Financial Consciousness
+    </div>
     <h1>
       Money,<br>
       <span class="italic-word">finally</span><br>
       <span class="mint-word">mindful.</span>
     </h1>
     <p class="hero-desc">
-      Minty is not just an expense tracker. It is a financial consciousness platform — designed for those who demand clarity without the clutter. Built on <em>Flutter</em> with Bento UI and haptic precision.
+      Minty is not just an expense tracker. It's a financial consciousness platform — designed for those who demand clarity without the clutter. Open source. Built with Flutter.
     </p>
     <div class="hero-actions">
-      <button class="btn-mint" onclick="openPay('free')">⬇ Download Free</button>
-      <a href="#pillars" class="btn-ghost">Explore Features →</a>
+      <a class="btn-dark" href="https://github.com/" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        Download Free
+      </a>
+      <a class="btn-outline-dark" href="#pillars" onclick="scrollTo('pillars')">
+        Explore Features
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
     <div class="hero-metrics">
       <div class="hm"><div class="hm-val counter" data-t="50">0</div><div class="hm-key">K+ Users</div></div>
@@ -546,7 +584,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
     </div>
   </div>
 
-  <!-- Phone mockup -->
+  <!-- Phone -->
   <div class="hero-visual">
     <div class="phone">
       <div class="phone-inner">
@@ -557,19 +595,16 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
           <div class="app-balance"><sup>₹</sup>1,24,890</div>
         </div>
         <div class="bento">
-          <!-- this week -->
           <div class="b">
             <div class="b-label">This Week</div>
             <div class="b-val green">+₹8,240</div>
             <div class="b-pill">▲ 12.4%</div>
           </div>
-          <!-- spent -->
           <div class="b">
             <div class="b-label">Spent</div>
             <div class="b-val red">-₹3,190</div>
             <div class="b-pill neg">▼ 5.1%</div>
           </div>
-          <!-- 24h chart -->
           <div class="b span2">
             <div class="b-label">24-Hour Micro Insight</div>
             <div class="mchart">
@@ -587,34 +622,37 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
               <div class="mcbar hi" style="height:75%"></div>
             </div>
           </div>
-          <!-- Savings wallet -->
           <div class="b">
             <div class="b-label">Savings</div>
             <div class="b-val dim">₹42,500</div>
           </div>
-          <!-- streak -->
           <div class="b">
             <div class="b-label">Streak</div>
-            <div class="b-val green">22d 🌿</div>
+            <div class="b-val yellow">22 days</div>
           </div>
         </div>
-        <!-- Recent tx -->
         <div style="padding:0 6px 6px">
           <div class="b">
             <div class="b-label" style="margin-bottom:.5rem">Recent</div>
             <div class="tx-item">
-              <div class="tx-dot tx-d1">🛒</div>
+              <div class="tx-dot tx-d1">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </div>
               <div class="tx-info"><div class="tx-name">Big Basket</div><div class="tx-cat">Groceries</div></div>
               <div class="tx-amt neg">-₹840</div>
             </div>
             <div class="tx-item">
-              <div class="tx-dot tx-d2">💼</div>
+              <div class="tx-dot tx-d2">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
               <div class="tx-info"><div class="tx-name">Salary</div><div class="tx-cat">Income</div></div>
               <div class="tx-amt pos">+₹65,000</div>
             </div>
             <div class="tx-item">
-              <div class="tx-dot tx-d3">☕</div>
-              <div class="tx-info"><div class="tx-name">Blue Tokai</div><div class="tx-cat">Food & Drink</div></div>
+              <div class="tx-dot tx-d3">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+              <div class="tx-info"><div class="tx-name">Blue Tokai</div><div class="tx-cat">Food &amp; Drink</div></div>
               <div class="tx-amt neg">-₹380</div>
             </div>
           </div>
@@ -625,6 +663,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   </div>
 </section>
 
+<hr class="ydivider">
+
 <!-- ═══ PILLARS ═══ -->
 <section class="pillars-bg" id="pillars">
   <div class="max">
@@ -632,51 +672,290 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
     <h2 class="s-title">Engineered for <em>clarity.</em></h2>
     <p class="s-sub" style="max-width:500px">Six architectural decisions that make Minty unlike anything you've used before.</p>
     <div class="pillars-grid">
+
       <div class="pillar reveal wide">
         <div class="p-num">01</div>
-        <div class="p-icon">🍱</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
         <div class="p-title">The Bento UI System</div>
-        <div class="p-desc">Inspired by modular Japanese design, our Bento-style dashboard organises your financial life into clean, interactive blocks — curated to reduce cognitive load and deliver instant spatial awareness. Real-time summaries of "This Week" and "This Month" positions, all at a glance.</div>
+        <div class="p-desc">Inspired by modular Japanese design, our Bento-style dashboard organises your financial life into clean, interactive blocks — curated to reduce cognitive load and deliver instant spatial awareness. Real-time summaries at a glance.</div>
         <div class="p-chip">Spatial Discovery</div>
       </div>
+
       <div class="pillar reveal">
         <div class="p-num">02</div>
-        <div class="p-icon">📊</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
         <div class="p-title">24-Hour Micro-Insights</div>
-        <div class="p-desc">A fixed timeline chart centred on the "Now" — so you always understand where you stand in the present moment, not just at month end.</div>
+        <div class="p-desc">A fixed timeline chart centred on "Now" — so you always understand where you stand in the present moment, not just at month end.</div>
         <div class="p-chip">Temporal Context</div>
       </div>
+
       <div class="pillar reveal">
         <div class="p-num">03</div>
-        <div class="p-icon">💰</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
         <div class="p-title">Multi-Wallet Architecture</div>
-        <div class="p-desc">Personal and Savings wallets free. Unlock Super Wallets via Razorpay for specialised budgeting. Global base-currency reconciliation across all wallets, instantly.</div>
-        <div class="p-chip">Razorpay Powered</div>
+        <div class="p-desc">Personal and Savings wallets free. Unlock Super Wallets for specialised budgeting. Global base-currency reconciliation instantly.</div>
+        <div class="p-chip">Smart Budgeting</div>
       </div>
+
       <div class="pillar reveal">
         <div class="p-num">04</div>
-        <div class="p-icon">📳</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <div class="p-title">Haptic Feedback Engine</div>
         <div class="p-desc">Heavy, medium, and light haptic layers woven into every transaction — so each financial decision <em>feels</em> significant and reinforces discipline.</div>
         <div class="p-chip">Tactile Control</div>
       </div>
+
       <div class="pillar reveal">
         <div class="p-num">05</div>
-        <div class="p-icon">📨</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <div class="p-title">SMS Intelligence</div>
-        <div class="p-desc">Automated parsing of bank alert SMSes for zero-effort entry. Permission-based, privacy-first. Your transactions, captured before you blink.</div>
+        <div class="p-desc">Automated parsing of bank alert SMSes for zero-effort entry. Permission-based, privacy-first. Your transactions captured before you blink.</div>
         <div class="p-chip">Zero-Effort Entry</div>
       </div>
+
       <div class="pillar reveal">
         <div class="p-num">06</div>
-        <div class="p-icon">🏛️</div>
-        <div class="p-title">Layered Feature-Driven Architecture</div>
-        <div class="p-desc">Riverpod reactive state, Hive NoSQL, atomic JSON services, and isolate-based Workmanager background tasks — so the UI stays smooth while the vault stays safe.</div>
+        <div class="p-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="p-title">Layered Architecture</div>
+        <div class="p-desc">Riverpod reactive state, Hive NoSQL, atomic JSON services, and isolate-based Workmanager background tasks — smooth UI, safe vault.</div>
         <div class="p-chip">Flutter · Riverpod · Hive</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="ydivider">
+
+<!-- ═══ APP SCREENS SHOWCASE ═══ -->
+<section class="screens-section" id="screens">
+  <div class="max" style="margin-bottom:3rem">
+    <div class="s-label">In the Wild</div>
+    <h2 class="s-title">Every screen, <em>considered.</em></h2>
+    <p class="s-sub" style="max-width:480px">A unified design language flows across every view. Nothing is an afterthought.</p>
+  </div>
+  <div style="overflow:hidden;mask:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);">
+    <div class="screens-track" id="screenTrack">
+      <!-- Card 1 -->
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Personal</div>
+          <div class="sc-bal">₹9,468</div>
+          <div class="sc-sub">+12.4% STABLE · this month</div>
+          <div class="sc-bar"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:40%;background:rgba(245,200,66,.3)"></div>
+            <div class="sc-b" style="height:65%;background:rgba(245,200,66,.5)"></div>
+            <div class="sc-b" style="height:30%;background:rgba(245,200,66,.3)"></div>
+            <div class="sc-b" style="height:90%;background:#3ddc84"></div>
+            <div class="sc-b" style="height:55%;background:rgba(245,200,66,.4)"></div>
+            <div class="sc-b" style="height:45%;background:rgba(245,200,66,.3)"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">General</span><span class="sc-row-r r">-₹55</span></div>
+            <div class="sc-row"><span class="sc-row-l">Salary</span><span class="sc-row-r g">+₹65k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Coffee</span><span class="sc-row-r r">-₹380</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot a"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Analytics</div>
+          <div class="sc-bal">₹24,190</div>
+          <div class="sc-sub">SPENT · this month</div>
+          <div class="sc-bar" style="background:linear-gradient(90deg,#f87171,#f5c842)"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:70%;background:rgba(248,113,113,.4)"></div>
+            <div class="sc-b" style="height:45%;background:rgba(248,113,113,.3)"></div>
+            <div class="sc-b" style="height:88%;background:#f87171"></div>
+            <div class="sc-b" style="height:30%;background:rgba(248,113,113,.2)"></div>
+            <div class="sc-b" style="height:60%;background:rgba(248,113,113,.35)"></div>
+            <div class="sc-b" style="height:50%;background:rgba(248,113,113,.3)"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">Food</span><span class="sc-row-r r">₹8,240</span></div>
+            <div class="sc-row"><span class="sc-row-l">Travel</span><span class="sc-row-r y">₹5,100</span></div>
+            <div class="sc-row"><span class="sc-row-l">Bills</span><span class="sc-row-r r">₹10,850</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot a"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Savings</div>
+          <div class="sc-bal">₹42,500</div>
+          <div class="sc-sub">VAULT · growing</div>
+          <div class="sc-bar" style="background:linear-gradient(90deg,#3ddc84,#a8f0c8)"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:30%;background:rgba(61,220,132,.3)"></div>
+            <div class="sc-b" style="height:40%;background:rgba(61,220,132,.4)"></div>
+            <div class="sc-b" style="height:55%;background:rgba(61,220,132,.5)"></div>
+            <div class="sc-b" style="height:65%;background:rgba(61,220,132,.6)"></div>
+            <div class="sc-b" style="height:80%;background:rgba(61,220,132,.7)"></div>
+            <div class="sc-b" style="height:100%;background:#3ddc84"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">Emergency</span><span class="sc-row-r g">₹15k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Vacation</span><span class="sc-row-r g">₹12k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Gadgets</span><span class="sc-row-r y">₹15.5k</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot a"></div>
+            <div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Add Entry</div>
+          <div style="padding:.5rem .8rem">
+            <div style="font-size:.55rem;color:var(--text3);font-family:'Geist Mono',monospace;letter-spacing:1px;margin-bottom:.3rem">AMOUNT</div>
+            <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--yellow);padding:.4rem .5rem;background:var(--card);border-radius:10px;border:1px solid rgba(245,200,66,.2)">₹1,200</div>
+          </div>
+          <div style="padding:.4rem .8rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+            <div style="background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--mint)">Food</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Travel</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Bills</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Other</div>
+          </div>
+          <div style="padding:.4rem .8rem;flex:1">
+            <div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink);margin-top:.5rem">Save Transaction</div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot"></div>
+            <div class="sc-nav-dot a"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Personal</div>
+          <div class="sc-bal">₹9,468</div>
+          <div class="sc-sub">+12.4% STABLE · this month</div>
+          <div class="sc-bar"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:40%;background:rgba(245,200,66,.3)"></div>
+            <div class="sc-b" style="height:65%;background:rgba(245,200,66,.5)"></div>
+            <div class="sc-b" style="height:30%;background:rgba(245,200,66,.3)"></div>
+            <div class="sc-b" style="height:90%;background:#3ddc84"></div>
+            <div class="sc-b" style="height:55%;background:rgba(245,200,66,.4)"></div>
+            <div class="sc-b" style="height:45%;background:rgba(245,200,66,.3)"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">General</span><span class="sc-row-r r">-₹55</span></div>
+            <div class="sc-row"><span class="sc-row-l">Salary</span><span class="sc-row-r g">+₹65k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Coffee</span><span class="sc-row-r r">-₹380</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Analytics</div>
+          <div class="sc-bal">₹24,190</div>
+          <div class="sc-sub">SPENT · this month</div>
+          <div class="sc-bar" style="background:linear-gradient(90deg,#f87171,#f5c842)"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:70%;background:rgba(248,113,113,.4)"></div>
+            <div class="sc-b" style="height:45%;background:rgba(248,113,113,.3)"></div>
+            <div class="sc-b" style="height:88%;background:#f87171"></div>
+            <div class="sc-b" style="height:30%;background:rgba(248,113,113,.2)"></div>
+            <div class="sc-b" style="height:60%;background:rgba(248,113,113,.35)"></div>
+            <div class="sc-b" style="height:50%;background:rgba(248,113,113,.3)"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">Food</span><span class="sc-row-r r">₹8,240</span></div>
+            <div class="sc-row"><span class="sc-row-l">Travel</span><span class="sc-row-r y">₹5,100</span></div>
+            <div class="sc-row"><span class="sc-row-l">Bills</span><span class="sc-row-r r">₹10,850</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Savings</div>
+          <div class="sc-bal">₹42,500</div>
+          <div class="sc-sub">VAULT · growing</div>
+          <div class="sc-bar" style="background:linear-gradient(90deg,#3ddc84,#a8f0c8)"></div>
+          <div class="sc-chart">
+            <div class="sc-b" style="height:30%;background:rgba(61,220,132,.3)"></div>
+            <div class="sc-b" style="height:40%;background:rgba(61,220,132,.4)"></div>
+            <div class="sc-b" style="height:55%;background:rgba(61,220,132,.5)"></div>
+            <div class="sc-b" style="height:65%;background:rgba(61,220,132,.6)"></div>
+            <div class="sc-b" style="height:80%;background:rgba(61,220,132,.7)"></div>
+            <div class="sc-b" style="height:100%;background:#3ddc84"></div>
+          </div>
+          <div class="sc-list">
+            <div class="sc-row"><span class="sc-row-l">Emergency</span><span class="sc-row-r g">₹15k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Vacation</span><span class="sc-row-r g">₹12k</span></div>
+            <div class="sc-row"><span class="sc-row-l">Gadgets</span><span class="sc-row-r y">₹15.5k</span></div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-inner">
+          <div class="sc-hdr">Add Entry</div>
+          <div style="padding:.5rem .8rem">
+            <div style="font-size:.55rem;color:var(--text3);font-family:'Geist Mono',monospace;letter-spacing:1px;margin-bottom:.3rem">AMOUNT</div>
+            <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--yellow);padding:.4rem .5rem;background:var(--card);border-radius:10px;border:1px solid rgba(245,200,66,.2)">₹1,200</div>
+          </div>
+          <div style="padding:.4rem .8rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+            <div style="background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--mint)">Food</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Travel</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Bills</div>
+            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Other</div>
+          </div>
+          <div style="padding:.4rem .8rem;flex:1">
+            <div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink);margin-top:.5rem">Save Transaction</div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<hr class="ydivider">
 
 <!-- ═══ ABOUT ═══ -->
 <section id="about" style="background:var(--ink)">
@@ -685,69 +964,99 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
       <div class="s-label">Our Philosophy</div>
       <h2 class="s-title">Architecture for<br>the <em>Mindful.</em></h2>
       <p class="s-sub" style="margin-bottom:1.5rem">Most apps tell you <em>what</em> you spent. Minty helps you understand <em>why</em>. Our design centres on Financial Mindfulness — clarity of intent, immediate awareness, and tactile control.</p>
-      <p class="s-sub">Built in the Mint Monochromatic System: deep-green hues that reduce eye strain, 50px curvature for organic premium feel, and a Zero-Placeholder Policy — every icon earns its place.</p>
+      <p class="s-sub" style="margin-bottom:2rem">Built in the Mint Monochromatic System: deep-green hues that reduce eye strain, 50px curvature for organic premium feel, and a Zero-Placeholder Policy — every icon earns its place.</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--yellow)">100%</div>
+          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Open Source</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--mint)">0</div>
+          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Ads Ever</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--text)">India</div>
+          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Made With Love</div>
+        </div>
+      </div>
     </div>
     <div class="about-visual reveal">
-      <div class="b-label" style="margin-bottom:1.2rem">Tech Stack</div>
+      <div class="b-label" style="margin-bottom:1.2rem;color:var(--yellow)">Tech Stack</div>
       <div class="stack-item"><span class="si-key">Framework</span><span class="si-val">Flutter (Custom Painter)</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">State</span><span class="si-val">Riverpod</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">Database</span><span class="si-val">Hive NoSQL + JSON</span><span class="si-dot"></span></div>
-      <div class="stack-item"><span class="si-key">Payments</span><span class="si-val">Razorpay SDK</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">License</span><span class="si-val">MIT Open Source</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">Background</span><span class="si-val">Workmanager Isolates</span><span class="si-dot"></span></div>
-      <div class="stack-item"><span class="si-key">Typography</span><span class="si-val">Playfair Display + Inter</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">Typography</span><span class="si-val">Playfair Display + Lato</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">Security</span><span class="si-val">Secure Storage API</span><span class="si-dot"></span></div>
     </div>
   </div>
 </section>
+
+<hr class="ydivider">
 
 <!-- ═══ PRICING ═══ -->
 <section class="pricing-bg" id="pricing">
   <div class="max" style="text-align:center">
     <div class="s-label">Pricing</div>
     <h2 class="s-title">Honest.<br><em>Transparent.</em></h2>
-    <p class="s-sub" style="max-width:420px;margin:0 auto">Start free. Unlock the vault when you're ready. No dark patterns, ever.</p>
+    <p class="s-sub" style="max-width:420px;margin:0 auto">Start free forever. Support development when you're ready.</p>
     <div class="pricing-grid">
+
       <div class="p-card reveal">
         <div class="p-tier">Baseline</div>
         <div class="p-price">₹0</div>
-        <div class="p-cycle">free forever</div>
+        <div class="p-cycle">free forever · open source</div>
         <ul class="p-list">
           <li>Personal &amp; Savings wallets</li>
           <li>Basic Bento dashboard</li>
           <li>24h micro-insight chart</li>
           <li>Manual transaction entry</li>
+          <li>Full source code access</li>
         </ul>
-        <button class="btn-ghost" style="width:100%;justify-content:center" onclick="openPay('free')">Download Free</button>
+        <a class="btn-ghost" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Clone on GitHub
+        </a>
       </div>
+
       <div class="p-card featured reveal">
         <div class="p-tier">Minty Pro</div>
-        <div class="p-price green">₹249</div>
+        <div class="p-price yellow">₹100</div>
         <div class="p-cycle">per month · cancel anytime</div>
         <ul class="p-list">
           <li>Unlimited Super Wallets</li>
           <li>SMS Intelligence (auto-entry)</li>
           <li>Advanced haptic engine</li>
-          <li>Razorpay wallet unlocks</li>
           <li>Cross-device sync</li>
           <li>Priority support</li>
+          <li>Early feature access</li>
         </ul>
-        <button class="btn-mint" style="width:100%;justify-content:center" onclick="openPay('pro')">Get Pro — ₹249/mo</button>
+        <a class="btn-mint" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
+          Get Pro — ₹100/mo
+        </a>
       </div>
+
       <div class="p-card reveal">
         <div class="p-tier">Lifetime Vault</div>
-        <div class="p-price">₹3,999</div>
-        <div class="p-cycle">one-time · pay once</div>
+        <div class="p-price">₹400</div>
+        <div class="p-cycle">one-time · pay once, own forever</div>
         <ul class="p-list">
           <li>Everything in Pro</li>
           <li>Lifetime updates</li>
-          <li>Early feature access</li>
-          <li>Founders Edition badge 🌿</li>
+          <li>Founders Edition badge</li>
+          <li>Name in contributors list</li>
         </ul>
-        <button class="btn-ghost" style="width:100%;justify-content:center" onclick="openPay('lifetime')">Buy Lifetime</button>
+        <a class="btn-ghost" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
+          Buy Lifetime — ₹400
+        </a>
       </div>
+
     </div>
   </div>
 </section>
+
+<hr class="ydivider">
 
 <!-- ═══ REVIEWS ═══ -->
 <section class="testi-bg" id="reviews">
@@ -755,23 +1064,175 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
     <div class="s-label" style="text-align:center">Reviews</div>
     <h2 class="s-title" style="text-align:center">Users <em>feel</em> the difference.</h2>
     <div class="testi-grid">
-      <div class="t-card reveal"><div class="t-stars">★★★★★</div><div class="t-text">"The haptic feedback on every transaction genuinely changed how I feel about spending. It makes money feel real again."</div><div class="t-author"><div class="t-av">AV</div><div><div class="t-name">Arav V.</div><div class="t-role">Architect, Mumbai</div></div></div></div>
-      <div class="t-card reveal"><div class="t-stars">★★★★★</div><div class="t-text">"Bento UI is genius. I can see my entire financial picture in three seconds. Nothing else even comes close."</div><div class="t-author"><div class="t-av">DM</div><div><div class="t-name">Divya M.</div><div class="t-role">Product Designer, Pune</div></div></div></div>
-      <div class="t-card reveal"><div class="t-stars">★★★★★</div><div class="t-text">"SMS auto-parsing saved me so much time. My HDFC alerts become transactions automatically. Zero effort."</div><div class="t-author"><div class="t-av">RK</div><div><div class="t-name">Rohan K.</div><div class="t-role">Engineer, Bangalore</div></div></div></div>
-      <div class="t-card reveal"><div class="t-stars">★★★★★</div><div class="t-text">"The mint aesthetic is addictive. My phone screen actually looks like money should feel — calm and premium."</div><div class="t-author"><div class="t-av">PS</div><div><div class="t-name">Priya S.</div><div class="t-role">Founder, Chennai</div></div></div></div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-text">"The haptic feedback on every transaction genuinely changed how I feel about spending. It makes money feel real again."</div>
+        <div class="t-author"><div class="t-av">AV</div><div><div class="t-name">Arav V.</div><div class="t-role">Architect, Mumbai</div></div></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-text">"Bento UI is genius. I can see my entire financial picture in three seconds. Nothing else even comes close."</div>
+        <div class="t-author"><div class="t-av">DM</div><div><div class="t-name">Divya M.</div><div class="t-role">Product Designer, Pune</div></div></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-text">"SMS auto-parsing saved me so much time. My HDFC alerts become transactions automatically. Zero effort."</div>
+        <div class="t-author"><div class="t-av">RK</div><div><div class="t-name">Rohan K.</div><div class="t-role">Engineer, Bangalore</div></div></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <div class="t-text">"The mint aesthetic is addictive. My phone screen actually looks like money should feel — calm and premium."</div>
+        <div class="t-author"><div class="t-av">PS</div><div><div class="t-name">Priya S.</div><div class="t-role">Founder, Chennai</div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
+<hr class="ydivider">
+
+<!-- ═══ LEGAL CARDS ═══ -->
+<section class="legal-section" id="legal">
+  <div class="max">
+    <div class="s-label">Legal</div>
+    <h2 class="s-title">Clear &amp; <em>honest.</em></h2>
+    <p class="s-sub" style="max-width:480px">No lawyer-speak. Tap any card to read the full document right here — no new tabs.</p>
+    <div class="legal-grid">
+
+      <div class="leg-card">
+        <div class="leg-card-hdr">
+          <div class="leg-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="leg-title">Terms of Service</div>
+        </div>
+        <div class="leg-preview">By downloading or using Minty, you agree to these Terms. Governs your license to use the app, subscriptions, prohibited conduct, and intellectual property rights.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">
+          Read Full Terms
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="leg-body">
+          <div class="leg-date">Effective: 1 January 2025 · Minty Technologies Pvt. Ltd.</div>
+          <h3>1. Acceptance</h3><p>Access to Minty constitutes acceptance of these Terms. If you disagree, do not use the app.</p>
+          <h3>2. License</h3><p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes.</p>
+          <h3>3. Subscriptions & Payments</h3><p>Minty offers a Free tier, a Pro plan (₹100/month), and a Lifetime Vault (₹400 one-time). All prices include applicable GST. Subscription auto-renews unless cancelled before the renewal date.</p>
+          <h3>4. Cancellation</h3><p>Cancel anytime from account settings. Access continues until period end. Lifetime licenses are non-refundable except as required by law.</p>
+          <h3>5. Prohibited Conduct</h3><ul><li>Reverse-engineering, decompiling, or disassembling the App</li><li>Using automated scripts to extract data</li><li>Sharing account credentials</li><li>Using the App for unlawful purposes</li></ul>
+          <h3>6. Intellectual Property</h3><p>All content, designs, trademarks, and code are the exclusive property of Minty Technologies Pvt. Ltd. and protected under applicable law. Source code is MIT licensed.</p>
+          <h3>7. Limitation of Liability</h3><p>To the fullest extent permitted by law, Minty shall not be liable for indirect, incidental, or consequential damages arising from your use of the App.</p>
+          <h3>8. Governing Law</h3><p>These Terms are governed by the laws of India. Disputes fall under the exclusive jurisdiction of courts in Bengaluru, Karnataka.</p>
+          <h3>9. Contact</h3><p>legal@mintyapp.in</p>
+        </div>
+      </div>
+
+      <div class="leg-card">
+        <div class="leg-card-hdr">
+          <div class="leg-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="leg-title">Privacy Policy</div>
+        </div>
+        <div class="leg-preview">Minty is built on trust. We explain what we collect, why we collect it, and how we protect it. No data is sold to advertisers, ever.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">
+          Read Full Policy
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="leg-body">
+          <div class="leg-date">Effective: 1 January 2025</div>
+          <h3>1. Data We Collect</h3><ul><li><strong>Account data:</strong> name, email, phone</li><li><strong>Financial data:</strong> transactions, wallets, categories (stored locally and optionally synced)</li><li><strong>SMS data:</strong> bank alert messages, only with explicit permission, never uploaded without consent</li><li><strong>Usage data:</strong> app interactions, crash logs (anonymised)</li></ul>
+          <h3>2. How We Use It</h3><ul><li>To provide and personalise the Minty experience</li><li>To send transactional emails and security alerts</li><li>To improve the app through anonymised analytics</li></ul>
+          <h3>3. SMS Intelligence</h3><p>SMS parsing is strictly opt-in and permission-based. Messages are processed on-device where possible. We never sell or share SMS content.</p>
+          <h3>4. Data Security</h3><p>AES-256 encryption at rest, TLS 1.3 in transit, Secure Storage API for sensitive tokens. Servers hosted in India (Mumbai region).</p>
+          <h3>5. Your Rights</h3><p>Access, correct, or delete your data at any time. Email privacy@mintyapp.in. Response within 30 days.</p>
+          <h3>6. Contact</h3><p>privacy@mintyapp.in</p>
+        </div>
+      </div>
+
+      <div class="leg-card">
+        <div class="leg-card-hdr">
+          <div class="leg-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="leg-title">Refund Policy</div>
+        </div>
+        <div class="leg-preview">We believe in fairness. Pro subscribers get a 7-day full refund window. Lifetime is non-refundable unless we can't fix a critical defect within 14 days.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">
+          Read Full Policy
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="leg-body">
+          <div class="leg-date">Effective: 1 January 2025</div>
+          <h3>Pro Subscription (₹100/mo)</h3><p>You may request a full refund within 7 days of your first purchase by emailing support@mintyapp.in. After 7 days, no refund is issued for the current period, but cancellation stops future charges immediately.</p>
+          <h3>Lifetime Vault (₹400)</h3><p>Lifetime purchases are non-refundable. If a critical defect cannot be resolved within 14 days, a full refund will be issued as an exception.</p>
+          <h3>Free Tier</h3><p>No charge, no refund applicable.</p>
+          <h3>How to Request</h3><p>Email support@mintyapp.in with your registered email and transaction ID. Refunds are credited within 5–7 business days to the original payment method.</p>
+        </div>
+      </div>
+
+      <div class="leg-card">
+        <div class="leg-card-hdr">
+          <div class="leg-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          </div>
+          <div class="leg-title">Cookie Policy</div>
+        </div>
+        <div class="leg-preview">Our website uses minimal cookies. Essential for authentication, optional analytics you can opt out of. We do not use advertising cookies inside the app.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">
+          Read Full Policy
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="leg-body">
+          <div class="leg-date">Effective: 1 January 2025</div>
+          <h3>Types of Cookies</h3><ul><li><strong>Essential:</strong> Authentication and security — cannot be disabled</li><li><strong>Analytics:</strong> Anonymised usage data (Firebase) — opt-out available</li><li><strong>Preference:</strong> UI settings, theme, language</li><li><strong>Marketing:</strong> Used only on our website — opt-out available</li></ul>
+          <h3>Managing Cookies</h3><p>Control cookies via your browser settings. Disabling essential cookies may impair site functionality.</p>
+          <h3>Contact</h3><p>privacy@mintyapp.in</p>
+        </div>
+      </div>
+
+      <div class="leg-card">
+        <div class="leg-card-hdr">
+          <div class="leg-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="leg-title">EULA</div>
+        </div>
+        <div class="leg-preview">End User License Agreement. A legal agreement between you and Minty Technologies for the Minty application — what you can and cannot do with the app.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">
+          Read Full EULA
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="leg-body">
+          <div class="leg-date">Effective: 1 January 2025</div>
+          <h3>1. License Grant</h3><p>A limited, non-exclusive, non-transferable, revocable license to install and use the App on devices you own, for personal non-commercial use.</p>
+          <h3>2. Restrictions</h3><ul><li>No sublicensing, selling, or commercial exploitation</li><li>No copying, modifying, or creating derivative works (outside MIT license terms)</li><li>No use for illegal purposes</li></ul>
+          <h3>3. Open Source</h3><p>The App's source code is available under the MIT license. Contributions are welcome via GitHub.</p>
+          <h3>4. Termination</h3><p>This license terminates automatically upon breach. Upon termination, you must cease all use and delete all copies.</p>
+          <h3>5. Governing Law</h3><p>Laws of India. Exclusive jurisdiction: courts in Bengaluru, Karnataka.</p>
+          <h3>6. Contact</h3><p>legal@mintyapp.in</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="ydivider">
+
 <!-- ═══ DOWNLOAD CTA ═══ -->
-<section class="dl-section">
+<section class="dl-section" id="download">
   <div style="position:relative;z-index:1">
-    <div class="s-label">Download</div>
-    <h2 class="s-title" style="font-size:clamp(2.2rem,5vw,4rem)">Your financial<br><em>zen</em> awaits.</h2>
-    <p class="s-sub" style="max-width:420px;margin:.8rem auto 0">Free to start. Upgrade when you discover the depth. No pressure, ever.</p>
-    <div class="store-row">
-      <button class="store-btn" onclick="openPay('free')"><span class="sb-icon">🍎</span><div><div class="sb-sub">Download on the</div><div class="sb-name">App Store</div></div></button>
-      <button class="store-btn" onclick="openPay('free')"><span class="sb-icon">▶</span><div><div class="sb-sub">Get it on</div><div class="sb-name">Google Play</div></div></button>
+    <div class="s-label">Open Source</div>
+    <h2 class="s-title" style="font-size:clamp(2.2rem,5vw,4rem);margin-bottom:.8rem">Your financial<br><em>zen</em> awaits.</h2>
+    <p class="s-sub" style="max-width:400px;margin:.8rem auto 2.5rem">Free to start. Clone the repo, build it yourself, or support development with a Pro subscription. No gatekeeping.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1">
+      <a class="dl-link" href="https://github.com/" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        Clone on GitHub
+        <span class="dl-badge">MIT</span>
+      </a>
+      <a class="dl-link" href="https://github.com/" target="_blank" style="background:rgba(0,0,0,0.08);color:var(--ink);border:2px solid rgba(0,0,0,0.2);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download APK
+      </a>
     </div>
   </div>
 </section>
@@ -781,127 +1242,56 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   <div class="footer-grid">
     <div>
       <div class="f-logo">Minty</div>
-      <p class="f-desc">A financial consciousness platform designed for those who demand clarity without the clutter. Architecture for the Mindful.</p>
+      <p class="f-desc">A financial consciousness platform designed for those who demand clarity without the clutter. Architecture for the Mindful. Open source under MIT.</p>
       <div class="socials" style="margin-top:1.2rem">
-        <a class="soc">𝕏</a><a class="soc">in</a><a class="soc">▶</a>
+        <a class="soc" href="https://github.com/" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--text2)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a class="soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a class="soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
       </div>
     </div>
     <div class="f-col"><h4>Product</h4><ul>
-      <li><a href="#pillars">Features</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a onclick="openPay('free')">Download</a></li>
+      <li><a onclick="scrollTo('pillars')">Features</a></li>
+      <li><a onclick="scrollTo('pricing')">Pricing</a></li>
+      <li><a onclick="scrollTo('download')">Download</a></li>
       <li><a href="#">Changelog</a></li>
     </ul></div>
-    <div class="f-col"><h4>Company</h4><ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul></div>
     <div class="f-col"><h4>Legal</h4><ul>
-      <li><a onclick="openLegal('terms')">Terms of Service</a></li>
-      <li><a onclick="openLegal('privacy')">Privacy Policy</a></li>
-      <li><a onclick="openLegal('refund')">Refund Policy</a></li>
-      <li><a onclick="openLegal('cookies')">Cookie Policy</a></li>
-      <li><a onclick="openLegal('eula')">EULA</a></li>
+      <li><a onclick="scrollTo('legal')">Terms of Service</a></li>
+      <li><a onclick="scrollTo('legal')">Privacy Policy</a></li>
+      <li><a onclick="scrollTo('legal')">Refund Policy</a></li>
+      <li><a onclick="scrollTo('legal')">EULA</a></li>
     </ul></div>
   </div>
   <div class="f-bottom">
-    <p>© 2025 Minty Technologies Pvt. Ltd. · All rights reserved · Made with 🌿 in India</p>
-    <p>Payments secured by Razorpay · GST applicable · Flutter-powered</p>
+    <p>© 2025 Minty Technologies Pvt. Ltd. · All rights reserved · Made with love in India</p>
+    <p>MIT Licensed · Flutter-powered · Open Source</p>
   </div>
 </footer>
 
-<!-- ═══ RAZORPAY MOCK ═══ -->
-<div class="overlay" id="payOverlay" onclick="outsideClose(event,'payOverlay')">
-  <div class="rzp">
-    <button class="rzp-x" onclick="closePay()">✕</button>
-    <div id="rzpForm">
-      <div class="rzp-head">
-        <div class="rzp-brand">
-          <div class="rzp-wordmark">razor<span>pay</span></div>
-          <div class="rzp-secure">🔒 Secured by Razorpay</div>
-        </div>
-        <div class="rzp-amt-block">
-          <div class="rzp-amt" id="rzAmt">₹249</div>
-          <div class="rzp-plan" id="rzPlan">Minty Pro · Monthly</div>
-        </div>
-      </div>
-      <div class="rzp-body">
-        <div class="rzp-tabs">
-          <button class="rtab on" onclick="rzTab(this,'card')">💳 Card</button>
-          <button class="rtab" onclick="rzTab(this,'upi')">📱 UPI</button>
-          <button class="rtab" onclick="rzTab(this,'nb')">🏦 Net Banking</button>
-        </div>
-        <!-- Card -->
-        <div id="rz-card">
-          <div class="rfield"><label>CARD NUMBER</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)"></div>
-          <div class="rfield"><label>NAME ON CARD</label><input type="text" placeholder="Full name"></div>
-          <div class="rrow">
-            <div class="rfield"><label>EXPIRY</label><input type="text" placeholder="MM / YY" maxlength="7" oninput="fmtExpiry(this)"></div>
-            <div class="rfield"><label>CVV</label><input type="password" placeholder="•••" maxlength="4"></div>
-          </div>
-        </div>
-        <!-- UPI -->
-        <div id="rz-upi" style="display:none">
-          <div class="rfield"><label>UPI ID</label><input type="text" placeholder="yourname@okhdfcbank"></div>
-          <div class="qr-box">◼</div>
-          <p style="font-size:.72rem;color:#aaa;text-align:center;margin-bottom:.5rem">Scan in your UPI app to pay</p>
-        </div>
-        <!-- Net Banking -->
-        <div id="rz-nb" style="display:none">
-          <div class="rfield"><label>SELECT BANK</label><input placeholder="Search bank..."></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem">
-            <div style="border:1.5px solid #e8e8e8;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;font-size:.78rem;color:#333;font-weight:700" onmouseover="this.style.borderColor='#007A52'" onmouseout="this.style.borderColor='#e8e8e8'">SBI</div>
-            <div style="border:1.5px solid #e8e8e8;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;font-size:.78rem;color:#333;font-weight:700" onmouseover="this.style.borderColor='#007A52'" onmouseout="this.style.borderColor='#e8e8e8'">HDFC</div>
-            <div style="border:1.5px solid #e8e8e8;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;font-size:.78rem;color:#333;font-weight:700" onmouseover="this.style.borderColor='#007A52'" onmouseout="this.style.borderColor='#e8e8e8'">ICICI</div>
-            <div style="border:1.5px solid #e8e8e8;border-radius:8px;padding:.6rem;text-align:center;cursor:pointer;font-size:.78rem;color:#333;font-weight:700" onmouseover="this.style.borderColor='#007A52'" onmouseout="this.style.borderColor='#e8e8e8'">Axis</div>
-          </div>
-        </div>
-        <button class="rzp-btn" onclick="doPay()">🔒 Pay <span id="rzBtnAmt">₹249</span></button>
-        <p class="rzp-note">By paying you agree to our <a onclick="closePay();openLegal('terms')">Terms</a> &amp; <a onclick="closePay();openLegal('privacy')">Privacy Policy</a>. GST included.</p>
-      </div>
-      <div class="rzp-foot"><span>Powered by</span><span style="font-weight:700;color:#004B32">razor<span style="color:#007A52">pay</span></span><span>🔒 256-bit SSL</span></div>
-    </div>
-    <div class="rzp-ok" id="rzOk">
-      <div class="ok-icon">✓</div>
-      <h3>Payment Successful!</h3>
-      <p>Welcome to Minty 🌿<br>Check your email for your download link and receipt.</p>
-      <small>Transaction ID: MNTY-<span id="txn"></span></small>
-      <button class="btn-mint" style="margin-top:1.5rem" onclick="closePay()">Open Minty</button>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ LEGAL MODALS ═══ -->
-<div class="legal-overlay" id="legalOv" onclick="outsideClose(event,'legalOv')">
-  <div class="legal-box">
-    <div class="legal-head">
-      <h2 id="legTitle">Terms of Service</h2>
-      <button class="legal-close" onclick="closeLegal()">✕</button>
-    </div>
-    <div class="legal-body" id="legBody"></div>
-  </div>
-</div>
-
 <script>
-// ── Cursor ──
+// ── Smooth scroll ──
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+
+// ── Custom cursor ──
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button,.p-card,.t-card,.store-btn,.pillar').forEach(el=>{
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animCur(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur2.style.left=cx+'px';cur2.style.top=cy+'px';requestAnimationFrame(animCur);})();
+document.querySelectorAll('a,button,.p-card,.t-card,.leg-card,.pillar,.screen-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.classList.add('big');cur2.classList.add('big');});
   el.addEventListener('mouseleave',()=>{cur.classList.remove('big');cur2.classList.remove('big');});
 });
 
 // ── Scroll reveal ──
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.1});
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.08});
 document.querySelectorAll('.reveal,.pillar').forEach(el=>ro.observe(el));
-
-// stagger pillars
-document.querySelectorAll('.pillar').forEach((el,i)=>{el.style.animationDelay=i*.08+'s';});
+document.querySelectorAll('.pillar').forEach((el,i)=>{el.style.animationDelay=i*.09+'s';});
 
 // ── Counter ──
 const co=new IntersectionObserver(e=>{
@@ -919,126 +1309,57 @@ const co=new IntersectionObserver(e=>{
 },{threshold:.5});
 document.querySelectorAll('.counter').forEach(el=>co.observe(el));
 
-// ── Parallax orbs (hero ambient) ──
+// ── Parallax hero ambient ──
 document.addEventListener('mousemove',e=>{
-  const x=(e.clientX/innerWidth-.5)*18,y=(e.clientY/innerHeight-.5)*18;
+  const x=(e.clientX/innerWidth-.5)*16,y=(e.clientY/innerHeight-.5)*16;
   const a=document.querySelector('.hero-ambient');
   if(a)a.style.transform=`translate(${x}px,${y}px)`;
 });
 
-// ── Payment plans ──
-const plans={
-  free:{amt:'₹0',plan:'Minty · Free Download'},
-  pro:{amt:'₹249',plan:'Minty Pro · Monthly'},
-  lifetime:{amt:'₹3,999',plan:'Minty Lifetime Vault'}
-};
-function openPay(k){
-  const p=plans[k]||plans.pro;
-  document.getElementById('rzAmt').textContent=p.amt;
-  document.getElementById('rzPlan').textContent=p.plan;
-  document.getElementById('rzBtnAmt').textContent=p.amt;
-  document.getElementById('rzpForm').style.display='';
-  document.getElementById('rzOk').style.display='none';
-  document.getElementById('payOverlay').classList.add('on');
-}
-function closePay(){document.getElementById('payOverlay').classList.remove('on');}
-
-function rzTab(btn,tab){
-  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('on'));
-  btn.classList.add('on');
-  ['card','upi','nb'].forEach(t=>document.getElementById('rz-'+t).style.display=t===tab?'':'none');
-}
-function fmtCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
-function fmtExpiry(el){let v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);el.value=v;}
-
-function doPay(){
-  const btn=document.querySelector('.rzp-btn');
-  btn.innerHTML='<span style="display:inline-block;animation:spin .7s linear infinite">◌</span> Processing…';
-  btn.disabled=true;
-  const style=document.createElement('style');
-  style.textContent='@keyframes spin{to{transform:rotate(360deg)}}';
-  document.head.appendChild(style);
-  setTimeout(()=>{
-    document.getElementById('rzpForm').style.display='none';
-    const ok=document.getElementById('rzOk');
-    ok.style.display='flex';ok.style.flexDirection='column';
-    document.getElementById('txn').textContent=Math.random().toString(36).substring(2,10).toUpperCase();
-    btn.innerHTML='🔒 Pay';btn.disabled=false;
-  },2400);
+// ── Legal expand/collapse ──
+function toggleLegal(btn){
+  const body=btn.nextElementSibling;
+  const isOpen=body.classList.toggle('open');
+  const svg=btn.querySelector('svg');
+  svg.style.transform=isOpen?'rotate(180deg)':'rotate(0)';
+  svg.style.transition='transform .3s';
+  btn.childNodes[0].textContent=isOpen?'Collapse ':'Read Full ';
 }
 
-// ── Legal content ──
-const legal={
-  terms:{
-    title:'Terms of Service',
-    html:`<p class="legal-date">Effective: 1 January 2025 · Minty Technologies Pvt. Ltd.</p>
-<p>By downloading or using Minty, you agree to these Terms. Please read them carefully.</p>
-<h3>1. Acceptance</h3><p>Access to Minty constitutes acceptance of these Terms. If you disagree, do not use the app.</p>
-<h3>2. License</h3><p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes.</p>
-<h3>3. Subscriptions & Payments</h3><p>Minty offers a Free tier, a Pro plan (₹249/month), and a Lifetime Vault (₹3,999 one-time). Payments are processed via Razorpay. All prices include applicable GST. Subscription auto-renews unless cancelled before the renewal date.</p>
-<h3>4. Cancellation</h3><p>Cancel anytime from account settings. Access continues until period end. Lifetime licenses are non-refundable except as required by law.</p>
-<h3>5. Prohibited Conduct</h3><ul><li>Reverse-engineering, decompiling, or disassembling the App</li><li>Using automated scripts to extract data</li><li>Sharing account credentials</li><li>Using the App for unlawful purposes</li></ul>
-<h3>6. Intellectual Property</h3><p>All content, designs, trademarks, and code are the exclusive property of Minty Technologies Pvt. Ltd. and protected under applicable law.</p>
-<h3>7. Limitation of Liability</h3><p>To the fullest extent permitted by law, Minty shall not be liable for indirect, incidental, or consequential damages arising from your use of the App.</p>
-<h3>8. Changes</h3><p>We may update these Terms. Material changes will be communicated via in-app notice or email. Continued use constitutes acceptance.</p>
-<h3>9. Governing Law</h3><p>These Terms are governed by the laws of India. Disputes fall under the exclusive jurisdiction of courts in Bengaluru, Karnataka.</p>
-<h3>10. Contact</h3><p>legal@mintyapp.in</p>`
-  },
-  privacy:{
-    title:'Privacy Policy',
-    html:`<p class="legal-date">Effective: 1 January 2025</p>
-<p>Minty is built on trust. This policy explains what we collect, why, and how we protect it.</p>
-<h3>1. Data We Collect</h3><ul><li><strong>Account data:</strong> name, email, phone</li><li><strong>Financial data:</strong> transactions, wallets, categories (stored locally and optionally synced)</li><li><strong>SMS data:</strong> bank alert messages, only with explicit permission, never uploaded without consent</li><li><strong>Usage data:</strong> app interactions, crash logs (anonymised)</li></ul>
-<h3>2. How We Use It</h3><ul><li>To provide and personalise the Minty experience</li><li>To process payments via Razorpay</li><li>To send transactional emails and security alerts</li><li>To improve the app through anonymised analytics</li></ul>
-<h3>3. SMS Intelligence</h3><p>SMS parsing is strictly opt-in and permission-based. Messages are processed on-device where possible. We never sell or share SMS content.</p>
-<h3>4. Data Security</h3><p>AES-256 encryption at rest, TLS 1.3 in transit, Secure Storage API for sensitive tokens. Servers hosted in India (Mumbai region).</p>
-<h3>5. Third Parties</h3><p>Razorpay (payments), Firebase Crashlytics (crash reporting). Each governed by their own policies. We do not sell your data to advertisers.</p>
-<h3>6. Your Rights</h3><p>Access, correct, or delete your data at any time. Email privacy@mintyapp.in. Response within 30 days.</p>
-<h3>7. Children</h3><p>Minty is not intended for users under 13. We do not knowingly collect data from minors.</p>
-<h3>8. Contact</h3><p>privacy@mintyapp.in</p>`
-  },
-  refund:{
-    title:'Refund Policy',
-    html:`<p class="legal-date">Effective: 1 January 2025</p>
-<h3>Pro Subscription (₹249/mo)</h3><p>You may request a full refund within 7 days of your first purchase by emailing support@mintyapp.in. After 7 days, no refund is issued for the current period, but cancellation stops future charges immediately.</p>
-<h3>Lifetime Vault (₹3,999)</h3><p>Lifetime purchases are non-refundable. If a critical defect cannot be resolved within 14 days, a full refund will be issued as an exception.</p>
-<h3>Free Tier</h3><p>No charge, no refund applicable.</p>
-<h3>Chargebacks</h3><p>Please contact us before initiating a chargeback. Accounts under unresolved chargeback disputes may be suspended pending investigation. We always aim to resolve issues directly.</p>
-<h3>How to Request</h3><p>Email support@mintyapp.in with your registered email and transaction ID. Refunds are credited within 5–7 business days to the original payment method.</p>`
-  },
-  cookies:{
-    title:'Cookie Policy',
-    html:`<p class="legal-date">Effective: 1 January 2025</p>
-<p>Our website uses cookies and similar technologies to operate and improve your experience.</p>
-<h3>Types of Cookies</h3><ul><li><strong>Essential:</strong> Authentication and security — cannot be disabled</li><li><strong>Analytics:</strong> Anonymised usage data (Firebase) — opt-out available</li><li><strong>Preference:</strong> UI settings, theme, language</li><li><strong>Marketing:</strong> Used only on our website, not inside the app — opt-out available</li></ul>
-<h3>Managing Cookies</h3><p>Control cookies via your browser settings. Disabling essential cookies may impair site functionality. Use our Cookie Preferences panel (bottom of the website) to manage optional cookies.</p>
-<h3>Third-Party Cookies</h3><p>Razorpay and Firebase may set their own cookies, governed by their respective policies.</p>
-<h3>Contact</h3><p>privacy@mintyapp.in</p>`
-  },
-  eula:{
-    title:'End User License Agreement',
-    html:`<p class="legal-date">Effective: 1 January 2025</p>
-<p>This EULA is a legal agreement between you and Minty Technologies Pvt. Ltd. for the Minty application.</p>
-<h3>1. License Grant</h3><p>A limited, non-exclusive, non-transferable, revocable license to install and use the App on devices you own, for personal non-commercial use.</p>
-<h3>2. Restrictions</h3><ul><li>No sublicensing, selling, or commercial exploitation</li><li>No copying, modifying, or creating derivative works</li><li>No reverse-engineering or decompilation</li><li>No use for illegal purposes</li></ul>
-<h3>3. Intellectual Property</h3><p>The App — including all code, Bento UI components, haptic logic, and visual assets — is protected by copyright and other laws. All rights not expressly granted are reserved.</p>
-<h3>4. Updates</h3><p>We may update the App at any time. Continued use after updates constitutes acceptance of any changes.</p>
-<h3>5. Termination</h3><p>This license terminates automatically upon breach. Upon termination, you must cease all use and delete all copies.</p>
-<h3>6. Disclaimer</h3><p>The App is provided "AS IS." We do not warrant uninterrupted or error-free operation.</p>
-<h3>7. Limitation of Liability</h3><p>Our maximum liability is limited to the amount you paid in the 3 months preceding any claim.</p>
-<h3>8. Governing Law</h3><p>Laws of India. Exclusive jurisdiction: courts in Bengaluru, Karnataka.</p>
-<h3>9. Contact</h3><p>legal@mintyapp.in</p>`
-  }
-};
-
-function openLegal(key){
-  const l=legal[key];
-  document.getElementById('legTitle').textContent=l.title;
-  document.getElementById('legBody').innerHTML=l.html;
-  document.getElementById('legalOv').classList.add('on');
+// ── Particles ──
+const pc=document.getElementById('particles');
+function spawnParticle(){
+  const p=document.createElement('div');
+  const size=Math.random()*4+2;
+  const isYellow=Math.random()>.5;
+  p.className='particle';
+  p.style.cssText=`
+    width:${size}px;height:${size}px;
+    background:${isYellow?'rgba(245,200,66,0.6)':'rgba(61,220,132,0.5)'};
+    left:${Math.random()*100}%;
+    bottom:-10px;
+    animation-duration:${Math.random()*12+8}s;
+    animation-delay:${Math.random()*5}s;
+  `;
+  pc.appendChild(p);
+  setTimeout(()=>p.remove(),(Math.random()*12+8)*1000+5000);
 }
-function closeLegal(){document.getElementById('legalOv').classList.remove('on');}
-function outsideClose(e,id){if(e.target===document.getElementById(id))document.getElementById(id).classList.remove('on');}
+setInterval(spawnParticle,1200);
+for(let i=0;i<6;i++)spawnParticle();
+
+// ── Nav highlight on scroll ──
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  nav.style.background=scrollY>60?'rgba(10,18,13,.97)':'rgba(10,18,13,.75)';
+});
+
+// ── Micro chart pulse animation ──
+setInterval(()=>{
+  document.querySelectorAll('.mcbar').forEach(b=>{
+    b.style.height=(Math.random()*70+20)+'%';
+    b.style.opacity=Math.random()>.7?'1':'0.4';
+  });
+},2500);
 </script>
 </body>
 </html>
