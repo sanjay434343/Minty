@@ -23,6 +23,16 @@
   > **The average Indian loses ₹18,000/year to expenses they don't even remember making.**
   > Minty fixes that — automatically, silently, beautifully.
 
+  <br/>
+
+  <a href="https://minty41.netlify.app/">
+    <img src="https://img.shields.io/badge/📲_Download_Minty-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://minty41.netlify.app/">
+    <img src="https://img.shields.io/badge/🌐_Visit_Website-182620?style=for-the-badge" alt="Visit Website" />
+  </a>
+
 </div>
 
 ---
@@ -74,11 +84,11 @@ Minty users report **saving 3–5× more** within the first 60 days — not beca
 ## ✨ Feature Arsenal
 
 ### 📲 SMS Intelligence Engine
-Your bank already sends you SMS alerts for every transaction. Minty intercepts them in real-time using a **native Kotlin parser** — no third-party SDKs, no cloud processing. Every ₹ is captured, categorized, and logged before you put your phone down.
+Your bank already sends you SMS alerts for every transaction. Minty intercepts them in real-time using a **native on-device parser** — no third-party SDKs, no cloud processing. Every ₹ is captured, categorized, and logged before you put your phone down.
 
 - ✅ Supports **UPI, NEFT, IMPS, card swipes, ATM withdrawals**
-- ✅ Works with **SBI, HDFC, ICICI, Axis, Kotak, Paytm, GPay** alerts and more
-- ✅ Auto-detects debits vs credits using contextual keyword analysis
+- ✅ Works with all major Indian banks and payment apps
+- ✅ Auto-detects debits vs credits intelligently
 - ✅ **100% on-device** — your SMS data never leaves your phone
 
 ### 🤖 AI Financial Advisor
@@ -92,17 +102,17 @@ Not a chatbot. An advisor that knows your salary, your spending habits, your goa
 ### 🔴 Risk Detection System
 A background engine that continuously monitors your financial health:
 
-- ⚠️ **Overspending Alert** — fires when expenses cross 70% of your monthly budget
-- 💸 **Low Savings Warning** — triggers if net balance falls below 20% of income
-- 🏦 **Debt Signal Detection** — scans for EMI, loan repayment, and overdue keywords
-- 📉 Budget context calculated from your declared salary vs actual outflows
+- ⚠️ **Overspending Alert** — fires when expenses approach your monthly budget limit
+- 💸 **Low Savings Warning** — triggers if your savings rate drops too low
+- 🏦 **Debt Signal Detection** — identifies recurring debt-related transactions
+- 📉 Intelligent budget analysis based on your income vs spending patterns
 
 ### 📳 Shake-to-Add
 The fastest expense entry in any finance app. Period.
 
 - Just **shake your phone** on the home screen
 - The expense adder flies up with a spring animation
-- Tunable sensitivity (default: 12.0 m/s²) — adjust it in Settings
+- Tunable sensitivity — adjust it in Settings to match your preference
 - Haptic feedback confirms detection instantly
 
 ### 🍱 Bento UI (Japanese-Inspired Design)
@@ -118,30 +128,30 @@ Every screen is a composition of modular, interactive tiles:
 Organize your money by purpose, not just totals:
 
 - 🏠 Personal, Savings, Business — create wallets for every financial context
-- 🔒 Free users get **2 wallets**, premium unlocks **10**
+- 🔒 Free users get **1 wallet**, premium unlocks up to **10**
 - 📊 Per-wallet analytics and transaction isolation
-- ₹29 per additional wallet for free-tier (one-time purchase via Razorpay)
+- Affordable one-time purchase for additional wallet slots
 
 ### 🌍 Multi-Currency Support
 Live exchange rates with support for 8+ currencies:
 
 `INR` · `USD` · `EUR` · `GBP` · `JPY` · `AUD` · `CAD` · `CHF` — and more
 
-- Rates fetched from **ExchangeRate API** on every app launch
+- Live exchange rates fetched on every app launch
 - Offline fallback to last-known rates
 - Currency-specific flag imagery bundled natively
 
 ### ☁️ Cloud Backup & Sync
-- **Firestore-backed** profile and preference sync
-- **Encrypted local storage** via `flutter_secure_storage` + Hive
-- **WorkManager-powered** periodic background backups
+- **Cloud-backed** profile and preference sync
+- **Encrypted local storage** for all sensitive financial data
+- **Automatic** periodic background backups
 - Seamless sign-out / sign-in restoration — your data follows you
 
 ### 🔔 Smart Notifications
 - **Daily spending summaries** — morning, afternoon, evening reminders
 - **Weekly and monthly rollups** with calculated totals
-- **FCM push notifications** for plan expiry and feature updates
-- **Firebase Crashlytics** — crash-free experience with real-time monitoring
+- **Push notifications** for plan expiry and feature updates
+- Crash-free experience with real-time error monitoring
 
 ---
 
@@ -149,152 +159,152 @@ Live exchange rates with support for 8+ currencies:
 
 <div align="center">
 
-| | 🌱 **Minty Basic** | ⚡ **Pro Monthly** | 👑 **Elite Yearly** |
-| :--- | :---: | :---: | :---: |
-| **Price** | **Free** | **₹99/month** | **₹499/year** |
-| **Wallets** | 2 | 10 | 10 |
-| **AI Insights** | 4/day | 10/day | **Unlimited** |
-| **SMS Auto-Track** | 20/month | 300/month | **Unlimited** |
-| **Shake-to-Add** | 15/month | 200/month | **Unlimited** |
-| **Transaction History** | 7 Days | Full Access | Full Access |
-| **Analytics Depth** | Basic | Advanced | **Deep Insights** |
-| **Data Export** | ❌ | ❌ | ✅ |
-| **Risk Alerts** | ✅ | ✅ | ✅ |
-| **Cloud Backup** | ✅ | ✅ | ✅ |
-| **Priority Support** | ❌ | ✅ | ✅ |
+<table>
+<tr>
+<td align="center" width="280">
+
+### 🌱 Minty Basic
+#### **FREE**
+<sub>Forever • No credit card needed</sub>
+
+---
+
+✅ **1 Wallet**
+✅ **20 SMS reads/day**
+✅ **15 Shakes/day**
+✅ **4 AI Insights/day**
+✅ **2 Months** history
+✅ Basic Analytics
+✅ Risk Alerts
+✅ Cloud Backup
+❌ Data Export
+❌ Priority Support
+
+---
+
+<a href="https://minty41.netlify.app/">
+  <img src="https://img.shields.io/badge/🌿_Get_Started_Free-0B5D4C?style=for-the-badge" alt="Get Started Free" />
+</a>
+
+</td>
+<td align="center" width="280">
+
+### ⚡ Pro Monthly
+#### **₹99/month**
+<sub>Billed monthly • Cancel anytime</sub>
+
+---
+
+✅ **10 Wallets**
+✅ **300 SMS reads/month**
+✅ **200 Shakes/month**
+✅ **10 AI Insights/day**
+✅ **1 Year** history
+✅ Advanced Analytics
+✅ Risk Alerts
+✅ Cloud Backup
+❌ Data Export
+✅ Priority Support
+
+---
+
+<a href="https://minty41.netlify.app/">
+  <img src="https://img.shields.io/badge/⚡_Upgrade_to_Pro-7FBF9A?style=for-the-badge&logoColor=white" alt="Upgrade to Pro" />
+</a>
+
+</td>
+<td align="center" width="280">
+
+### 👑 Elite Yearly
+#### **₹499/year**
+<sub>Best value • Save 58%</sub>
+
+---
+
+✅ **10 Wallets**
+✅ **Unlimited** SMS reads
+✅ **Unlimited** Shakes
+✅ **Unlimited** AI Insights
+✅ **Entire** history
+✅ Deep Insights Analytics
+✅ Risk Alerts
+✅ Cloud Backup
+✅ Data Export
+✅ Priority Support
+
+---
+
+<a href="https://minty41.netlify.app/">
+  <img src="https://img.shields.io/badge/👑_Go_Elite_—_Best_Value-FFD60A?style=for-the-badge&logoColor=black" alt="Go Elite" />
+</a>
+
+</td>
+</tr>
+</table>
 
 </div>
 
 > [!TIP]
-> **Elite Yearly saves you ₹689/year** compared to Pro Monthly (₹99 × 12 = ₹1,188 vs ₹499). That's 58% off — and you get unlimited everything.
+> **Elite Yearly saves you ₹689/year** compared to Pro Monthly (₹99 × 12 = ₹1,188 vs ₹499). That's **58% off** — and you get **unlimited everything**.
 
-### 💳 Additional Purchases
+<div align="center">
+
+#### 💳 Additional Purchases
+
 | Item | Price | Type |
 | :--- | :---: | :---: |
 | Extra Wallet Slot | ₹29 | One-time |
 
-All payments are processed securely through **Razorpay** with server-side validation. No credit card data is stored on-device.
+All payments processed securely through **Razorpay** · No card data stored on-device
+
+<br/>
+
+<a href="https://minty41.netlify.app/">
+  <img src="https://img.shields.io/badge/📲_Download_Minty_Now-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+</a>
+
+</div>
 
 ---
 
-## 🏗️ Architecture
-
-```
-minty/
-├── lib/
-│   ├── main.dart                    # App bootstrap, Firebase, WorkManager
-│   ├── core/
-│   │   ├── config/                  # Environment configuration
-│   │   ├── constants/               # AppConstants, AppPrices
-│   │   ├── extensions/              # Dart extensions
-│   │   ├── providers/               # Riverpod (currency, exchange rates)
-│   │   ├── services/
-│   │   │   ├── sms_service.dart     # SMS listener + background processing
-│   │   │   ├── backup_service.dart  # Cloud backup via WorkManager
-│   │   │   ├── reminder_service.dart# Smart notification scheduling
-│   │   │   ├── payment_service.dart # Razorpay integration
-│   │   │   ├── limit_engine.dart    # Plan-based paywall enforcement
-│   │   │   ├── analytics_service.dart
-│   │   │   ├── fcm_service.dart     # Push notifications
-│   │   │   └── usage_log_service.dart
-│   │   ├── storage/                 # Hive + SecureStorage + JsonDB
-│   │   ├── theme/
-│   │   │   ├── app_colors.dart      # Centralized color palette
-│   │   │   ├── app_theme.dart       # Material dark theme
-│   │   │   └── app_typography.dart  # Playfair Display + system fonts
-│   │   └── widgets/                 # FadeTranslate, PressScale, WavySlider
-│   └── features/
-│       ├── auth/                    # Google Sign-In, UserProfile model
-│       ├── home/                    # Dashboard, balance header, transaction list
-│       ├── insights/                # AI advisor, charts, deep analytics
-│       ├── onboarding/              # Profile setup, plan selection
-│       ├── settings/                # Preferences, shake sensitivity
-│       ├── shell/                   # AppShell (bottom nav, usage refresh)
-│       ├── splash/                  # Animated splash screen
-│       ├── transactions/            # Expense adder, transaction CRUD
-│       └── wallet/                  # Multi-wallet management
-├── android/
-│   └── app/src/main/kotlin/com/sas/minty/
-│       ├── SmsParser.kt             # Native SMS → Transaction parser
-│       ├── RiskDetector.kt          # Financial risk analysis engine
-│       └── CategoryEngine.kt        # Auto-categorization (Food, Travel, etc.)
-└── assets/
-    ├── images/                      # Logo, onboarding, currency flags
-    └── fonts/                       # Playfair Display
-```
-
-### Tech Stack
+## 🏗️ Tech Stack
 
 | Layer | Technology |
 | :--- | :--- |
-| **Framework** | Flutter 3.9+ (Dart) |
-| **State Management** | Riverpod 2.5 |
+| **Framework** | Flutter (Dart) |
+| **State Management** | Riverpod |
 | **Authentication** | Firebase Auth + Google Sign-In |
-| **Database** | Cloud Firestore + Hive (offline-first) |
-| **Secure Storage** | flutter_secure_storage (AES-256) |
-| **Payments** | Razorpay Flutter SDK |
-| **Background Tasks** | WorkManager |
-| **Push Notifications** | Firebase Cloud Messaging (FCM) |
-| **Analytics** | Firebase Analytics |
-| **Crash Reporting** | Firebase Crashlytics |
-| **Native Layer** | Kotlin (SMS parsing, risk detection) |
+| **Database** | Cloud-synced + Offline-first local DB |
+| **Secure Storage** | Encrypted on-device storage |
+| **Payments** | Razorpay |
+| **Background Tasks** | Native Android services |
+| **Push Notifications** | Cloud Messaging |
+| **Crash Reporting** | Real-time crash monitoring |
+| **Native Layer** | Kotlin (on-device processing) |
 | **Typography** | Playfair Display (bundled) |
 
 ---
 
-## 🚀 Installation & Setup
+## 📲 Get Minty
 
-### Prerequisites
-- Flutter **3.9.2+** installed ([flutter.dev](https://flutter.dev))
-- Android Studio or VS Code with Flutter extension
-- A Firebase project with Firestore, Auth, Analytics, Crashlytics, and FCM enabled
-- A Razorpay account for payment processing
+Minty is available as a direct download for Android devices.
 
-### Step 1 — Clone & Install
-```bash
-git clone https://github.com/your-username/minty.git
-cd minty
-flutter pub get
-```
+<div align="center">
 
-### Step 2 — Firebase Configuration
-1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Register an Android app with package name `com.sas.minty`
-3. Download `google-services.json` and place it in:
-   ```
-   android/app/google-services.json
-   ```
-4. Enable these Firebase services:
-   - ✅ Authentication (Google Sign-In)
-   - ✅ Cloud Firestore
-   - ✅ Analytics
-   - ✅ Crashlytics
-   - ✅ Cloud Messaging
+<a href="https://minty41.netlify.app/">
+  <img src="https://img.shields.io/badge/📲_Download_for_Android-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+</a>
 
-### Step 3 — Razorpay Setup
-Add your Razorpay API keys in the payment service configuration. Never commit keys to version control — use environment variables or secure storage.
-
-### Step 4 — Build & Run
-```bash
-# Debug
-flutter run
-
-# Release APK
-flutter build apk --release
-
-# Release App Bundle (Play Store)
-flutter build appbundle --release
-```
+</div>
 
 > [!IMPORTANT]
-> ### ⚙️ Required Android Permissions (Post-Install)
-> Minty uses SMS reading for automated transaction capture. Due to Android's security policies, the user must manually:
+> ### ⚙️ First-Time Setup
+> To enable automatic SMS transaction capture, the app will guide you through the required permissions on first launch. Simply follow the on-screen instructions.
 >
-> 1. **Disable Google Play Protect** → Open Play Store → Tap profile → Play Protect → Settings ⚙️ → Turn off "Scan apps with Play Protect"
-> 2. **Allow Restricted Settings** → Go to Settings → Apps → Minty → Tap ⋮ (3-dot menu) → Select "Allow restricted settings"
-> 3. **Grant SMS Permission** → The app will prompt on first launch — tap "Allow"
->
-> Without these steps, SMS auto-capture will not function. All other features work normally.
+> All other features (manual entry, AI insights, shake-to-add, analytics) work immediately without any extra setup.
+
+### For Contributors
+If you're a developer looking to contribute, please reach out for access to the development setup guide and contribution guidelines.
 
 ---
 
@@ -335,11 +345,11 @@ Theme: **Dark-first** with light surfaces for onboarding and expense entry
 
 ## 🔒 Privacy & Security
 
-- 🔐 **AES-256 encryption** for all locally stored financial data
-- 📵 **SMS data never leaves your device** — parsing is 100% on-device via native Kotlin
-- ☁️ **Firestore sync** is limited to profile preferences and plan status — transaction data stays encrypted locally
-- 🚫 **No third-party analytics SDKs** — only Firebase (Google's first-party suite)
-- 💳 **Razorpay handles all payment data** — Minty never sees or stores card numbers
+- 🔐 **Industry-standard encryption** for all locally stored financial data
+- 📵 **SMS data never leaves your device** — parsing is 100% on-device
+- ☁️ **Cloud sync** is limited to profile preferences and plan status — transaction data stays encrypted on your phone
+- 🚫 **No third-party tracking** — only first-party analytics for crash reporting
+- 💳 **Payment processor handles all card data** — Minty never sees or stores card numbers
 
 ---
 
@@ -347,13 +357,10 @@ Theme: **Dark-first** with light surfaces for onboarding and expense entry
 
 | Metric | Value |
 | :--- | :--- |
-| **Lines of Code** | 15,000+ |
-| **Insights Engine** | 100,000+ characters of AI logic |
 | **Supported Banks** | 20+ Indian banks |
-| **SMS Regex Patterns** | 3 cascading patterns with fallback |
-| **Animation Widgets** | 5 custom (FadeTranslate, PressScale, RevealAnimation, WavySlider, StatTile) |
-| **Background Services** | 4 (Backup, Reminders, SMS, FCM) |
 | **Currencies** | 8+ with live exchange rates |
+| **Custom Animations** | 5 hand-crafted UI components |
+| **Background Services** | Backup, Reminders, SMS, Push |
 
 ---
 
@@ -366,6 +373,12 @@ Theme: **Dark-first** with light surfaces for onboarding and expense entry
   **Minty** — *Stop guessing where your money goes. Start knowing.*
 
   <br/>
+
+  <a href="https://minty41.netlify.app/">
+    <img src="https://img.shields.io/badge/📲_Download_Now_—_It's_Free-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+  </a>
+
+  <br/><br/>
 
   <sub>Built with 🌿 in India · Crafted for every ₹ that matters</sub>
 
