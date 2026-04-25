@@ -1,9 +1,11 @@
 <div align="center">
 
-  <img src="minty logo.png" width="140" height="140" alt="Minty Logo" style="border-radius: 28px;" />
+<div style="background-color: white; display: inline-block; padding: 12px; border-radius: 28px;">
+  <img src="minty logo.png" width="140" height="140" alt="Minty Logo" style="border-radius: 20px;" />
+</div>
 
-  <h1>🌿 Minty</h1>
-  <h3><i>Your Money. Your Rules. Zero Effort.</i></h3>
+<h1>Minty</h1>
+<h3><i>Your Money. Your Rules. Zero Effort.</i></h3>
 
   <p>
     <img src="https://img.shields.io/badge/Platform-Android-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" />
