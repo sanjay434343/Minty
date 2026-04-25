@@ -167,7 +167,7 @@ For the tech-obsessed, here's how we achieve buttery 120fps performance:
 
 <div align="center">
 
-  <img src="assets/images/logo.png" width="60" height="60" alt="Minty Logo" style="border-radius: 14px;" />
+  <img src="minty logo.png" width="60" height="60" alt="Minty Logo" style="border-radius: 14px;" />
 
   <h3>Stop guessing where your money goes. Start knowing.</h3>
 
