@@ -39,25 +39,19 @@ body{
   overflow-x:hidden;
   cursor:none;
 }
-
-/* ── Noise grain ── */
 body::after{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   opacity:.55;mix-blend-mode:overlay;
 }
-
-/* ── Custom cursor ── */
 #cur{position:fixed;width:10px;height:10px;background:var(--yellow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;mix-blend-mode:screen;}
 #cur2{position:fixed;width:36px;height:36px;border:1px solid rgba(245,200,66,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;}
 #cur.big{width:18px;height:18px;background:var(--mint);}
 #cur2.big{width:54px;height:54px;border-color:var(--mint);}
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-thumb{background:var(--yellow);border-radius:2px;}
 
-/* ── NAV ── */
+/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
@@ -68,179 +62,59 @@ nav{
   animation:navIn .9s ease both;
 }
 @keyframes navIn{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
-.logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;font-style:italic;font-weight:700;
-  color:var(--yellow);letter-spacing:-.5px;
-}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;font-weight:700;color:var(--yellow);letter-spacing:-.5px;}
 .logo sup{font-size:.55rem;letter-spacing:1px;opacity:.6;font-style:normal;font-family:'Geist Mono',monospace;vertical-align:super;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{
-  color:var(--text2);text-decoration:none;font-size:.85rem;
-  font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  transition:color .2s;position:relative;cursor:pointer;
-}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;position:relative;cursor:pointer;}
 .nav-links a:hover{color:var(--yellow);}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--yellow);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
 .nav-links a:hover::after{transform:scaleX(1);}
-.nav-cta{
-  font-family:'Geist Mono',monospace;
-  background:var(--yellow);color:var(--ink);
-  border:none;padding:.6rem 1.6rem;border-radius:50px;
-  font-weight:700;font-size:.82rem;cursor:pointer;
-  transition:all .25s;letter-spacing:.5px;
-  box-shadow:0 0 24px var(--yellow-glow);
-}
+.nav-cta{font-family:'Geist Mono',monospace;background:var(--yellow);color:var(--ink);border:none;padding:.6rem 1.6rem;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;transition:all .25s;letter-spacing:.5px;box-shadow:0 0 24px var(--yellow-glow);text-decoration:none;}
 .nav-cta:hover{background:var(--yellow2);box-shadow:0 0 40px rgba(245,200,66,.5);transform:scale(1.04);}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:9rem 3.5rem 5rem;
-  position:relative;overflow:hidden;
-  background:linear-gradient(160deg, #f5c842 0%, #f5c842 45%, #0a120d 45%);
-}
-.hero::before{
-  content:'';position:absolute;left:0;top:0;width:47%;height:100%;
-  background:var(--yellow);
-  clip-path:polygon(0 0,100% 0,88% 100%,0 100%);
-  z-index:0;
-}
-.hero-ambient{
-  position:absolute;inset:0;z-index:1;
-  background:
-    radial-gradient(ellipse 40% 50% at 75% 35%,rgba(61,220,132,.1) 0%,transparent 70%),
-    radial-gradient(ellipse 25% 35% at 90% 70%,rgba(45,201,111,.07) 0%,transparent 60%);
-}
-.hero-lines{
-  position:absolute;right:0;top:0;bottom:0;width:55%;
-  opacity:.035;
-  background:repeating-linear-gradient(90deg,var(--mint) 0,var(--mint) 1px,transparent 0,transparent 60px);
-  z-index:1;
-}
-
-/* big yellow decorative number */
-.hero-deco-num{
-  position:absolute;left:2%;top:50%;transform:translateY(-50%);
-  font-family:'Playfair Display',serif;font-size:22vw;font-weight:900;font-style:italic;
-  color:rgba(0,0,0,0.07);line-height:1;z-index:0;pointer-events:none;letter-spacing:-4px;
-}
-
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:9rem 3.5rem 5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;left:0;top:0;width:47%;height:100%;background:var(--yellow);clip-path:polygon(0 0,100% 0,88% 100%,0 100%);z-index:0;}
+.hero-ambient{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 40% 50% at 75% 35%,rgba(61,220,132,.1) 0%,transparent 70%),radial-gradient(ellipse 25% 35% at 90% 70%,rgba(45,201,111,.07) 0%,transparent 60%);}
+.hero-lines{position:absolute;right:0;top:0;bottom:0;width:55%;opacity:.035;background:repeating-linear-gradient(90deg,var(--mint) 0,var(--mint) 1px,transparent 0,transparent 60px);z-index:1;}
+.hero-deco-num{position:absolute;left:2%;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:22vw;font-weight:900;font-style:italic;color:rgba(0,0,0,0.07);line-height:1;z-index:0;pointer-events:none;letter-spacing:-4px;}
 .hero-content{position:relative;z-index:2;max-width:520px;}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:'Geist Mono',monospace;font-size:.7rem;
-  color:var(--ink);letter-spacing:2px;text-transform:uppercase;
-  border:1.5px solid rgba(0,0,0,0.2);border-radius:50px;
-  padding:.35rem .9rem;margin-bottom:2rem;
-  background:rgba(0,0,0,0.08);
-  animation:up .8s .2s ease both;
-}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:'Geist Mono',monospace;font-size:.7rem;color:var(--ink);letter-spacing:2px;text-transform:uppercase;border:1.5px solid rgba(0,0,0,0.2);border-radius:50px;padding:.35rem .9rem;margin-bottom:2rem;background:rgba(0,0,0,0.08);animation:up .8s .2s ease both;}
 .live-dot{width:7px;height:7px;background:var(--ink);border-radius:50%;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3.2rem,6vw,5.8rem);
-  line-height:1.02;letter-spacing:-2px;font-weight:900;
-  margin-bottom:1.5rem;
-  animation:up .8s .4s ease both;
-  color:var(--ink);
-}
+h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,6vw,5.8rem);line-height:1.02;letter-spacing:-2px;font-weight:900;margin-bottom:1.5rem;animation:up .8s .4s ease both;color:var(--ink);}
 .mint-word{color:var(--mint);-webkit-text-stroke:1px rgba(0,0,0,0.1);}
 .italic-word{font-style:italic;color:rgba(0,0,0,0.55);}
-.hero-desc{
-  font-size:1.05rem;line-height:1.8;color:rgba(0,0,0,0.7);
-  margin-bottom:2.5rem;font-weight:400;
-  animation:up .8s .6s ease both;
-}
+.hero-desc{font-size:1.05rem;line-height:1.8;color:rgba(0,0,0,0.7);margin-bottom:2.5rem;font-weight:400;animation:up .8s .6s ease both;}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:up .8s .8s ease both;}
-
 @keyframes up{from{transform:translateY(28px);opacity:0}to{transform:none;opacity:1}}
-
-.btn-dark{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--ink);color:var(--yellow);border:none;
-  padding:.9rem 2.2rem;border-radius:50px;
-  font-weight:700;font-size:.95rem;cursor:pointer;
-  transition:all .3s;letter-spacing:.3px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.3);text-decoration:none;
-}
+.btn-dark{display:inline-flex;align-items:center;gap:.6rem;background:var(--ink);color:var(--yellow);border:none;padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .3s;letter-spacing:.3px;box-shadow:0 8px 30px rgba(0,0,0,0.3);text-decoration:none;}
 .btn-dark:hover{background:#162019;transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.4);}
-.btn-outline-dark{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:transparent;color:var(--ink);
-  border:2px solid rgba(0,0,0,0.3);padding:.9rem 2.2rem;
-  border-radius:50px;font-weight:700;font-size:.95rem;
-  cursor:pointer;transition:all .3s;text-decoration:none;
-}
+.btn-outline-dark{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--ink);border:2px solid rgba(0,0,0,0.3);padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .3s;text-decoration:none;}
 .btn-outline-dark:hover{border-color:var(--ink);background:rgba(0,0,0,0.08);transform:translateY(-2px);}
-
-.btn-mint{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--mint);color:var(--ink);border:none;
-  padding:.9rem 2.2rem;border-radius:50px;
-  font-weight:700;font-size:.95rem;cursor:pointer;
-  transition:all .3s;letter-spacing:.3px;
-  box-shadow:0 0 36px var(--mint-glow);text-decoration:none;
-}
+.btn-mint{display:inline-flex;align-items:center;gap:.6rem;background:var(--mint);color:var(--ink);border:none;padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .3s;letter-spacing:.3px;box-shadow:0 0 36px var(--mint-glow);text-decoration:none;}
 .btn-mint:hover{background:var(--mint3);transform:translateY(-3px);box-shadow:0 0 56px rgba(61,220,132,.5);}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:transparent;color:var(--text);
-  border:1px solid var(--border2);padding:.9rem 2.2rem;
-  border-radius:50px;font-weight:400;font-size:.95rem;
-  cursor:pointer;transition:all .3s;text-decoration:none;
-}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--text);border:1px solid var(--border2);padding:.9rem 2.2rem;border-radius:50px;font-weight:400;font-size:.95rem;cursor:pointer;transition:all .3s;text-decoration:none;}
 .btn-ghost:hover{border-color:var(--mint);color:var(--mint);transform:translateY(-2px);}
-
-/* ── Hero metrics row ── */
-.hero-metrics{
-  display:flex;gap:2.5rem;margin-top:4rem;flex-wrap:wrap;
-  animation:up .8s 1s ease both;
-}
+.hero-metrics{display:flex;gap:2.5rem;margin-top:4rem;flex-wrap:wrap;animation:up .8s 1s ease both;}
 .hm{border-left:3px solid rgba(0,0,0,0.25);padding-left:1.2rem;}
 .hm-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ink);}
 .hm-key{font-size:.72rem;color:rgba(0,0,0,0.55);text-transform:uppercase;letter-spacing:1.5px;margin-top:.1rem;font-family:'Geist Mono',monospace;}
 
-/* ── BENTO PHONE MOCKUP ── */
-.hero-visual{
-  position:absolute;right:5rem;top:50%;transform:translateY(-50%);
-  z-index:2;
-  animation:up .9s 1.1s ease both, floatPhone 7s 2s ease-in-out infinite;
-}
+/* PHONE */
+.hero-visual{position:absolute;right:5rem;top:50%;transform:translateY(-50%);z-index:2;animation:up .9s 1.1s ease both, floatPhone 7s 2s ease-in-out infinite;}
 @keyframes floatPhone{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 16px))}}
-
-.phone{
-  width:285px;height:585px;
-  background:linear-gradient(160deg,#1a2e1e,#0f1a12);
-  border-radius:48px;
-  border:1px solid rgba(61,220,132,.2);
-  box-shadow:0 0 100px rgba(61,220,132,.15),0 50px 120px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05),
-             -20px 0 60px rgba(245,200,66,.12);
-  position:relative;overflow:hidden;padding:22px 16px 16px;
-}
-.phone::before{
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:72px;height:22px;background:var(--ink);border-radius:0 0 14px 14px;z-index:10;
-}
-.phone-inner{
-  width:100%;height:100%;background:var(--deep);border-radius:30px;
-  overflow:hidden;display:flex;flex-direction:column;
-}
-
-.app-header{
-  padding:1.5rem 1rem 1rem;
-  background:linear-gradient(180deg,rgba(245,200,66,.15),transparent);
-}
+.phone{width:285px;height:585px;background:linear-gradient(160deg,#1a2e1e,#0f1a12);border-radius:48px;border:1px solid rgba(61,220,132,.2);box-shadow:0 0 100px rgba(61,220,132,.15),0 50px 120px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05),-20px 0 60px rgba(245,200,66,.12);position:relative;overflow:hidden;padding:22px 16px 16px;}
+.phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:72px;height:22px;background:var(--ink);border-radius:0 0 14px 14px;z-index:10;}
+.phone-inner{width:100%;height:100%;background:var(--deep);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;}
+.app-header{padding:1.5rem 1rem 1rem;background:linear-gradient(180deg,rgba(245,200,66,.15),transparent);}
 .app-greeting{font-family:'Geist Mono',monospace;font-size:.6rem;color:var(--text3);letter-spacing:1px;margin-bottom:.2rem;}
 .app-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text);font-style:italic;}
 .app-balance-label{font-size:.55rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:.8rem;font-family:'Geist Mono',monospace;}
 .app-balance{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--yellow);line-height:1;}
 .app-balance sup{font-size:.7rem;vertical-align:super;font-family:'Geist Mono',monospace;}
-
 .bento{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;}
-.b{background:var(--card);border-radius:18px;padding:.7rem .75rem;border:1px solid var(--border);transition:background .3s;}
+.b{background:var(--card);border-radius:18px;padding:.7rem .75rem;border:1px solid var(--border);}
 .b.span2{grid-column:1/-1;}
 .b-label{font-size:.5rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:.35rem;font-family:'Geist Mono',monospace;}
 .b-val{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;}
@@ -248,15 +122,11 @@ h1{
 .b-val.yellow{color:var(--yellow);}
 .b-val.red{color:#f87171;}
 .b-val.dim{color:var(--text2);font-size:.85rem;}
-
 .mchart{display:flex;align-items:flex-end;gap:2px;height:28px;margin-top:.3rem;}
 .mcbar{border-radius:2px 2px 0 0;background:var(--yellow);opacity:.4;flex:1;transition:height .4s;}
 .mcbar.hi{opacity:1;background:var(--mint);}
-
 .b-pill{display:inline-block;background:rgba(61,220,132,.12);color:var(--mint);font-size:.5rem;border-radius:50px;padding:.15rem .5rem;font-family:'Geist Mono',monospace;margin-top:.2rem;}
 .b-pill.neg{background:rgba(248,113,113,.1);color:#f87171;}
-.b-pill.yel{background:rgba(245,200,66,.12);color:var(--yellow);}
-
 .tx-item{display:flex;align-items:center;gap:.5rem;padding:.45rem 0;border-bottom:1px solid var(--border);}
 .tx-item:last-child{border:none;}
 .tx-dot{width:22px;height:22px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
@@ -269,44 +139,22 @@ h1{
 .tx-amt{font-size:.6rem;font-weight:700;font-family:'Geist Mono',monospace;}
 .tx-amt.pos{color:var(--mint);}
 .tx-amt.neg{color:#f87171;}
+.phone-glow{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:220px;height:220px;border-radius:50%;background:radial-gradient(var(--yellow),transparent 65%);filter:blur(60px);opacity:.3;pointer-events:none;}
 
-.phone-glow{
-  position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
-  width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(var(--yellow),transparent 65%);
-  filter:blur(60px);opacity:.3;pointer-events:none;
-}
-
-/* ── SVG ICONS ── */
-.icon{display:inline-block;vertical-align:middle;}
-
-/* ── SECTIONS ── */
+/* SECTIONS */
 section{padding:7rem 3.5rem;position:relative;}
 .s-label{font-family:'Geist Mono',monospace;font-size:.68rem;color:var(--yellow);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1rem;}
 .s-sub{color:var(--text2);line-height:1.75;font-size:1rem;font-weight:300;}
 .max{max-width:1180px;margin:0 auto;}
+.ydivider{height:3px;background:linear-gradient(90deg,transparent,var(--yellow),var(--mint),transparent);border:none;margin:0;}
 
-/* ── PILLARS ── */
+/* PILLARS */
 .pillars-bg{background:var(--deep);}
-.pillars-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.2rem;margin-top:3.5rem;
-}
-.pillar{
-  background:var(--card);border-radius:var(--r2);
-  border:1px solid var(--border);
-  padding:2rem;
-  transition:all .4s;position:relative;overflow:hidden;
-  opacity:0;transform:translateY(24px);
-}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem;}
+.pillar{background:var(--card);border-radius:var(--r2);border:1px solid var(--border);padding:2rem;transition:all .4s;position:relative;overflow:hidden;opacity:0;transform:translateY(24px);}
 .pillar.vis{animation:up .6s ease forwards;}
-.pillar::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(245,200,66,.05),transparent);
-  opacity:0;transition:opacity .35s;
-}
+.pillar::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,200,66,.05),transparent);opacity:0;transition:opacity .35s;}
 .pillar:hover::before{opacity:1;}
 .pillar:hover{border-color:rgba(245,200,66,.25);transform:translateY(-5px);box-shadow:0 0 40px rgba(245,200,66,.12);}
 .pillar.wide{grid-column:span 2;}
@@ -314,29 +162,35 @@ section{padding:7rem 3.5rem;position:relative;}
 .p-icon{width:44px;height:44px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
 .p-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:.6rem;}
 .p-desc{color:var(--text2);font-size:.88rem;line-height:1.7;}
-.p-chip{
-  display:inline-block;background:var(--yellow-dim);
-  border:1px solid rgba(245,200,66,.2);color:var(--yellow);
-  font-size:.65rem;font-family:'Geist Mono',monospace;
-  padding:.25rem .7rem;border-radius:50px;margin-top:.8rem;
-  letter-spacing:.5px;
-}
+.p-chip{display:inline-block;background:var(--yellow-dim);border:1px solid rgba(245,200,66,.2);color:var(--yellow);font-size:.65rem;font-family:'Geist Mono',monospace;padding:.25rem .7rem;border-radius:50px;margin-top:.8rem;letter-spacing:.5px;}
 
-/* ── APP SCREEN SHOWCASE ── */
+/* ── SCREEN CARDS (clickable) ── */
 .screens-section{background:var(--ink);overflow:hidden;}
-.screens-track{
-  display:flex;gap:1.5rem;margin-top:3rem;
-  animation:scrollTrack 30s linear infinite;
-  width:max-content;
-}
+.screens-track{display:flex;gap:1.5rem;margin-top:3rem;animation:scrollTrack 30s linear infinite;width:max-content;}
 .screens-track:hover{animation-play-state:paused;}
 @keyframes scrollTrack{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 .screen-card{
   width:200px;height:380px;flex-shrink:0;
   background:var(--card2);border-radius:28px;
   border:1px solid var(--border);overflow:hidden;
-  position:relative;
+  position:relative;cursor:pointer;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
 }
+.screen-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 24px 60px rgba(245,200,66,.2);
+  border-color:rgba(245,200,66,.4);
+}
+.screen-card .tap-hint{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  font-family:'Geist Mono',monospace;font-size:.48rem;
+  color:var(--yellow);letter-spacing:1.5px;text-transform:uppercase;
+  background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.25);
+  padding:.2rem .6rem;border-radius:50px;
+  opacity:0;transition:opacity .25s;white-space:nowrap;
+}
+.screen-card:hover .tap-hint{opacity:1;}
 .screen-inner{width:100%;height:100%;display:flex;flex-direction:column;}
 .sc-hdr{padding:1rem .8rem .6rem;font-family:'Playfair Display',serif;font-size:.8rem;font-weight:700;font-style:italic;color:var(--yellow);}
 .sc-bal{padding:0 .8rem;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--text);}
@@ -355,75 +209,134 @@ section{padding:7rem 3.5rem;position:relative;}
 .sc-nav-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);}
 .sc-nav-dot.a{background:var(--yellow);}
 
-/* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto;}
-.about-visual{
-  background:var(--card);border-radius:24px;border:1px solid var(--border);
+/* ── SCREEN MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(5,10,7,.92);
+  backdrop-filter:blur(18px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{
+  background:var(--card2);
+  border:1px solid rgba(245,200,66,.25);
+  border-radius:32px;
   padding:2.5rem;
+  max-width:820px;width:90%;
+  position:relative;
+  transform:translateY(30px) scale(.97);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  max-height:88vh;overflow-y:auto;
 }
-.stack-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 0;border-bottom:1px solid var(--border);
+.modal-overlay.open .modal-box{transform:none;}
+.modal-close{
+  position:absolute;top:1.2rem;right:1.2rem;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;color:var(--yellow);
 }
+.modal-close:hover{background:var(--yellow);color:var(--ink);}
+.modal-screen-tag{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;margin-bottom:.5rem;}
+.modal-desc{color:var(--text2);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;}
+.modal-features{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.5rem;}
+.mf-item{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:1rem;}
+.mf-icon{font-size:1.2rem;margin-bottom:.4rem;}
+.mf-title{font-weight:700;font-size:.85rem;margin-bottom:.3rem;color:var(--text);}
+.mf-desc{font-size:.78rem;color:var(--text2);line-height:1.6;}
+.modal-stat-row{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.modal-stat{text-align:center;flex:1;min-width:90px;}
+.modal-stat-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--yellow);}
+.modal-stat-key{font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto;}
+.about-visual{background:var(--card);border-radius:24px;border:1px solid var(--border);padding:2.5rem;}
+.stack-item{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid var(--border);}
 .stack-item:last-child{border:none;}
 .si-key{font-family:'Geist Mono',monospace;font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;}
 .si-val{font-size:.82rem;color:var(--text);font-weight:700;}
 .si-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px var(--yellow);}
 
-/* ── PRICING ── */
+/* PRIVACY */
+.privacy-section{background:var(--surface);}
+.privacy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:3rem;}
+.priv-card{background:var(--card);border-radius:20px;border:1px solid var(--border);padding:1.6rem;transition:all .35s;}
+.priv-card:hover{border-color:rgba(61,220,132,.35);transform:translateY(-4px);box-shadow:0 0 30px rgba(61,220,132,.1);}
+.priv-icon{width:42px;height:42px;background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.priv-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.priv-desc{color:var(--text2);font-size:.84rem;line-height:1.65;}
+.priv-badge{display:inline-block;background:rgba(61,220,132,.12);color:var(--mint);font-size:.6rem;font-family:'Geist Mono',monospace;padding:.2rem .6rem;border-radius:50px;margin-top:.6rem;border:1px solid rgba(61,220,132,.2);}
+
+/* IMPACT */
+.impact-section{background:var(--deep);text-align:center;}
+.impact-box{
+  background:var(--card);border:1px solid rgba(61,220,132,.2);
+  border-radius:24px;padding:2.5rem;margin:3rem auto 0;max-width:700px;
+  font-family:'Geist Mono',monospace;font-size:.88rem;line-height:2.2;
+  color:var(--text2);position:relative;overflow:hidden;
+}
+.impact-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,220,132,.04),transparent);pointer-events:none;}
+.impact-row{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;margin-bottom:1.5rem;}
+.impact-col-label{color:var(--text3);font-size:.6rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem;}
+.impact-col-bad .impact-val{color:#f87171;}
+.impact-col-good .impact-val{color:var(--mint);}
+.impact-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;display:block;}
+.impact-key{font-size:.7rem;color:var(--text3);display:block;margin-top:.1rem;}
+.impact-arrow{font-size:1.5rem;color:var(--yellow);}
+.impact-headline{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--yellow);margin-top:1rem;}
+
+/* PRICING */
 .pricing-bg{background:var(--deep);}
 .pricing-grid{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:3.5rem;}
-.p-card{
-  background:var(--card);border-radius:24px;border:1px solid var(--border);
-  padding:2.2rem;width:270px;transition:all .4s;
-  position:relative;overflow:hidden;
-}
-.p-card.featured{
-  border-color:rgba(245,200,66,.5);
-  box-shadow:0 0 60px rgba(245,200,66,.15);
-  background:linear-gradient(145deg,#201c0a,var(--card));
-}
-.p-card.featured::after{
-  content:'POPULAR';position:absolute;top:1rem;right:1rem;
-  background:var(--yellow);color:var(--ink);
-  font-size:.55rem;font-weight:700;font-family:'Geist Mono',monospace;
-  padding:.2rem .6rem;border-radius:50px;letter-spacing:1px;
-}
+.p-card{background:var(--card);border-radius:24px;border:1px solid var(--border);padding:2.2rem;width:270px;transition:all .4s;position:relative;overflow:hidden;}
+.p-card.featured{border-color:rgba(245,200,66,.5);box-shadow:0 0 60px rgba(245,200,66,.15);background:linear-gradient(145deg,#201c0a,var(--card));}
+.p-card.featured::after{content:'POPULAR';position:absolute;top:1rem;right:1rem;background:var(--yellow);color:var(--ink);font-size:.55rem;font-weight:700;font-family:'Geist Mono',monospace;padding:.2rem .6rem;border-radius:50px;letter-spacing:1px;}
+.p-card.elite-card{border-color:rgba(61,220,132,.4);box-shadow:0 0 60px rgba(61,220,132,.1);background:linear-gradient(145deg,#0a1e15,var(--card));}
+.p-card.elite-card::after{content:'BEST VALUE';position:absolute;top:1rem;right:1rem;background:var(--mint);color:var(--ink);font-size:.55rem;font-weight:700;font-family:'Geist Mono',monospace;padding:.2rem .6rem;border-radius:50px;letter-spacing:1px;}
 .p-card:hover{transform:translateY(-6px);}
 .p-tier{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem;}
 .p-price{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1;margin-bottom:.2rem;}
 .p-price.yellow{color:var(--yellow);}
+.p-price.mint{color:var(--mint);}
 .p-cycle{font-size:.78rem;color:var(--text3);margin-bottom:1.5rem;font-family:'Geist Mono',monospace;}
 .p-list{list-style:none;margin-bottom:1.8rem;}
 .p-list li{font-size:.87rem;color:var(--text2);padding:.38rem 0;display:flex;gap:.6rem;align-items:flex-start;line-height:1.5;}
 .p-list li::before{content:'';display:inline-block;width:6px;height:6px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:.45rem;}
+.p-list.mint-bullets li::before{background:var(--mint);}
+.p-savings{font-family:'Geist Mono',monospace;font-size:.7rem;color:var(--mint);background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:8px;padding:.4rem .8rem;text-align:center;margin-bottom:1rem;}
 
-/* ── TESTIMONIALS ── */
+/* TESTIMONIALS */
 .testi-bg{background:var(--ink);}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-top:3.5rem;}
-.t-card{
-  background:var(--card);border-radius:20px;border:1px solid var(--border);
-  padding:1.8rem;transition:all .35s;
-}
+.t-card{background:var(--card);border-radius:20px;border:1px solid var(--border);padding:1.8rem;transition:all .35s;}
 .t-card:hover{border-color:rgba(245,200,66,.25);transform:translateY(-4px);box-shadow:0 0 30px rgba(245,200,66,.08);}
 .t-stars{color:var(--yellow);font-size:.85rem;letter-spacing:2px;margin-bottom:1rem;}
 .t-text{color:var(--text2);font-size:.88rem;line-height:1.7;font-style:italic;margin-bottom:1.2rem;}
 .t-author{display:flex;align-items:center;gap:.8rem;}
-.t-av{
-  width:38px;height:38px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:.75rem;color:var(--ink);background:var(--yellow);
-}
+.t-av{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;color:var(--ink);background:var(--yellow);}
 .t-name{font-weight:700;font-size:.85rem;}
 .t-role{color:var(--text3);font-size:.73rem;font-family:'Geist Mono',monospace;}
 
-/* ── LEGAL CARDS ── */
+/* INDIA / GLOBAL */
+.india-section{background:var(--surface);}
+.india-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+.india-card{background:var(--card);border-radius:20px;border:1px solid var(--border);padding:1.8rem;transition:all .35s;}
+.india-card:hover{border-color:rgba(245,200,66,.25);transform:translateY(-3px);}
+.india-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.8rem;}
+.india-card p{color:var(--text2);font-size:.88rem;line-height:1.7;}
+.bank-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
+.bank-chip{font-family:'Geist Mono',monospace;font-size:.62rem;background:var(--yellow-dim);color:var(--yellow);border:1px solid rgba(245,200,66,.2);padding:.2rem .6rem;border-radius:50px;}
+.currency-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;}
+.cur-item{font-family:'Geist Mono',monospace;font-size:.7rem;background:var(--mint-dim);color:var(--mint);border:1px solid var(--border2);padding:.25rem .7rem;border-radius:8px;}
+
+/* LEGAL */
 .legal-section{background:var(--deep);}
 .legal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin-top:3rem;}
-.leg-card{
-  background:var(--card);border-radius:20px;border:1px solid var(--border);
-  padding:1.8rem;cursor:pointer;transition:all .35s;
-}
+.leg-card{background:var(--card);border-radius:20px;border:1px solid var(--border);padding:1.8rem;cursor:pointer;transition:all .35s;}
 .leg-card:hover{border-color:rgba(245,200,66,.3);transform:translateY(-3px);box-shadow:0 0 24px rgba(245,200,66,.1);}
 .leg-card-hdr{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;}
 .leg-icon{width:38px;height:38px;background:var(--yellow-dim);border:1px solid rgba(245,200,66,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;}
@@ -431,10 +344,7 @@ section{padding:7rem 3.5rem;position:relative;}
 .leg-preview{font-size:.82rem;color:var(--text2);line-height:1.65;margin-bottom:1rem;}
 .leg-expand-btn{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:.4rem;transition:gap .2s;}
 .leg-expand-btn:hover{gap:.7rem;}
-.leg-body{
-  max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.4,0,0.2,1);
-  font-size:.82rem;color:var(--text2);line-height:1.75;
-}
+.leg-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.4,0,0.2,1);font-size:.82rem;color:var(--text2);line-height:1.75;}
 .leg-body.open{max-height:1200px;}
 .leg-body h3{font-family:'Playfair Display',serif;color:var(--text);font-size:.9rem;margin:1.2rem 0 .4rem;font-style:italic;}
 .leg-body h3:first-child{margin-top:.8rem;}
@@ -443,42 +353,20 @@ section{padding:7rem 3.5rem;position:relative;}
 .leg-body li{margin-bottom:.3rem;}
 .leg-date{font-family:'Geist Mono',monospace;font-size:.62rem;color:var(--text3);margin-bottom:.8rem;}
 
-/* ── DOWNLOAD CTA ── */
+/* DOWNLOAD CTA */
 .dl-section{background:var(--yellow);text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;}
-.dl-section::before{
-  content:'';position:absolute;top:-80px;right:-80px;
-  width:400px;height:400px;border-radius:50%;
-  background:rgba(0,0,0,0.05);pointer-events:none;
-}
-.dl-section::after{
-  content:'MINTY';
-  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
-  font-family:'Playfair Display',serif;font-weight:900;font-style:italic;
-  font-size:18vw;color:rgba(0,0,0,0.06);line-height:1;pointer-events:none;white-space:nowrap;
-}
+.dl-section::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(0,0,0,0.05);pointer-events:none;}
+.dl-section::after{content:'MINTY';position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:18vw;color:rgba(0,0,0,0.06);line-height:1;pointer-events:none;white-space:nowrap;}
 .dl-section .s-label{color:rgba(0,0,0,0.5);}
 .dl-section .s-title{color:var(--ink);}
 .dl-section .s-sub{color:rgba(0,0,0,0.6);}
-.dl-link{
-  display:inline-flex;align-items:center;gap:.9rem;
-  background:var(--ink);color:var(--yellow);
-  border:none;border-radius:18px;padding:1rem 2.2rem;
-  cursor:pointer;transition:all .35s;text-decoration:none;
-  font-weight:700;font-size:1rem;
-  box-shadow:0 12px 40px rgba(0,0,0,0.25);
-  position:relative;z-index:1;
-}
+.dl-link{display:inline-flex;align-items:center;gap:.9rem;background:var(--ink);color:var(--yellow);border:none;border-radius:18px;padding:1rem 2.2rem;cursor:pointer;transition:all .35s;text-decoration:none;font-weight:700;font-size:1rem;box-shadow:0 12px 40px rgba(0,0,0,0.25);position:relative;z-index:1;}
 .dl-link:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.35);}
-.dl-badge{
-  display:inline-block;background:var(--yellow);color:var(--ink);
-  font-size:.55rem;font-family:'Geist Mono',monospace;font-weight:700;
-  padding:.15rem .5rem;border-radius:50px;letter-spacing:1px;margin-left:.3rem;
-  vertical-align:middle;
-}
+.dl-badge{display:inline-block;background:var(--yellow);color:var(--ink);font-size:.55rem;font-family:'Geist Mono',monospace;font-weight:700;padding:.15rem .5rem;border-radius:50px;letter-spacing:1px;margin-left:.3rem;vertical-align:middle;}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.5rem 2rem;}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto;}
 .f-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--yellow);margin-bottom:.8rem;font-weight:700;}
 .f-desc{color:var(--text3);font-size:.82rem;line-height:1.7;max-width:240px;}
 .f-col h4{font-family:'Geist Mono',monospace;font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin-bottom:1.2rem;}
@@ -486,65 +374,70 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
 .f-col ul li{margin-bottom:.6rem;}
 .f-col ul a{color:var(--text3);text-decoration:none;font-size:.83rem;transition:color .2s;cursor:pointer;}
 .f-col ul a:hover{color:var(--yellow);}
-.f-bottom{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:3rem;max-width:1000px;margin:2.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.f-bottom{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:3rem;max-width:1100px;margin:2.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .f-bottom p{color:var(--text3);font-size:.75rem;font-family:'Geist Mono',monospace;}
 .socials{display:flex;gap:.6rem;}
 .soc{width:34px;height:34px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;text-decoration:none;}
 .soc:hover{border-color:var(--yellow);background:var(--yellow-dim);transform:translateY(-2px);}
 
-/* ── scroll reveal ── */
+/* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.vis{opacity:1;transform:none;}
 
-/* ── floating particles ── */
+/* PARTICLES */
 .particle{position:absolute;border-radius:50%;pointer-events:none;animation:drift linear infinite;}
 @keyframes drift{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-120vh) rotate(720deg);opacity:0}}
 
-/* ── yellow section divider ── */
-.ydivider{
-  height:3px;background:linear-gradient(90deg,transparent,var(--yellow),var(--mint),transparent);
-  border:none;margin:0;
-}
-
-/* ── animated number ticker ── */
-@keyframes countUp{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
-
+/* RESPONSIVE */
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
-  .hero{padding:8rem 1.5rem 4rem;flex-direction:column;background:var(--yellow);}
+  .hero{padding:8rem 1.5rem 4rem;flex-direction:column;}
   .hero::before{display:none;}
+  .hero{background:var(--yellow);}
   .hero-visual{position:relative;right:auto;top:auto;transform:none;margin:3rem auto 0;animation:floatPhone2 7s ease-in-out infinite;}
   @keyframes floatPhone2{0%,100%{transform:none}50%{transform:translateY(-14px)}}
   .pillars-grid{grid-template-columns:1fr 1fr;}
   .pillar.wide{grid-column:span 2;}
   .about-grid{grid-template-columns:1fr;}
+  .india-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .modal-features{grid-template-columns:1fr;}
+  .impact-row{grid-template-columns:1fr;gap:1rem;text-align:center;}
   section{padding:5rem 1.5rem;}
 }
 </style>
 </head>
 <body>
-
 <div id="cur"></div>
 <div id="cur2"></div>
-
-<!-- Particles container -->
 <div id="particles" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;"></div>
+
+<!-- ═══ SCREEN MODAL ═══ -->
+<div class="modal-overlay" id="screenModal" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-close" onclick="closeModalDirect()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+    <div id="modalContent"></div>
+  </div>
+</div>
 
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="logo">Minty<sup>™</sup></div>
   <ul class="nav-links">
-    <li><a onclick="scrollTo('pillars')">Features</a></li>
-    <li><a onclick="scrollTo('about')">About</a></li>
-    <li><a onclick="scrollTo('pricing')">Pricing</a></li>
-    <li><a onclick="scrollTo('reviews')">Reviews</a></li>
-    <li><a onclick="scrollTo('legal')">Legal</a></li>
+    <li><a onclick="goTo('pillars')">Features</a></li>
+    <li><a onclick="goTo('privacy')">Privacy</a></li>
+    <li><a onclick="goTo('impact')">Impact</a></li>
+    <li><a onclick="goTo('pricing')">Pricing</a></li>
+    <li><a onclick="goTo('reviews')">Reviews</a></li>
+    <li><a onclick="goTo('india')">Global</a></li>
+    <li><a onclick="goTo('legal')">Legal</a></li>
   </ul>
-  <a class="nav-cta" href="https://github.com/" target="_blank">
+  <a class="nav-cta" href="https://minty41.netlify.app/" target="_blank">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-    Open Source
+    Download Free
   </a>
 </nav>
 
@@ -553,26 +446,16 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   <div class="hero-ambient"></div>
   <div class="hero-lines"></div>
   <div class="hero-deco-num">₹</div>
-
   <div class="hero-content">
-    <div class="hero-tag">
-      <div class="live-dot"></div>
-      Financial Consciousness
-    </div>
-    <h1>
-      Money,<br>
-      <span class="italic-word">finally</span><br>
-      <span class="mint-word">mindful.</span>
-    </h1>
-    <p class="hero-desc">
-      Minty is not just an expense tracker. It's a financial consciousness platform — designed for those who demand clarity without the clutter. Open source. Built with Flutter.
-    </p>
+    <div class="hero-tag"><div class="live-dot"></div>Financial Consciousness</div>
+    <h1>Money,<br><span class="italic-word">finally</span><br><span class="mint-word">mindful.</span></h1>
+    <p class="hero-desc">Minty is not just an expense tracker. It's a financial autopilot — designed for those who demand clarity without the clutter. Automatically. Silently. Beautifully. Built with Flutter.</p>
     <div class="hero-actions">
-      <a class="btn-dark" href="https://github.com/" target="_blank">
+      <a class="btn-dark" href="https://minty41.netlify.app/" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         Download Free
       </a>
-      <a class="btn-outline-dark" href="#pillars" onclick="scrollTo('pillars')">
+      <a class="btn-outline-dark" href="#pillars" onclick="goTo('pillars')">
         Explore Features
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -583,8 +466,6 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
       <div class="hm"><div class="hm-val counter" data-t="99">0</div><div class="hm-key">% Uptime</div></div>
     </div>
   </div>
-
-  <!-- Phone -->
   <div class="hero-visual">
     <div class="phone">
       <div class="phone-inner">
@@ -595,63 +476,37 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
           <div class="app-balance"><sup>₹</sup>1,24,890</div>
         </div>
         <div class="bento">
-          <div class="b">
-            <div class="b-label">This Week</div>
-            <div class="b-val green">+₹8,240</div>
-            <div class="b-pill">▲ 12.4%</div>
-          </div>
-          <div class="b">
-            <div class="b-label">Spent</div>
-            <div class="b-val red">-₹3,190</div>
-            <div class="b-pill neg">▼ 5.1%</div>
-          </div>
+          <div class="b"><div class="b-label">This Week</div><div class="b-val green">+₹8,240</div><div class="b-pill">▲ 12.4%</div></div>
+          <div class="b"><div class="b-label">Spent</div><div class="b-val red">-₹3,190</div><div class="b-pill neg">▼ 5.1%</div></div>
           <div class="b span2">
             <div class="b-label">24-Hour Micro Insight</div>
             <div class="mchart">
-              <div class="mcbar" style="height:40%"></div>
-              <div class="mcbar" style="height:60%"></div>
-              <div class="mcbar" style="height:35%"></div>
-              <div class="mcbar" style="height:80%"></div>
-              <div class="mcbar hi" style="height:100%"></div>
-              <div class="mcbar" style="height:55%"></div>
-              <div class="mcbar" style="height:45%"></div>
-              <div class="mcbar" style="height:70%"></div>
-              <div class="mcbar" style="height:30%"></div>
-              <div class="mcbar" style="height:65%"></div>
-              <div class="mcbar" style="height:90%"></div>
-              <div class="mcbar hi" style="height:75%"></div>
+              <div class="mcbar" style="height:40%"></div><div class="mcbar" style="height:60%"></div>
+              <div class="mcbar" style="height:35%"></div><div class="mcbar" style="height:80%"></div>
+              <div class="mcbar hi" style="height:100%"></div><div class="mcbar" style="height:55%"></div>
+              <div class="mcbar" style="height:45%"></div><div class="mcbar" style="height:70%"></div>
+              <div class="mcbar" style="height:30%"></div><div class="mcbar" style="height:65%"></div>
+              <div class="mcbar" style="height:90%"></div><div class="mcbar hi" style="height:75%"></div>
             </div>
           </div>
-          <div class="b">
-            <div class="b-label">Savings</div>
-            <div class="b-val dim">₹42,500</div>
-          </div>
-          <div class="b">
-            <div class="b-label">Streak</div>
-            <div class="b-val yellow">22 days</div>
-          </div>
+          <div class="b"><div class="b-label">Savings</div><div class="b-val dim">₹42,500</div></div>
+          <div class="b"><div class="b-label">Streak</div><div class="b-val yellow">22 days</div></div>
         </div>
         <div style="padding:0 6px 6px">
           <div class="b">
             <div class="b-label" style="margin-bottom:.5rem">Recent</div>
             <div class="tx-item">
-              <div class="tx-dot tx-d1">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </div>
+              <div class="tx-dot tx-d1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
               <div class="tx-info"><div class="tx-name">Big Basket</div><div class="tx-cat">Groceries</div></div>
               <div class="tx-amt neg">-₹840</div>
             </div>
             <div class="tx-item">
-              <div class="tx-dot tx-d2">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
+              <div class="tx-dot tx-d2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
               <div class="tx-info"><div class="tx-name">Salary</div><div class="tx-cat">Income</div></div>
               <div class="tx-amt pos">+₹65,000</div>
             </div>
             <div class="tx-item">
-              <div class="tx-dot tx-d3">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-              </div>
+              <div class="tx-dot tx-d3"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
               <div class="tx-info"><div class="tx-name">Blue Tokai</div><div class="tx-cat">Food &amp; Drink</div></div>
               <div class="tx-amt neg">-₹380</div>
             </div>
@@ -670,86 +525,81 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   <div class="max">
     <div class="s-label">Core Pillars</div>
     <h2 class="s-title">Engineered for <em>clarity.</em></h2>
-    <p class="s-sub" style="max-width:500px">Six architectural decisions that make Minty unlike anything you've used before.</p>
+    <p class="s-sub" style="max-width:500px">Eight architectural decisions that make Minty unlike anything you've used before.</p>
     <div class="pillars-grid">
-
       <div class="pillar reveal wide">
         <div class="p-num">01</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        </div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
         <div class="p-title">The Bento UI System</div>
-        <div class="p-desc">Inspired by modular Japanese design, our Bento-style dashboard organises your financial life into clean, interactive blocks — curated to reduce cognitive load and deliver instant spatial awareness. Real-time summaries at a glance.</div>
-        <div class="p-chip">Spatial Discovery</div>
+        <div class="p-desc">Inspired by modular Japanese design, our Bento-style dashboard organises your financial life into clean, interactive blocks — frosted glassmorphism, spring physics, and tactile haptic feedback. Credits pulse UP, Debits press DOWN. UI that actually feels alive in your hands.</div>
+        <div class="p-chip">Spatial Discovery · Spring Physics</div>
       </div>
-
       <div class="pillar reveal">
         <div class="p-num">02</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <div class="p-title">24-Hour Micro-Insights</div>
         <div class="p-desc">A fixed timeline chart centred on "Now" — so you always understand where you stand in the present moment, not just at month end.</div>
         <div class="p-chip">Temporal Context</div>
       </div>
-
       <div class="pillar reveal">
         <div class="p-num">03</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <div class="p-title">Multi-Wallet Architecture</div>
-        <div class="p-desc">Personal and Savings wallets free. Unlock Super Wallets for specialised budgeting. Global base-currency reconciliation instantly.</div>
-        <div class="p-chip">Smart Budgeting</div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="p-title">SMS Intelligence Engine</div>
+        <div class="p-desc">Reads your bank SMS alerts natively on-device. You swipe your card → Minty logs it. No cloud servers, no 3rd party SDKs, zero manual entry. Powered by a hyper-optimised native Kotlin engine.</div>
+        <div class="p-chip">Zero-Effort · On-Device</div>
       </div>
-
       <div class="pillar reveal">
         <div class="p-num">04</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div class="p-title">Multi-Wallet Architecture</div>
+        <div class="p-desc">Personal and Savings wallets free. Unlock Pro for 10 wallets. Elite for unlimited. Global base-currency reconciliation instantly.</div>
+        <div class="p-chip">Smart Budgeting</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="p-num">05</div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div class="p-title">AI Financial Advisor</div>
+        <div class="p-desc">Not a chatbot — a ruthless, personalised analyst. It knows your income, spots your leaks, and hits you with hard truths: "You spent ₹4,200 on Zomato this week… that's 38% above normal."</div>
+        <div class="p-chip">Personalised Analysis</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="p-num">06</div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="p-title">Haptic Feedback Engine</div>
         <div class="p-desc">Heavy, medium, and light haptic layers woven into every transaction — so each financial decision <em>feels</em> significant and reinforces discipline.</div>
         <div class="p-chip">Tactile Control</div>
       </div>
-
       <div class="pillar reveal">
-        <div class="p-num">05</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="p-title">SMS Intelligence</div>
-        <div class="p-desc">Automated parsing of bank alert SMSes for zero-effort entry. Permission-based, privacy-first. Your transactions captured before you blink.</div>
-        <div class="p-chip">Zero-Effort Entry</div>
+        <div class="p-num">07</div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+        <div class="p-title">Shake-to-Add Mode</div>
+        <div class="p-desc">For cash transactions. Physically shake your phone on the home screen and the expense adder blasts open in &lt;0.3s. The fastest manual input ever designed for a finance app.</div>
+        <div class="p-chip">0.3s Launch</div>
       </div>
-
       <div class="pillar reveal">
-        <div class="p-num">06</div>
-        <div class="p-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
+        <div class="p-num">08</div>
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
         <div class="p-title">Layered Architecture</div>
-        <div class="p-desc">Riverpod reactive state, Hive NoSQL, atomic JSON services, and isolate-based Workmanager background tasks — smooth UI, safe vault.</div>
-        <div class="p-chip">Flutter · Riverpod · Hive</div>
+        <div class="p-desc">Riverpod reactive state, Hive NoSQL, atomic JSON services, and isolate-based Workmanager background tasks — smooth 120fps UI, secure local vault.</div>
+        <div class="p-chip">Flutter · Riverpod · Hive · Kotlin</div>
       </div>
-
     </div>
   </div>
 </section>
 
 <hr class="ydivider">
 
-<!-- ═══ APP SCREENS SHOWCASE ═══ -->
+<!-- ═══ APP SCREENS SHOWCASE (clickable) ═══ -->
 <section class="screens-section" id="screens">
   <div class="max" style="margin-bottom:3rem">
     <div class="s-label">In the Wild</div>
     <h2 class="s-title">Every screen, <em>considered.</em></h2>
-    <p class="s-sub" style="max-width:480px">A unified design language flows across every view. Nothing is an afterthought.</p>
+    <p class="s-sub" style="max-width:480px">Tap any screen card to explore what's inside. A unified design language flows across every view.</p>
   </div>
   <div style="overflow:hidden;mask:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);">
     <div class="screens-track" id="screenTrack">
-      <!-- Card 1 -->
-      <div class="screen-card">
+      <!-- Card: Personal Wallet -->
+      <div class="screen-card" onclick="openModal('personal')" title="Personal Wallet">
         <div class="screen-inner">
           <div class="sc-hdr">Personal</div>
           <div class="sc-bal">₹9,468</div>
@@ -768,16 +618,12 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
             <div class="sc-row"><span class="sc-row-l">Salary</span><span class="sc-row-r g">+₹65k</span></div>
             <div class="sc-row"><span class="sc-row-l">Coffee</span><span class="sc-row-r r">-₹380</span></div>
           </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot a"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-          </div>
+          <div class="sc-footer"><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div></div>
         </div>
+        <div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <!-- Card 2 -->
-      <div class="screen-card">
+      <!-- Card: Analytics -->
+      <div class="screen-card" onclick="openModal('analytics')" title="Analytics">
         <div class="screen-inner">
           <div class="sc-hdr">Analytics</div>
           <div class="sc-bal">₹24,190</div>
@@ -796,16 +642,12 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
             <div class="sc-row"><span class="sc-row-l">Travel</span><span class="sc-row-r y">₹5,100</span></div>
             <div class="sc-row"><span class="sc-row-l">Bills</span><span class="sc-row-r r">₹10,850</span></div>
           </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot a"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-          </div>
+          <div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div></div>
         </div>
+        <div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <!-- Card 3 -->
-      <div class="screen-card">
+      <!-- Card: Savings -->
+      <div class="screen-card" onclick="openModal('savings')" title="Savings Vault">
         <div class="screen-inner">
           <div class="sc-hdr">Savings</div>
           <div class="sc-bal">₹42,500</div>
@@ -824,16 +666,34 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
             <div class="sc-row"><span class="sc-row-l">Vacation</span><span class="sc-row-r g">₹12k</span></div>
             <div class="sc-row"><span class="sc-row-l">Gadgets</span><span class="sc-row-r y">₹15.5k</span></div>
           </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot a"></div>
-            <div class="sc-nav-dot"></div>
-          </div>
+          <div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div></div>
         </div>
+        <div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <!-- Card 4 -->
-      <div class="screen-card">
+      <!-- Card: AI Advisor -->
+      <div class="screen-card" onclick="openModal('ai')" title="AI Advisor">
+        <div class="screen-inner">
+          <div class="sc-hdr" style="color:var(--mint)">AI Advisor</div>
+          <div style="padding:.4rem .8rem .6rem">
+            <div style="background:rgba(61,220,132,.08);border:1px solid rgba(61,220,132,.15);border-radius:12px;padding:.6rem;margin-bottom:.4rem">
+              <div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">INSIGHT</div>
+              <div style="font-size:.58rem;color:var(--mint);line-height:1.5">₹4,200 on Zomato this week. 38% above your norm.</div>
+            </div>
+            <div style="background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.15);border-radius:12px;padding:.6rem;margin-bottom:.4rem">
+              <div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">FORECAST</div>
+              <div style="font-size:.58rem;color:var(--yellow);line-height:1.5">At this pace, you'll overshoot budget by ₹6,800</div>
+            </div>
+            <div style="background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.15);border-radius:12px;padding:.6rem">
+              <div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">LEAK</div>
+              <div style="font-size:.58rem;color:#f87171;line-height:1.5">Subscriptions: 3 unused, burning ₹899/mo</div>
+            </div>
+          </div>
+          <div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a" style="background:var(--mint)"></div></div>
+        </div>
+        <div class="tap-hint">TAP TO EXPLORE</div>
+      </div>
+      <!-- Card: Add Entry / Shake -->
+      <div class="screen-card" onclick="openModal('shake')" title="Shake to Add">
         <div class="screen-inner">
           <div class="sc-hdr">Add Entry</div>
           <div style="padding:.5rem .8rem">
@@ -846,110 +706,31 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
             <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Bills</div>
             <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Other</div>
           </div>
-          <div style="padding:.4rem .8rem;flex:1">
-            <div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink);margin-top:.5rem">Save Transaction</div>
+          <div style="padding:.4rem .8rem;margin-top:.3rem">
+            <div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink)">Save Transaction</div>
           </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot"></div>
-            <div class="sc-nav-dot a"></div>
+          <div style="padding:.3rem .8rem;text-align:center">
+            <div style="font-size:.5rem;color:var(--text3);font-family:'Geist Mono',monospace;letter-spacing:1px">🤳 SHAKE TO OPEN IN 0.3s</div>
           </div>
+          <div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div></div>
         </div>
+        <div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <!-- Duplicate for infinite scroll -->
-      <div class="screen-card">
-        <div class="screen-inner">
-          <div class="sc-hdr">Personal</div>
-          <div class="sc-bal">₹9,468</div>
-          <div class="sc-sub">+12.4% STABLE · this month</div>
-          <div class="sc-bar"></div>
-          <div class="sc-chart">
-            <div class="sc-b" style="height:40%;background:rgba(245,200,66,.3)"></div>
-            <div class="sc-b" style="height:65%;background:rgba(245,200,66,.5)"></div>
-            <div class="sc-b" style="height:30%;background:rgba(245,200,66,.3)"></div>
-            <div class="sc-b" style="height:90%;background:#3ddc84"></div>
-            <div class="sc-b" style="height:55%;background:rgba(245,200,66,.4)"></div>
-            <div class="sc-b" style="height:45%;background:rgba(245,200,66,.3)"></div>
-          </div>
-          <div class="sc-list">
-            <div class="sc-row"><span class="sc-row-l">General</span><span class="sc-row-r r">-₹55</span></div>
-            <div class="sc-row"><span class="sc-row-l">Salary</span><span class="sc-row-r g">+₹65k</span></div>
-            <div class="sc-row"><span class="sc-row-l">Coffee</span><span class="sc-row-r r">-₹380</span></div>
-          </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div>
-          </div>
-        </div>
+      <!-- DUPLICATE SET for infinite scroll -->
+      <div class="screen-card" onclick="openModal('personal')">
+        <div class="screen-inner"><div class="sc-hdr">Personal</div><div class="sc-bal">₹9,468</div><div class="sc-sub">+12.4% STABLE · this month</div><div class="sc-bar"></div><div class="sc-chart"><div class="sc-b" style="height:40%;background:rgba(245,200,66,.3)"></div><div class="sc-b" style="height:65%;background:rgba(245,200,66,.5)"></div><div class="sc-b" style="height:30%;background:rgba(245,200,66,.3)"></div><div class="sc-b" style="height:90%;background:#3ddc84"></div><div class="sc-b" style="height:55%;background:rgba(245,200,66,.4)"></div><div class="sc-b" style="height:45%;background:rgba(245,200,66,.3)"></div></div><div class="sc-list"><div class="sc-row"><span class="sc-row-l">General</span><span class="sc-row-r r">-₹55</span></div><div class="sc-row"><span class="sc-row-l">Salary</span><span class="sc-row-r g">+₹65k</span></div><div class="sc-row"><span class="sc-row-l">Coffee</span><span class="sc-row-r r">-₹380</span></div></div><div class="sc-footer"><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div></div></div><div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <div class="screen-card">
-        <div class="screen-inner">
-          <div class="sc-hdr">Analytics</div>
-          <div class="sc-bal">₹24,190</div>
-          <div class="sc-sub">SPENT · this month</div>
-          <div class="sc-bar" style="background:linear-gradient(90deg,#f87171,#f5c842)"></div>
-          <div class="sc-chart">
-            <div class="sc-b" style="height:70%;background:rgba(248,113,113,.4)"></div>
-            <div class="sc-b" style="height:45%;background:rgba(248,113,113,.3)"></div>
-            <div class="sc-b" style="height:88%;background:#f87171"></div>
-            <div class="sc-b" style="height:30%;background:rgba(248,113,113,.2)"></div>
-            <div class="sc-b" style="height:60%;background:rgba(248,113,113,.35)"></div>
-            <div class="sc-b" style="height:50%;background:rgba(248,113,113,.3)"></div>
-          </div>
-          <div class="sc-list">
-            <div class="sc-row"><span class="sc-row-l">Food</span><span class="sc-row-r r">₹8,240</span></div>
-            <div class="sc-row"><span class="sc-row-l">Travel</span><span class="sc-row-r y">₹5,100</span></div>
-            <div class="sc-row"><span class="sc-row-l">Bills</span><span class="sc-row-r r">₹10,850</span></div>
-          </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div>
-          </div>
-        </div>
+      <div class="screen-card" onclick="openModal('analytics')">
+        <div class="screen-inner"><div class="sc-hdr">Analytics</div><div class="sc-bal">₹24,190</div><div class="sc-sub">SPENT · this month</div><div class="sc-bar" style="background:linear-gradient(90deg,#f87171,#f5c842)"></div><div class="sc-chart"><div class="sc-b" style="height:70%;background:rgba(248,113,113,.4)"></div><div class="sc-b" style="height:45%;background:rgba(248,113,113,.3)"></div><div class="sc-b" style="height:88%;background:#f87171"></div><div class="sc-b" style="height:30%;background:rgba(248,113,113,.2)"></div><div class="sc-b" style="height:60%;background:rgba(248,113,113,.35)"></div><div class="sc-b" style="height:50%;background:rgba(248,113,113,.3)"></div></div><div class="sc-list"><div class="sc-row"><span class="sc-row-l">Food</span><span class="sc-row-r r">₹8,240</span></div><div class="sc-row"><span class="sc-row-l">Travel</span><span class="sc-row-r y">₹5,100</span></div><div class="sc-row"><span class="sc-row-l">Bills</span><span class="sc-row-r r">₹10,850</span></div></div><div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div></div></div><div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <div class="screen-card">
-        <div class="screen-inner">
-          <div class="sc-hdr">Savings</div>
-          <div class="sc-bal">₹42,500</div>
-          <div class="sc-sub">VAULT · growing</div>
-          <div class="sc-bar" style="background:linear-gradient(90deg,#3ddc84,#a8f0c8)"></div>
-          <div class="sc-chart">
-            <div class="sc-b" style="height:30%;background:rgba(61,220,132,.3)"></div>
-            <div class="sc-b" style="height:40%;background:rgba(61,220,132,.4)"></div>
-            <div class="sc-b" style="height:55%;background:rgba(61,220,132,.5)"></div>
-            <div class="sc-b" style="height:65%;background:rgba(61,220,132,.6)"></div>
-            <div class="sc-b" style="height:80%;background:rgba(61,220,132,.7)"></div>
-            <div class="sc-b" style="height:100%;background:#3ddc84"></div>
-          </div>
-          <div class="sc-list">
-            <div class="sc-row"><span class="sc-row-l">Emergency</span><span class="sc-row-r g">₹15k</span></div>
-            <div class="sc-row"><span class="sc-row-l">Vacation</span><span class="sc-row-r g">₹12k</span></div>
-            <div class="sc-row"><span class="sc-row-l">Gadgets</span><span class="sc-row-r y">₹15.5k</span></div>
-          </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div>
-          </div>
-        </div>
+      <div class="screen-card" onclick="openModal('savings')">
+        <div class="screen-inner"><div class="sc-hdr">Savings</div><div class="sc-bal">₹42,500</div><div class="sc-sub">VAULT · growing</div><div class="sc-bar" style="background:linear-gradient(90deg,#3ddc84,#a8f0c8)"></div><div class="sc-chart"><div class="sc-b" style="height:30%;background:rgba(61,220,132,.3)"></div><div class="sc-b" style="height:40%;background:rgba(61,220,132,.4)"></div><div class="sc-b" style="height:55%;background:rgba(61,220,132,.5)"></div><div class="sc-b" style="height:65%;background:rgba(61,220,132,.6)"></div><div class="sc-b" style="height:80%;background:rgba(61,220,132,.7)"></div><div class="sc-b" style="height:100%;background:#3ddc84"></div></div><div class="sc-list"><div class="sc-row"><span class="sc-row-l">Emergency</span><span class="sc-row-r g">₹15k</span></div><div class="sc-row"><span class="sc-row-l">Vacation</span><span class="sc-row-r g">₹12k</span></div><div class="sc-row"><span class="sc-row-l">Gadgets</span><span class="sc-row-r y">₹15.5k</span></div></div><div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div><div class="sc-nav-dot"></div></div></div><div class="tap-hint">TAP TO EXPLORE</div>
       </div>
-      <div class="screen-card">
-        <div class="screen-inner">
-          <div class="sc-hdr">Add Entry</div>
-          <div style="padding:.5rem .8rem">
-            <div style="font-size:.55rem;color:var(--text3);font-family:'Geist Mono',monospace;letter-spacing:1px;margin-bottom:.3rem">AMOUNT</div>
-            <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--yellow);padding:.4rem .5rem;background:var(--card);border-radius:10px;border:1px solid rgba(245,200,66,.2)">₹1,200</div>
-          </div>
-          <div style="padding:.4rem .8rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
-            <div style="background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--mint)">Food</div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Travel</div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Bills</div>
-            <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Other</div>
-          </div>
-          <div style="padding:.4rem .8rem;flex:1">
-            <div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink);margin-top:.5rem">Save Transaction</div>
-          </div>
-          <div class="sc-footer">
-            <div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div>
-          </div>
-        </div>
+      <div class="screen-card" onclick="openModal('ai')">
+        <div class="screen-inner"><div class="sc-hdr" style="color:var(--mint)">AI Advisor</div><div style="padding:.4rem .8rem .6rem"><div style="background:rgba(61,220,132,.08);border:1px solid rgba(61,220,132,.15);border-radius:12px;padding:.6rem;margin-bottom:.4rem"><div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">INSIGHT</div><div style="font-size:.58rem;color:var(--mint);line-height:1.5">₹4,200 on Zomato this week. 38% above norm.</div></div><div style="background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.15);border-radius:12px;padding:.6rem;margin-bottom:.4rem"><div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">FORECAST</div><div style="font-size:.58rem;color:var(--yellow);line-height:1.5">At this pace, budget overshoot by ₹6,800</div></div><div style="background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.15);border-radius:12px;padding:.6rem"><div style="font-size:.48rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.25rem">LEAK</div><div style="font-size:.58rem;color:#f87171;line-height:1.5">3 unused subscriptions, ₹899/mo</div></div></div><div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a" style="background:var(--mint)"></div></div></div><div class="tap-hint">TAP TO EXPLORE</div>
+      </div>
+      <div class="screen-card" onclick="openModal('shake')">
+        <div class="screen-inner"><div class="sc-hdr">Add Entry</div><div style="padding:.5rem .8rem"><div style="font-size:.55rem;color:var(--text3);font-family:'Geist Mono',monospace;margin-bottom:.3rem">AMOUNT</div><div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--yellow);padding:.4rem .5rem;background:var(--card);border-radius:10px;border:1px solid rgba(245,200,66,.2)">₹1,200</div></div><div style="padding:.4rem .8rem;display:grid;grid-template-columns:1fr 1fr;gap:.4rem"><div style="background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--mint)">Food</div><div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Travel</div><div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Bills</div><div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.4rem;text-align:center;font-size:.55rem;color:var(--text3)">Other</div></div><div style="padding:.4rem .8rem;margin-top:.3rem"><div style="background:var(--yellow);border-radius:12px;padding:.6rem;text-align:center;font-size:.7rem;font-weight:700;color:var(--ink)">Save Transaction</div></div><div style="padding:.3rem .8rem;text-align:center"><div style="font-size:.5rem;color:var(--text3);font-family:'Geist Mono',monospace">🤳 SHAKE TO OPEN IN 0.3s</div></div><div class="sc-footer"><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot"></div><div class="sc-nav-dot a"></div></div></div><div class="tap-hint">TAP TO EXPLORE</div>
       </div>
     </div>
   </div>
@@ -957,7 +738,76 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
 
 <hr class="ydivider">
 
-<!-- ═══ ABOUT ═══ -->
+<!-- ═══ PRIVACY ═══ -->
+<section class="privacy-section" id="privacy">
+  <div class="max">
+    <div class="s-label">Privacy First</div>
+    <h2 class="s-title">Paranoia-Level <em>Protection.</em></h2>
+    <p class="s-sub" style="max-width:520px">Financial data is your most sensitive data. Minty is built with paranoia. You are the user — not the product.</p>
+    <div class="privacy-grid">
+      <div class="priv-card reveal">
+        <div class="priv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="priv-title">Zero-Knowledge SMS</div>
+        <div class="priv-desc">The SMS engine runs 100% locally. No API call, no cloud transfer. Bank messages never leave your device.</div>
+        <div class="priv-badge">ON-DEVICE ONLY</div>
+      </div>
+      <div class="priv-card reveal">
+        <div class="priv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div class="priv-title">Local-First Database</div>
+        <div class="priv-desc">Your transaction data stays on your device. Period. Hive NoSQL with AES-256 encryption at rest.</div>
+        <div class="priv-badge">LOCAL STORAGE</div>
+      </div>
+      <div class="priv-card reveal">
+        <div class="priv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="priv-title">Ghost Mode Sync</div>
+        <div class="priv-desc">Only profile metrics are cloud-backed. Actual transaction amounts are firewalled in encrypted local storage — never synced raw.</div>
+        <div class="priv-badge">ENCRYPTED</div>
+      </div>
+      <div class="priv-card reveal">
+        <div class="priv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+        <div class="priv-title">No Trackers. Ever.</div>
+        <div class="priv-desc">No ad-caching, no data selling, no 3rd party analytics SDKs inside the app. TLS 1.3 in transit. Servers hosted in India.</div>
+        <div class="priv-badge">ZERO ADS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="ydivider">
+
+<!-- ═══ IMPACT ═══ -->
+<section class="impact-section" id="impact">
+  <div class="max">
+    <div class="s-label">Real Impact</div>
+    <h2 class="s-title">The Minty <em>Effect.</em></h2>
+    <p class="s-sub" style="max-width:480px;margin:0 auto">Minty users report saving 3–5× more within the first 60 days. Not because they budget harder, but because they finally <em>see</em> the leaks.</p>
+    <div class="impact-box reveal">
+      <div class="impact-row">
+        <div class="impact-col-bad">
+          <div class="impact-col-label">WITHOUT MINTY</div>
+          <span class="impact-val">₹43,200</span><span class="impact-key">spent of ₹45,000 salary</span>
+          <span class="impact-val" style="margin-top:.8rem;font-size:1.2rem">₹1,800</span><span class="impact-key">saved / month</span>
+        </div>
+        <div class="impact-arrow">→</div>
+        <div class="impact-col-good">
+          <div class="impact-col-label">WITH MINTY</div>
+          <span class="impact-val" style="color:var(--mint)">₹36,000</span><span class="impact-key">spent of ₹45,000 salary</span>
+          <span class="impact-val" style="margin-top:.8rem;font-size:1.2rem;color:var(--mint)">₹9,000</span><span class="impact-key">saved / month</span>
+        </div>
+      </div>
+      <div class="impact-headline">ANNUAL IMPACT: 5× MORE SAVINGS</div>
+    </div>
+    <div class="modal-stat-row" style="justify-content:center;margin-top:2.5rem;gap:3rem">
+      <div class="modal-stat"><div class="modal-stat-val counter" data-t="60">0</div><div class="modal-stat-key">Days to results</div></div>
+      <div class="modal-stat"><div class="modal-stat-val" style="color:var(--mint)">5×</div><div class="modal-stat-key">More savings</div></div>
+      <div class="modal-stat"><div class="modal-stat-val counter" data-t="50">0</div><div class="modal-stat-key">K+ Users</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="ydivider">
+
+<!-- ═══ ABOUT / STACK ═══ -->
 <section id="about" style="background:var(--ink)">
   <div class="about-grid">
     <div class="reveal">
@@ -966,18 +816,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
       <p class="s-sub" style="margin-bottom:1.5rem">Most apps tell you <em>what</em> you spent. Minty helps you understand <em>why</em>. Our design centres on Financial Mindfulness — clarity of intent, immediate awareness, and tactile control.</p>
       <p class="s-sub" style="margin-bottom:2rem">Built in the Mint Monochromatic System: deep-green hues that reduce eye strain, 50px curvature for organic premium feel, and a Zero-Placeholder Policy — every icon earns its place.</p>
       <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
-        <div style="text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--yellow)">100%</div>
-          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Open Source</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--mint)">0</div>
-          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Ads Ever</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--text)">India</div>
-          <div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Made With Love</div>
-        </div>
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--yellow)">100%</div><div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Open Source</div></div>
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--mint)">0</div><div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Ads Ever</div></div>
+        <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--text)">India</div><div style="font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:'Geist Mono',monospace">Made With Love</div></div>
       </div>
     </div>
     <div class="about-visual reveal">
@@ -985,10 +826,12 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
       <div class="stack-item"><span class="si-key">Framework</span><span class="si-val">Flutter (Custom Painter)</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">State</span><span class="si-val">Riverpod</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">Database</span><span class="si-val">Hive NoSQL + JSON</span><span class="si-dot"></span></div>
-      <div class="stack-item"><span class="si-key">License</span><span class="si-val">MIT Open Source</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">Native</span><span class="si-val">Kotlin (SMS + Haptics)</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">Auth</span><span class="si-val">Firebase · Google Sign-In</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">Payments</span><span class="si-val">Razorpay</span><span class="si-dot"></span></div>
       <div class="stack-item"><span class="si-key">Background</span><span class="si-val">Workmanager Isolates</span><span class="si-dot"></span></div>
-      <div class="stack-item"><span class="si-key">Typography</span><span class="si-val">Playfair Display + Lato</span><span class="si-dot"></span></div>
-      <div class="stack-item"><span class="si-key">Security</span><span class="si-val">Secure Storage API</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">Security</span><span class="si-val">AES-256 · TLS 1.3</span><span class="si-dot"></span></div>
+      <div class="stack-item"><span class="si-key">License</span><span class="si-val">MIT Open Source</span><span class="si-dot"></span></div>
     </div>
   </div>
 </section>
@@ -1000,58 +843,51 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   <div class="max" style="text-align:center">
     <div class="s-label">Pricing</div>
     <h2 class="s-title">Honest.<br><em>Transparent.</em></h2>
-    <p class="s-sub" style="max-width:420px;margin:0 auto">Start free forever. Support development when you're ready.</p>
+    <p class="s-sub" style="max-width:420px;margin:0 auto">You're trying to save money, not bleed it. Our pricing reflects that.</p>
     <div class="pricing-grid">
-
       <div class="p-card reveal">
-        <div class="p-tier">Baseline</div>
+        <div class="p-tier">🌱 Basic</div>
         <div class="p-price">₹0</div>
         <div class="p-cycle">free forever · open source</div>
         <ul class="p-list">
-          <li>Personal &amp; Savings wallets</li>
-          <li>Basic Bento dashboard</li>
-          <li>24h micro-insight chart</li>
-          <li>Manual transaction entry</li>
+          <li>1 Wallet</li>
+          <li>20 SMS reads / day</li>
+          <li>15 Shakes / day</li>
+          <li>4 AI Insights / day</li>
+          <li>2 Months History</li>
           <li>Full source code access</li>
         </ul>
-        <a class="btn-ghost" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          Clone on GitHub
-        </a>
+        <a class="btn-ghost" style="width:100%;justify-content:center" href="https://minty41.netlify.app/" target="_blank">Clone on GitHub</a>
       </div>
-
       <div class="p-card featured reveal">
-        <div class="p-tier">Minty Pro</div>
-        <div class="p-price yellow">₹100</div>
+        <div class="p-tier">⚡ Minty Pro</div>
+        <div class="p-price yellow">₹99</div>
         <div class="p-cycle">per month · cancel anytime</div>
         <ul class="p-list">
-          <li>Unlimited Super Wallets</li>
-          <li>SMS Intelligence (auto-entry)</li>
-          <li>Advanced haptic engine</li>
-          <li>Cross-device sync</li>
+          <li>10 Wallets</li>
+          <li>300 SMS reads / month</li>
+          <li>200 Shakes / month</li>
+          <li>10 AI Insights / day</li>
+          <li>1 Year History</li>
           <li>Priority support</li>
-          <li>Early feature access</li>
         </ul>
-        <a class="btn-mint" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
-          Get Pro — ₹100/mo
-        </a>
+        <a class="btn-mint" style="width:100%;justify-content:center" href="https://minty41.netlify.app/" target="_blank">Get Pro — ₹99/mo</a>
       </div>
-
-      <div class="p-card reveal">
-        <div class="p-tier">Lifetime Vault</div>
-        <div class="p-price">₹400</div>
-        <div class="p-cycle">one-time · pay once, own forever</div>
-        <ul class="p-list">
-          <li>Everything in Pro</li>
-          <li>Lifetime updates</li>
-          <li>Founders Edition badge</li>
-          <li>Name in contributors list</li>
+      <div class="p-card elite-card reveal">
+        <div class="p-tier">👑 Elite</div>
+        <div class="p-price mint">₹499</div>
+        <div class="p-cycle">per year · pay once</div>
+        <div class="p-savings">💰 SAVE 58% VS MONTHLY</div>
+        <ul class="p-list mint-bullets">
+          <li>10 Wallets</li>
+          <li>Unlimited SMS reads</li>
+          <li>Unlimited Shakes</li>
+          <li>Unlimited AI Insights</li>
+          <li>Lifetime History</li>
+          <li>Founders Badge + Contributors list</li>
         </ul>
-        <a class="btn-ghost" style="width:100%;justify-content:center;text-decoration:none" href="https://github.com/" target="_blank">
-          Buy Lifetime — ₹400
-        </a>
+        <a class="btn-mint" style="width:100%;justify-content:center;background:var(--mint)" href="https://minty41.netlify.app/" target="_blank">Go Elite — ₹499/yr</a>
       </div>
-
     </div>
   </div>
 </section>
@@ -1081,7 +917,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
       </div>
       <div class="t-card reveal">
         <div class="t-stars">★★★★★</div>
-        <div class="t-text">"The mint aesthetic is addictive. My phone screen actually looks like money should feel — calm and premium."</div>
+        <div class="t-text">"The AI advisor told me I was burning ₹900/mo on dead subscriptions. Found them in 10 seconds. Paid for the app 10x over."</div>
         <div class="t-author"><div class="t-av">PS</div><div><div class="t-name">Priya S.</div><div class="t-role">Founder, Chennai</div></div></div>
       </div>
     </div>
@@ -1090,127 +926,101 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
 
 <hr class="ydivider">
 
-<!-- ═══ LEGAL CARDS ═══ -->
+<!-- ═══ INDIA / GLOBAL ═══ -->
+<section class="india-section" id="india">
+  <div class="max">
+    <div class="s-label">Built for India · Ready for the World</div>
+    <h2 class="s-title">Indian DNA. <em>Global</em> reach.</h2>
+    <p class="s-sub" style="max-width:520px">Minty's DNA is Indian 🇮🇳, engineered for universal use. Deep UPI integration meets a global currency engine.</p>
+    <div class="india-grid">
+      <div class="india-card reveal">
+        <h3>🇮🇳 Deep UPI Integration</h3>
+        <p>Flawless parsing for 20+ Indian banks, UPI apps, and payment rails. If a bank sends an SMS alert, Minty reads it.</p>
+        <div class="bank-chips">
+          <div class="bank-chip">HDFC</div><div class="bank-chip">SBI</div><div class="bank-chip">ICICI</div>
+          <div class="bank-chip">Axis</div><div class="bank-chip">Kotak</div><div class="bank-chip">Paytm</div>
+          <div class="bank-chip">PhonePe</div><div class="bank-chip">GPay</div><div class="bank-chip">IMPS</div>
+          <div class="bank-chip">NEFT</div><div class="bank-chip">+10 more</div>
+        </div>
+      </div>
+      <div class="india-card reveal">
+        <h3>🌍 Global Currency Engine</h3>
+        <p>Native support for 7 major currencies with live, real-time exchange rates. Your base currency reconciles everything automatically.</p>
+        <div class="currency-list">
+          <div class="cur-item">₹ INR</div><div class="cur-item">$ USD</div><div class="cur-item">€ EUR</div>
+          <div class="cur-item">£ GBP</div><div class="cur-item">¥ JPY</div><div class="cur-item">A$ AUD</div>
+          <div class="cur-item">C$ CAD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="ydivider">
+
+<!-- ═══ LEGAL ═══ -->
 <section class="legal-section" id="legal">
   <div class="max">
     <div class="s-label">Legal</div>
     <h2 class="s-title">Clear &amp; <em>honest.</em></h2>
-    <p class="s-sub" style="max-width:480px">No lawyer-speak. Tap any card to read the full document right here — no new tabs.</p>
+    <p class="s-sub" style="max-width:480px">No lawyer-speak. Tap any card to read the full document — no new tabs.</p>
     <div class="legal-grid">
-
       <div class="leg-card">
-        <div class="leg-card-hdr">
-          <div class="leg-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <div class="leg-title">Terms of Service</div>
-        </div>
+        <div class="leg-card-hdr"><div class="leg-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="leg-title">Terms of Service</div></div>
         <div class="leg-preview">By downloading or using Minty, you agree to these Terms. Governs your license to use the app, subscriptions, prohibited conduct, and intellectual property rights.</div>
-        <button class="leg-expand-btn" onclick="toggleLegal(this)">
-          Read Full Terms
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">Read Full Terms <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="leg-body">
           <div class="leg-date">Effective: 1 January 2025 · Minty Technologies Pvt. Ltd.</div>
           <h3>1. Acceptance</h3><p>Access to Minty constitutes acceptance of these Terms. If you disagree, do not use the app.</p>
           <h3>2. License</h3><p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes.</p>
-          <h3>3. Subscriptions & Payments</h3><p>Minty offers a Free tier, a Pro plan (₹100/month), and a Lifetime Vault (₹400 one-time). All prices include applicable GST. Subscription auto-renews unless cancelled before the renewal date.</p>
-          <h3>4. Cancellation</h3><p>Cancel anytime from account settings. Access continues until period end. Lifetime licenses are non-refundable except as required by law.</p>
-          <h3>5. Prohibited Conduct</h3><ul><li>Reverse-engineering, decompiling, or disassembling the App</li><li>Using automated scripts to extract data</li><li>Sharing account credentials</li><li>Using the App for unlawful purposes</li></ul>
-          <h3>6. Intellectual Property</h3><p>All content, designs, trademarks, and code are the exclusive property of Minty Technologies Pvt. Ltd. and protected under applicable law. Source code is MIT licensed.</p>
-          <h3>7. Limitation of Liability</h3><p>To the fullest extent permitted by law, Minty shall not be liable for indirect, incidental, or consequential damages arising from your use of the App.</p>
-          <h3>8. Governing Law</h3><p>These Terms are governed by the laws of India. Disputes fall under the exclusive jurisdiction of courts in Bengaluru, Karnataka.</p>
+          <h3>3. Subscriptions & Payments</h3><p>Minty offers a Free tier, a Pro plan (₹99/month), and an Elite plan (₹499/year). All prices include applicable GST. Subscription auto-renews unless cancelled before the renewal date.</p>
+          <h3>4. Cancellation</h3><p>Cancel anytime from account settings. Access continues until period end. Elite licenses are non-refundable except as required by law.</p>
+          <h3>5. Prohibited Conduct</h3><ul><li>Reverse-engineering or decompiling the App</li><li>Using automated scripts to extract data</li><li>Sharing account credentials</li><li>Using the App for unlawful purposes</li></ul>
+          <h3>6. Intellectual Property</h3><p>All content, designs, and trademarks are the exclusive property of Minty Technologies Pvt. Ltd. Source code is MIT licensed.</p>
+          <h3>7. Limitation of Liability</h3><p>To the fullest extent permitted by law, Minty shall not be liable for indirect, incidental, or consequential damages.</p>
+          <h3>8. Governing Law</h3><p>Laws of India. Disputes fall under the exclusive jurisdiction of courts in Bengaluru, Karnataka.</p>
           <h3>9. Contact</h3><p>legal@mintyapp.in</p>
         </div>
       </div>
-
       <div class="leg-card">
-        <div class="leg-card-hdr">
-          <div class="leg-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="leg-title">Privacy Policy</div>
-        </div>
-        <div class="leg-preview">Minty is built on trust. We explain what we collect, why we collect it, and how we protect it. No data is sold to advertisers, ever.</div>
-        <button class="leg-expand-btn" onclick="toggleLegal(this)">
-          Read Full Policy
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+        <div class="leg-card-hdr"><div class="leg-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="leg-title">Privacy Policy</div></div>
+        <div class="leg-preview">Minty is built on trust. We explain what we collect, why, and how we protect it. No data is sold to advertisers, ever.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">Read Full Policy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="leg-body">
           <div class="leg-date">Effective: 1 January 2025</div>
-          <h3>1. Data We Collect</h3><ul><li><strong>Account data:</strong> name, email, phone</li><li><strong>Financial data:</strong> transactions, wallets, categories (stored locally and optionally synced)</li><li><strong>SMS data:</strong> bank alert messages, only with explicit permission, never uploaded without consent</li><li><strong>Usage data:</strong> app interactions, crash logs (anonymised)</li></ul>
-          <h3>2. How We Use It</h3><ul><li>To provide and personalise the Minty experience</li><li>To send transactional emails and security alerts</li><li>To improve the app through anonymised analytics</li></ul>
-          <h3>3. SMS Intelligence</h3><p>SMS parsing is strictly opt-in and permission-based. Messages are processed on-device where possible. We never sell or share SMS content.</p>
-          <h3>4. Data Security</h3><p>AES-256 encryption at rest, TLS 1.3 in transit, Secure Storage API for sensitive tokens. Servers hosted in India (Mumbai region).</p>
-          <h3>5. Your Rights</h3><p>Access, correct, or delete your data at any time. Email privacy@mintyapp.in. Response within 30 days.</p>
-          <h3>6. Contact</h3><p>privacy@mintyapp.in</p>
+          <h3>1. Data We Collect</h3><ul><li>Account data: name, email, phone</li><li>Financial data: transactions, wallets (stored locally)</li><li>SMS data: bank alert messages, only with explicit permission, never uploaded</li><li>Usage data: crash logs (anonymised)</li></ul>
+          <h3>2. SMS Intelligence</h3><p>SMS parsing is strictly opt-in. Messages are processed on-device. We never sell or share SMS content.</p>
+          <h3>3. Data Security</h3><p>AES-256 encryption at rest, TLS 1.3 in transit. Servers hosted in India (Mumbai region).</p>
+          <h3>4. Your Rights</h3><p>Access, correct, or delete your data at any time. Email privacy@mintyapp.in within 30 days.</p>
+          <h3>5. Contact</h3><p>privacy@mintyapp.in</p>
         </div>
       </div>
-
       <div class="leg-card">
-        <div class="leg-card-hdr">
-          <div class="leg-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="leg-title">Refund Policy</div>
-        </div>
-        <div class="leg-preview">We believe in fairness. Pro subscribers get a 7-day full refund window. Lifetime is non-refundable unless we can't fix a critical defect within 14 days.</div>
-        <button class="leg-expand-btn" onclick="toggleLegal(this)">
-          Read Full Policy
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+        <div class="leg-card-hdr"><div class="leg-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="leg-title">Refund Policy</div></div>
+        <div class="leg-preview">Pro subscribers get a 7-day full refund window. Elite is non-refundable unless we can't fix a critical defect within 14 days.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">Read Full Policy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="leg-body">
           <div class="leg-date">Effective: 1 January 2025</div>
-          <h3>Pro Subscription (₹100/mo)</h3><p>You may request a full refund within 7 days of your first purchase by emailing support@mintyapp.in. After 7 days, no refund is issued for the current period, but cancellation stops future charges immediately.</p>
-          <h3>Lifetime Vault (₹400)</h3><p>Lifetime purchases are non-refundable. If a critical defect cannot be resolved within 14 days, a full refund will be issued as an exception.</p>
+          <h3>Pro Subscription (₹99/mo)</h3><p>Full refund within 7 days of first purchase. Email support@mintyapp.in. After 7 days, cancellation stops future charges.</p>
+          <h3>Elite Plan (₹499/yr)</h3><p>Non-refundable. If a critical defect cannot be resolved within 14 days, a full refund is issued.</p>
           <h3>Free Tier</h3><p>No charge, no refund applicable.</p>
-          <h3>How to Request</h3><p>Email support@mintyapp.in with your registered email and transaction ID. Refunds are credited within 5–7 business days to the original payment method.</p>
+          <h3>Contact</h3><p>support@mintyapp.in — credited within 5–7 business days.</p>
         </div>
       </div>
-
       <div class="leg-card">
-        <div class="leg-card-hdr">
-          <div class="leg-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-          </div>
-          <div class="leg-title">Cookie Policy</div>
-        </div>
-        <div class="leg-preview">Our website uses minimal cookies. Essential for authentication, optional analytics you can opt out of. We do not use advertising cookies inside the app.</div>
-        <button class="leg-expand-btn" onclick="toggleLegal(this)">
-          Read Full Policy
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="leg-body">
-          <div class="leg-date">Effective: 1 January 2025</div>
-          <h3>Types of Cookies</h3><ul><li><strong>Essential:</strong> Authentication and security — cannot be disabled</li><li><strong>Analytics:</strong> Anonymised usage data (Firebase) — opt-out available</li><li><strong>Preference:</strong> UI settings, theme, language</li><li><strong>Marketing:</strong> Used only on our website — opt-out available</li></ul>
-          <h3>Managing Cookies</h3><p>Control cookies via your browser settings. Disabling essential cookies may impair site functionality.</p>
-          <h3>Contact</h3><p>privacy@mintyapp.in</p>
-        </div>
-      </div>
-
-      <div class="leg-card">
-        <div class="leg-card-hdr">
-          <div class="leg-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <div class="leg-title">EULA</div>
-        </div>
-        <div class="leg-preview">End User License Agreement. A legal agreement between you and Minty Technologies for the Minty application — what you can and cannot do with the app.</div>
-        <button class="leg-expand-btn" onclick="toggleLegal(this)">
-          Read Full EULA
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+        <div class="leg-card-hdr"><div class="leg-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="leg-title">EULA</div></div>
+        <div class="leg-preview">End User License Agreement — what you can and cannot do with the Minty application. MIT-licensed source code is yours to explore.</div>
+        <button class="leg-expand-btn" onclick="toggleLegal(this)">Read Full EULA <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="leg-body">
           <div class="leg-date">Effective: 1 January 2025</div>
           <h3>1. License Grant</h3><p>A limited, non-exclusive, non-transferable, revocable license to install and use the App on devices you own, for personal non-commercial use.</p>
-          <h3>2. Restrictions</h3><ul><li>No sublicensing, selling, or commercial exploitation</li><li>No copying, modifying, or creating derivative works (outside MIT license terms)</li><li>No use for illegal purposes</li></ul>
-          <h3>3. Open Source</h3><p>The App's source code is available under the MIT license. Contributions are welcome via GitHub.</p>
-          <h3>4. Termination</h3><p>This license terminates automatically upon breach. Upon termination, you must cease all use and delete all copies.</p>
-          <h3>5. Governing Law</h3><p>Laws of India. Exclusive jurisdiction: courts in Bengaluru, Karnataka.</p>
+          <h3>2. Restrictions</h3><ul><li>No sublicensing or commercial exploitation</li><li>No creating derivative works (outside MIT license terms)</li><li>No use for illegal purposes</li></ul>
+          <h3>3. Open Source</h3><p>Source code available under MIT license. Contributions welcome via GitHub.</p>
+          <h3>4. Termination</h3><p>This license terminates automatically upon breach.</p>
+          <h3>5. Governing Law</h3><p>Laws of India. Exclusive jurisdiction: Bengaluru, Karnataka.</p>
           <h3>6. Contact</h3><p>legal@mintyapp.in</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1220,16 +1030,15 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
 <!-- ═══ DOWNLOAD CTA ═══ -->
 <section class="dl-section" id="download">
   <div style="position:relative;z-index:1">
-    <div class="s-label">Open Source</div>
+    <div class="s-label">Open Source · MIT Licensed</div>
     <h2 class="s-title" style="font-size:clamp(2.2rem,5vw,4rem);margin-bottom:.8rem">Your financial<br><em>zen</em> awaits.</h2>
     <p class="s-sub" style="max-width:400px;margin:.8rem auto 2.5rem">Free to start. Clone the repo, build it yourself, or support development with a Pro subscription. No gatekeeping.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1">
-      <a class="dl-link" href="https://github.com/" target="_blank">
+      <a class="dl-link" href="https://minty41.netlify.app/" target="_blank">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        Clone on GitHub
-        <span class="dl-badge">MIT</span>
+        Clone on GitHub <span class="dl-badge">MIT</span>
       </a>
-      <a class="dl-link" href="https://github.com/" target="_blank" style="background:rgba(0,0,0,0.08);color:var(--ink);border:2px solid rgba(0,0,0,0.2);">
+      <a class="dl-link" href="https://minty41.netlify.app/" target="_blank" style="background:rgba(0,0,0,0.08);color:var(--ink);border:2px solid rgba(0,0,0,0.2);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download APK
       </a>
@@ -1242,48 +1051,48 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:4rem 3.
   <div class="footer-grid">
     <div>
       <div class="f-logo">Minty</div>
-      <p class="f-desc">A financial consciousness platform designed for those who demand clarity without the clutter. Architecture for the Mindful. Open source under MIT.</p>
+      <p class="f-desc">A financial consciousness platform designed for those who demand clarity without the clutter. Built with Flutter. Open source under MIT. Made with love in India.</p>
       <div class="socials" style="margin-top:1.2rem">
-        <a class="soc" href="https://github.com/" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--text2)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a class="soc">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-        </a>
-        <a class="soc">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
+        <a class="soc" href="https://minty41.netlify.app/" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--text2)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a class="soc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        <a class="soc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
     <div class="f-col"><h4>Product</h4><ul>
-      <li><a onclick="scrollTo('pillars')">Features</a></li>
-      <li><a onclick="scrollTo('pricing')">Pricing</a></li>
-      <li><a onclick="scrollTo('download')">Download</a></li>
-      <li><a href="#">Changelog</a></li>
+      <li><a onclick="goTo('pillars')">Features</a></li>
+      <li><a onclick="goTo('privacy')">Privacy</a></li>
+      <li><a onclick="goTo('pricing')">Pricing</a></li>
+      <li><a onclick="goTo('download')">Download</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a onclick="goTo('about')">About</a></li>
+      <li><a onclick="goTo('impact')">Impact</a></li>
+      <li><a onclick="goTo('india')">Global</a></li>
+      <li><a onclick="goTo('reviews')">Reviews</a></li>
     </ul></div>
     <div class="f-col"><h4>Legal</h4><ul>
-      <li><a onclick="scrollTo('legal')">Terms of Service</a></li>
-      <li><a onclick="scrollTo('legal')">Privacy Policy</a></li>
-      <li><a onclick="scrollTo('legal')">Refund Policy</a></li>
-      <li><a onclick="scrollTo('legal')">EULA</a></li>
+      <li><a onclick="goTo('legal')">Terms of Service</a></li>
+      <li><a onclick="goTo('legal')">Privacy Policy</a></li>
+      <li><a onclick="goTo('legal')">Refund Policy</a></li>
+      <li><a onclick="goTo('legal')">EULA</a></li>
     </ul></div>
   </div>
   <div class="f-bottom">
-    <p>© 2025 Minty Technologies Pvt. Ltd. · All rights reserved · Made with love in India</p>
+    <p>© 2025 Minty Technologies Pvt. Ltd. · All rights reserved · Made with love in India 🇮🇳</p>
     <p>MIT Licensed · Flutter-powered · Open Source</p>
   </div>
 </footer>
 
 <script>
-// ── Smooth scroll ──
-function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+// ── Nav scroll ──
+function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
 
-// ── Custom cursor ──
+// ── Cursor ──
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,cx=0,cy=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
 (function animCur(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur2.style.left=cx+'px';cur2.style.top=cy+'px';requestAnimationFrame(animCur);})();
-document.querySelectorAll('a,button,.p-card,.t-card,.leg-card,.pillar,.screen-card').forEach(el=>{
+document.querySelectorAll('a,button,.p-card,.t-card,.leg-card,.pillar,.screen-card,.priv-card,.india-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.classList.add('big');cur2.classList.add('big');});
   el.addEventListener('mouseleave',()=>{cur.classList.remove('big');cur2.classList.remove('big');});
 });
@@ -1293,73 +1102,185 @@ const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target
 document.querySelectorAll('.reveal,.pillar').forEach(el=>ro.observe(el));
 document.querySelectorAll('.pillar').forEach((el,i)=>{el.style.animationDelay=i*.09+'s';});
 
-// ── Counter ──
+// ── Counters ──
 const co=new IntersectionObserver(e=>{
   e.forEach(x=>{
     if(!x.isIntersecting)return;
     const el=x.target,t=parseFloat(el.dataset.t),dec=t%1!==0;
     const dur=1800,start=performance.now();
-    (function tick(now){
-      const p=Math.min((now-start)/dur,1),v=t*(1-Math.pow(1-p,3));
-      el.textContent=dec?v.toFixed(1):Math.floor(v);
-      if(p<1)requestAnimationFrame(tick);
-    })(start);
+    (function tick(now){const p=Math.min((now-start)/dur,1),v=t*(1-Math.pow(1-p,3));el.textContent=dec?v.toFixed(1):Math.floor(v);if(p<1)requestAnimationFrame(tick);})(start);
     co.unobserve(el);
   });
 },{threshold:.5});
 document.querySelectorAll('.counter').forEach(el=>co.observe(el));
 
-// ── Parallax hero ambient ──
+// ── Parallax ──
 document.addEventListener('mousemove',e=>{
   const x=(e.clientX/innerWidth-.5)*16,y=(e.clientY/innerHeight-.5)*16;
   const a=document.querySelector('.hero-ambient');
   if(a)a.style.transform=`translate(${x}px,${y}px)`;
 });
 
-// ── Legal expand/collapse ──
+// ── Legal expand ──
 function toggleLegal(btn){
   const body=btn.nextElementSibling;
   const isOpen=body.classList.toggle('open');
   const svg=btn.querySelector('svg');
   svg.style.transform=isOpen?'rotate(180deg)':'rotate(0)';
   svg.style.transition='transform .3s';
-  btn.childNodes[0].textContent=isOpen?'Collapse ':'Read Full ';
 }
+
+// ── Micro chart pulse ──
+setInterval(()=>{document.querySelectorAll('.mcbar').forEach(b=>{b.style.height=(Math.random()*70+20)+'%';b.style.opacity=Math.random()>.7?'1':'0.4';});},2500);
 
 // ── Particles ──
 const pc=document.getElementById('particles');
 function spawnParticle(){
   const p=document.createElement('div');
   const size=Math.random()*4+2;
-  const isYellow=Math.random()>.5;
   p.className='particle';
-  p.style.cssText=`
-    width:${size}px;height:${size}px;
-    background:${isYellow?'rgba(245,200,66,0.6)':'rgba(61,220,132,0.5)'};
-    left:${Math.random()*100}%;
-    bottom:-10px;
-    animation-duration:${Math.random()*12+8}s;
-    animation-delay:${Math.random()*5}s;
-  `;
+  p.style.cssText=`width:${size}px;height:${size}px;background:${Math.random()>.5?'rgba(245,200,66,0.6)':'rgba(61,220,132,0.5)'};left:${Math.random()*100}%;bottom:-10px;animation-duration:${Math.random()*12+8}s;animation-delay:${Math.random()*5}s;`;
   pc.appendChild(p);
   setTimeout(()=>p.remove(),(Math.random()*12+8)*1000+5000);
 }
 setInterval(spawnParticle,1200);
 for(let i=0;i<6;i++)spawnParticle();
 
-// ── Nav highlight on scroll ──
-window.addEventListener('scroll',()=>{
-  const nav=document.querySelector('nav');
-  nav.style.background=scrollY>60?'rgba(10,18,13,.97)':'rgba(10,18,13,.75)';
-});
+// ── Nav scroll style ──
+window.addEventListener('scroll',()=>{document.querySelector('nav').style.background=scrollY>60?'rgba(10,18,13,.97)':'rgba(10,18,13,.75)';});
 
-// ── Micro chart pulse animation ──
-setInterval(()=>{
-  document.querySelectorAll('.mcbar').forEach(b=>{
-    b.style.height=(Math.random()*70+20)+'%';
-    b.style.opacity=Math.random()>.7?'1':'0.4';
-  });
-},2500);
+// ═══════════════════════════════════
+// SCREEN MODAL SYSTEM
+// ═══════════════════════════════════
+const modalData = {
+  personal: {
+    tag: 'Wallet Screen',
+    title: 'Personal Wallet',
+    desc: 'Your primary wallet — the nerve centre of daily transactions. Real-time balance, transaction history, and a live 24-hour micro-insight chart. Everything you need to understand your day, right now.',
+    features: [
+      { icon: '📊', title: '24h Micro-Insight Chart', desc: 'A timeline fixed on "Now". Not monthly averages — your actual spending shape today.' },
+      { icon: '⚡', title: 'Live Balance', desc: 'Updates instantly as SMS alerts arrive. Your balance is always real-time, never stale.' },
+      { icon: '🏷️', title: 'Smart Categories', desc: 'Automatic categorisation from SMS context. No manual tagging required for bank transactions.' },
+      { icon: '🔔', title: 'Spending Streak', desc: 'Tracks consecutive days of mindful spending. Gamified discipline that actually works.' }
+    ],
+    stats: [
+      { val: '0.3s', key: 'SMS-to-entry latency' },
+      { val: '20+', key: 'Bank formats supported' },
+      { val: '∞', key: 'Transaction history (Elite)' }
+    ]
+  },
+  analytics: {
+    tag: 'Analytics Screen',
+    title: 'Spending Analytics',
+    desc: 'Category-level breakdowns with visual bars and trend indicators. Know exactly where every rupee went — and how this month compares to the last. Pattern recognition at a glance.',
+    features: [
+      { icon: '📈', title: 'Category Breakdown', desc: 'Food, Travel, Bills, Entertainment — each category tracked separately with percentage of total spend.' },
+      { icon: '🔴', title: 'Overspend Alerts', desc: 'Visual red indicators when a category exceeds its budget threshold. No number-crunching required.' },
+      { icon: '📅', title: 'Month-over-Month', desc: 'Compare this month vs last month side-by-side. See trends before they become problems.' },
+      { icon: '📉', title: 'Leak Detection', desc: 'Small recurring charges that add up — subscriptions, convenience fees — surfaced automatically.' }
+    ],
+    stats: [
+      { val: '7+', key: 'Spending categories' },
+      { val: '1yr', key: 'History (Pro)' },
+      { val: 'Live', key: 'Chart updates' }
+    ]
+  },
+  savings: {
+    tag: 'Savings Screen',
+    title: 'Savings Vault',
+    desc: 'Separate savings goals with dedicated wallets. Emergency fund, vacation, gadgets — each bucket grows independently. Watch the upward trend that motivates continued discipline.',
+    features: [
+      { icon: '🏦', title: 'Goal-Based Buckets', desc: 'Create named savings goals. Each has its own balance, target, and progress bar.' },
+      { icon: '📈', title: 'Growth Trend', desc: 'A rising green chart is the most motivating view in personal finance. See your savings compound.' },
+      { icon: '🔐', title: 'Vault Locking', desc: 'Lock savings wallets to prevent accidental withdrawals during impulse moments.' },
+      { icon: '⚡', title: 'Auto-Transfer Rules', desc: 'Set rules to auto-move % of income to savings on salary day. Set it, forget it.' }
+    ],
+    stats: [
+      { val: '1', key: 'Wallet (Free)' },
+      { val: '10', key: 'Wallets (Pro)' },
+      { val: '∞', key: 'Wallets (Elite)' }
+    ]
+  },
+  ai: {
+    tag: 'AI Advisor Screen',
+    title: 'AI Financial Advisor',
+    desc: 'Not a chatbot — a ruthless, personalised analyst. It knows your income streams, spending patterns, and category norms. It surfaces insights you\'d never find yourself, and delivers them without softening the blow.',
+    features: [
+      { icon: '🔍', title: 'Leak Finder', desc: 'Identifies unused subscriptions and recurring charges you\'ve forgotten about. Usually finds ₹500–₹2,000/mo.' },
+      { icon: '📊', title: 'Anomaly Detection', desc: '"You spent ₹4,200 on Zomato this week — 38% above your normal." Precise, personalised, actionable.' },
+      { icon: '🎯', title: 'Budget Forecasting', desc: 'Projects your month-end balance based on current spend rate. Know if you\'ll overshoot before you do.' },
+      { icon: '💡', title: 'Pattern Insights', desc: 'Learns your spending rhythm over 30 days. Spots correlations like "you overspend every Friday."' }
+    ],
+    stats: [
+      { val: '4/day', key: 'Insights (Free)' },
+      { val: '10/day', key: 'Insights (Pro)' },
+      { val: '∞', key: 'Insights (Elite)' }
+    ]
+  },
+  shake: {
+    tag: 'Add Entry · Shake Mode',
+    title: 'Shake-to-Add Mode',
+    desc: 'For cash transactions that banks can\'t see. Physically shake your phone anywhere on the home screen — the expense adder blasts open in under 0.3 seconds. The fastest manual input ever designed for a finance app.',
+    features: [
+      { icon: '📳', title: '0.3s Launch Time', desc: 'Measured. Tested. The adder is open before your brain finishes the thought. No navigation, no tapping.' },
+      { icon: '🎯', title: 'One-Tap Category', desc: 'Four most-used categories front and centre. Select, confirm, done. Three taps total for a full entry.' },
+      { icon: '⌨️', title: 'Smart Numpad', desc: 'Custom numpad built for amounts — ₹ symbol pre-filled, decimal auto-positioned, no keyboard delay.' },
+      { icon: '📳', title: 'Haptic Confirmation', desc: 'Heavy haptic fires on save. You feel the transaction register. Makes spending feel real and consequential.' }
+    ],
+    stats: [
+      { val: '0.3s', key: 'Launch speed' },
+      { val: '15/day', key: 'Shakes (Free)' },
+      { val: '∞', key: 'Shakes (Elite)' }
+    ]
+  }
+};
+
+function openModal(key) {
+  const data = modalData[key];
+  if (!data) return;
+  const content = document.getElementById('modalContent');
+  content.innerHTML = `
+    <div class="modal-screen-tag">${data.tag}</div>
+    <div class="modal-title">${data.title}</div>
+    <div class="modal-desc">${data.desc}</div>
+    <div class="modal-features">
+      ${data.features.map(f=>`
+        <div class="mf-item">
+          <div class="mf-icon">${f.icon}</div>
+          <div class="mf-title">${f.title}</div>
+          <div class="mf-desc">${f.desc}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:1.2rem">
+      <div class="modal-screen-tag" style="margin-bottom:.8rem">BY THE NUMBERS</div>
+      <div class="modal-stat-row">
+        ${data.stats.map(s=>`
+          <div class="modal-stat">
+            <div class="modal-stat-val">${s.val}</div>
+            <div class="modal-stat-key">${s.key}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('screenModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // pause scroll animation on tracks
+  document.getElementById('screenTrack').style.animationPlayState='paused';
+}
+
+function closeModalDirect() {
+  document.getElementById('screenModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('screenTrack').style.animationPlayState='running';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('screenModal')) closeModalDirect();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
 </script>
 </body>
 </html>
