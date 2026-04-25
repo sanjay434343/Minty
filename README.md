@@ -1,34 +1,26 @@
 <div align="center">
 
-<div style="background-color: white; display: inline-block; padding: 12px; border-radius: 28px;">
-  <img src="minty logo.png" width="140" height="140" alt="Minty Logo" style="border-radius: 20px;" />
-</div>
+  <img src="minty logo.png" width="180" height="180" alt="Minty Logo" style="border-radius: 40px; box-shadow: 0 10px 40px rgba(11, 93, 76, 0.5);" />
 
-<h1>Minty</h1>
-<h3><i>Your Money. Your Rules. Zero Effort.</i></h3>
+  <h1>🌿 M I N T Y</h1>
+  <h3><i>Your Money. Your Rules. Zero Effort.</i></h3>
 
   <p>
     <img src="https://img.shields.io/badge/Platform-Android-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" />
-    <img src="https://img.shields.io/badge/Built_with-Flutter-0B5D4C?style=for-the-badge&logo=flutter&logoColor=7FBF9A" />
-    <img src="https://img.shields.io/badge/Backend-Firebase-0B5D4C?style=for-the-badge&logo=firebase&logoColor=FFD60A" />
-    <img src="https://img.shields.io/badge/Payments-Razorpay-0B5D4C?style=for-the-badge&logo=razorpay&logoColor=7FBF9A" />
-  </p>
-
-  <p>
-    <img src="https://img.shields.io/badge/Version-1.0.0-7FBF9A?style=flat-square" />
-    <img src="https://img.shields.io/badge/License-Proprietary-0B5D4C?style=flat-square" />
-    <img src="https://img.shields.io/badge/Min_SDK-Android_7.0+-182620?style=flat-square" />
+    <img src="https://img.shields.io/badge/Tech-Flutter_&_Kotlin-0B5D4C?style=for-the-badge&logo=flutter&logoColor=7FBF9A" />
+    <img src="https://img.shields.io/badge/Privacy-100%25_On--Device-182620?style=for-the-badge&logo=shield&logoColor=FFD60A" />
   </p>
 
   <br/>
 
-  > **The average Indian loses ₹18,000/year to expenses they don't even remember making.**
-  > Minty fixes that — automatically, silently, beautifully.
+  > **Most expense trackers feel like doing your taxes.**  
+  > They beg you to manual-log every coffee, every cab, every snack. You do it for 3 days, then quit.
+  > **Minty does it for you.** Automatically, silently, beautifully.
 
   <br/>
 
   <a href="https://minty41.netlify.app/">
-    <img src="https://img.shields.io/badge/📲_Download_Minty-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+    <img src="https://img.shields.io/badge/📲_Download_Minty_Now-7FBF9A?style=for-the-badge&logo=android&logoColor=0B5D4C" alt="Download Minty" />
   </a>
   &nbsp;&nbsp;
   <a href="https://minty41.netlify.app/">
@@ -39,28 +31,75 @@
 
 ---
 
-## 🧨 The Problem
+## 🧨 The Problem With "Other" Expense Trackers
 
-You already know you should track expenses. But you don't. Nobody does.
+You already know you should track expenses. Here is why you don't:
+- **Manual Entry is Dead:** You don't have time to open an app 15 times a day.
+- **Boring UI:** Spreadsheets don't motivate you; they bore you.
+- **Generic Advice:** "Spend less on dining" is useless without context.
+- **Anxiety-Inducing:** Missing entries makes you feel like you're failing.
 
-Here's why every expense tracker fails you:
-
-| ❌ The Problem | 💡 How Minty Solves It |
-| :--- | :--- |
-| **Manual entry is tedious** — you forget 70% of transactions | 📲 **SMS Auto-Capture** reads your bank alerts and logs every ₹ automatically |
-| **Apps feel like spreadsheets** — zero motivation to open them | 🍱 **Bento UI Design** — a living, breathing interface with glassmorphism, haptics, and spring animations |
-| **Generic advice** — "spend less" isn't actionable | 🤖 **AI Financial Advisor** analyzes YOUR patterns and tells you exactly where your money leaks |
-| **No accountability** — overspending has no consequence | 🔴 **Risk Detector** fires real-time alerts when you cross 70% of your monthly budget |
-| **Clunky input** — 6 taps to add one coffee | 📳 **Shake-to-Add** — physically shake your phone to open the expense adder in < 0.3 seconds |
+Minty solves this by operating as a **financial autopilot** wrapped in a visually arresting **premium, glassmorphic UI**.
 
 ---
 
-## 💰 Why You Need Minty — The Money Impact
+## ✨ The Minty Paradigm Shift
+
+Minty doesn't just ask you to change your habits. It adapts to the habits you already have.
+
+<table>
+<tr>
+<td width="50%">
+
+### 1️⃣ SMS Intelligence Engine 📲
+Minty reads your bank SMS alerts natively on-device.
+**You swipe your card ➡️ Minty logs the expense.** 
+No cloud servers, no 3rd party SDKs, zero manual entry. Powered by a hyper-optimized **native Kotlin engine**.
+
+</td>
+<td width="50%">
+
+### 2️⃣ Bento UI & Pure Haptics 🍱
+Built like a Japanese Bento box. Frosted glassmorphism, spring physics, and tactile haptic feedback. **Credits pulse UP, Debits press DOWN.** UI that actually feels alive in your hands.
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 3️⃣ AI Financial Advisor 🤖
+Not a chatbot, but a ruthless, personalized analyst. It knows your income, spots your leaks, and hits you with hard truths: *"You spent ₹4,200 on Zomato this week... that is 38% above normal."*
+
+</td>
+<td width="50%">
+
+### 4️⃣ Shake-to-Add Mode 📳
+For cash transactions. **Physically shake your phone** on the home screen and the expense adder blasts open in `< 0.3s`. The fastest manual input ever designed.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🔒 The Paranoia-Level Privacy Guarantee
+
+Financial data is your most sensitive data. Minty is built with paranoia.
+
+- 🔐 **Zero-Knowledge SMS Parsing:** The SMS engine runs 100% locally. No API, no cloud transfer.
+- 📱 **Local-First Database:** Your transaction data stays on your device. Period.
+- 👻 **Ghost Mode Sync:** The only thing backed up to the cloud is your profile metrics. Your actual transaction amounts are strictly firewalled in encrypted local storage.
+- 🛑 **No Trackers:** No ad-caching, no data selling. You are the user, not the product.
+
+---
+
+## 💸 Real Impact
 
 <div align="center">
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
+│              THE MINTY EFFECT                   │
 │                                                 │
 │   Without Minty          With Minty             │
 │   ──────────────         ─────────────          │
@@ -68,332 +107,80 @@ Here's why every expense tracker fails you:
 │   ₹43,200 spent          ₹36,000 spent         │
 │   ₹1,800 saved           ₹9,000 saved          │
 │                                                 │
-│   Annual savings: ₹21,600   →   ₹1,08,000      │
-│                                                 │
-│          That's 5x more savings.                │
-│          That's your emergency fund.            │
-│          That's your first investment.           │
+│   ANNUAL IMPACT: 5x MORE SAVINGS                │
 │                                                 │
 └─────────────────────────────────────────────────┘
 ```
 
-</div>
-
-Minty users report **saving 3–5× more** within the first 60 days — not because they're budgeting harder, but because they finally **see** where the money goes.
-
----
-
-## ✨ Feature Arsenal
-
-### 📲 SMS Intelligence Engine
-Your bank already sends you SMS alerts for every transaction. Minty intercepts them in real-time using a **native on-device parser** — no third-party SDKs, no cloud processing. Every ₹ is captured, categorized, and logged before you put your phone down.
-
-- ✅ Supports **UPI, NEFT, IMPS, card swipes, ATM withdrawals**
-- ✅ Works with all major Indian banks and payment apps
-- ✅ Auto-detects debits vs credits intelligently
-- ✅ **100% on-device** — your SMS data never leaves your phone
-
-### 🤖 AI Financial Advisor
-Not a chatbot. An advisor that knows your salary, your spending habits, your goals — and speaks to you in plain language.
-
-- 📊 Analyzes your transaction history against your declared income
-- 🎯 Generates **personalized insights**: _"You spent ₹4,200 on food delivery this week — that's 38% above your usual."_
-- 🔄 Daily AI allowance with plan-based scaling (4/day free → Unlimited on Elite)
-- 💬 Interactive AI chat for on-demand financial guidance
-
-### 🔴 Risk Detection System
-A background engine that continuously monitors your financial health:
-
-- ⚠️ **Overspending Alert** — fires when expenses approach your monthly budget limit
-- 💸 **Low Savings Warning** — triggers if your savings rate drops too low
-- 🏦 **Debt Signal Detection** — identifies recurring debt-related transactions
-- 📉 Intelligent budget analysis based on your income vs spending patterns
-
-### 📳 Shake-to-Add
-The fastest expense entry in any finance app. Period.
-
-- Just **shake your phone** on the home screen
-- The expense adder flies up with a spring animation
-- Tunable sensitivity — adjust it in Settings to match your preference
-- Haptic feedback confirms detection instantly
-
-### 🍱 Bento UI (Japanese-Inspired Design)
-Every screen is a composition of modular, interactive tiles:
-
-- **Glassmorphism cards** with frosted blur and transparency
-- **Staggered reveal animations** — elements cascade in with spring physics
-- **Haptic signatures** — credits pulse ↑ upbeat, debits press ↓ with weight
-- **Elastic bottom sheets** that respond to flick velocity
-- **Wavy slider widgets** for a tactile, analog feel
-
-### 💼 Multi-Wallet Architecture
-Organize your money by purpose, not just totals:
-
-- 🏠 Personal, Savings, Business — create wallets for every financial context
-- 🔒 Free users get **1 wallet**, premium unlocks up to **10**
-- 📊 Per-wallet analytics and transaction isolation
-- Affordable one-time purchase for additional wallet slots
-
-### 🌍 Multi-Currency Support
-Live exchange rates with support for 8+ currencies:
-
-`INR` · `USD` · `EUR` · `GBP` · `JPY` · `AUD` · `CAD` · `CHF` — and more
-
-- Live exchange rates fetched on every app launch
-- Offline fallback to last-known rates
-- Currency-specific flag imagery bundled natively
-
-### ☁️ Cloud Backup & Sync
-- **Cloud-backed** profile and preference sync
-- **Encrypted local storage** for all sensitive financial data
-- **Automatic** periodic background backups
-- Seamless sign-out / sign-in restoration — your data follows you
-
-### 🔔 Smart Notifications
-- **Daily spending summaries** — morning, afternoon, evening reminders
-- **Weekly and monthly rollups** with calculated totals
-- **Push notifications** for plan expiry and feature updates
-- Crash-free experience with real-time error monitoring
-
----
-
-## 💎 Plans & Pricing
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="280">
-
-### 🌱 Minty Basic
-#### **FREE**
-<sub>Forever • No credit card needed</sub>
-
----
-
-✅ **1 Wallet**
-✅ **20 SMS reads/day**
-✅ **15 Shakes/day**
-✅ **4 AI Insights/day**
-✅ **2 Months** history
-✅ Basic Analytics
-✅ Risk Alerts
-✅ Cloud Backup
-❌ Data Export
-❌ Priority Support
-
----
-
-<a href="https://minty41.netlify.app/">
-  <img src="https://img.shields.io/badge/🌿_Get_Started_Free-0B5D4C?style=for-the-badge" alt="Get Started Free" />
-</a>
-
-</td>
-<td align="center" width="280">
-
-### ⚡ Pro Monthly
-#### **₹99/month**
-<sub>Billed monthly • Cancel anytime</sub>
-
----
-
-✅ **10 Wallets**
-✅ **300 SMS reads/month**
-✅ **200 Shakes/month**
-✅ **10 AI Insights/day**
-✅ **1 Year** history
-✅ Advanced Analytics
-✅ Risk Alerts
-✅ Cloud Backup
-❌ Data Export
-✅ Priority Support
-
----
-
-<a href="https://minty41.netlify.app/">
-  <img src="https://img.shields.io/badge/⚡_Upgrade_to_Pro-7FBF9A?style=for-the-badge&logoColor=white" alt="Upgrade to Pro" />
-</a>
-
-</td>
-<td align="center" width="280">
-
-### 👑 Elite Yearly
-#### **₹499/year**
-<sub>Best value • Save 58%</sub>
-
----
-
-✅ **10 Wallets**
-✅ **Unlimited** SMS reads
-✅ **Unlimited** Shakes
-✅ **Unlimited** AI Insights
-✅ **Entire** history
-✅ Deep Insights Analytics
-✅ Risk Alerts
-✅ Cloud Backup
-✅ Data Export
-✅ Priority Support
-
----
-
-<a href="https://minty41.netlify.app/">
-  <img src="https://img.shields.io/badge/👑_Go_Elite_—_Best_Value-FFD60A?style=for-the-badge&logoColor=black" alt="Go Elite" />
-</a>
-
-</td>
-</tr>
-</table>
+Minty users report **saving 3–5× more** within the first 60 days. Not because they budget harder, but because they finally **see** the leaks.
 
 </div>
 
-> [!TIP]
-> **Elite Yearly saves you ₹689/year** compared to Pro Monthly (₹99 × 12 = ₹1,188 vs ₹499). That's **58% off** — and you get **unlimited everything**.
+---
+
+## 💎 Pricing That Makes Sense
+
+*You're trying to save money, not bleed it. Our pricing reflects that.*
 
 <div align="center">
 
-#### 💳 Additional Purchases
-
-| Item | Price | Type |
-| :--- | :---: | :---: |
-| Extra Wallet Slot | ₹29 | One-time |
-
-All payments processed securely through **Razorpay** · No card data stored on-device
+| 🌱 Basic (Forever Free) | ⚡ Pro (₹99/mo) | 👑 Elite (₹499/yr) _*Best Value*_ |
+| :--- | :--- | :--- |
+| **1 Wallet** | **10 Wallets** | **10 Wallets** |
+| 20 SMS reads/day | 300 SMS reads/month | **Unlimited** SMS reads |
+| 15 Shakes/day | 200 Shakes/month | **Unlimited** Shakes |
+| 4 AI Insights/day | 10 AI Insights/day | **Unlimited** AI Insights |
+| 2 Months History | 1 Year History | **Lifetime** History |
 
 <br/>
 
 <a href="https://minty41.netlify.app/">
-  <img src="https://img.shields.io/badge/📲_Download_Minty_Now-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+  <img src="https://img.shields.io/badge/👑_Go_Elite_—_Save_58%25-FFD60A?style=for-the-badge&logoColor=black" alt="Go Elite" />
 </a>
 
 </div>
 
 ---
 
-## 🏗️ Tech Stack
+## 🌍 Built for India, Ready for the World
 
-| Layer | Technology |
+Minty's DNA is Indian 🇮🇳, engineered for universal use.
+- **Deep UPI Integration:** Flawless parsing for 20+ Indian banks, Paytm, PhonePe, GPay, IMPS, NEFT.
+- **Global Currency Engine:** Native support for `INR`, `USD`, `EUR`, `GBP`, `JPY`, `AUD`, `CAD` with live, real-time exchange rates.
+
+---
+
+## 🛠 Under The Hood
+
+For the tech-obsessed, here's how we achieve buttery 120fps performance:
+
+| Layer | Powering Tech |
 | :--- | :--- |
-| **Framework** | Flutter (Dart) |
-| **State Management** | Riverpod |
-| **Authentication** | Firebase Auth + Google Sign-In |
-| **Database** | Cloud-synced + Offline-first local DB |
-| **Secure Storage** | Encrypted on-device storage |
-| **Payments** | Razorpay |
-| **Background Tasks** | Native Android services |
-| **Push Notifications** | Cloud Messaging |
-| **Crash Reporting** | Real-time crash monitoring |
-| **Native Layer** | Kotlin (on-device processing) |
-| **Typography** | Playfair Display (bundled) |
-
----
-
-## 📲 Get Minty
-
-Minty is available as a direct download for Android devices.
-
-<div align="center">
-
-<a href="https://minty41.netlify.app/">
-  <img src="https://img.shields.io/badge/📲_Download_for_Android-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
-</a>
-
-</div>
-
-> [!IMPORTANT]
-> ### ⚙️ First-Time Setup
-> To enable automatic SMS transaction capture, the app will guide you through the required permissions on first launch. Simply follow the on-screen instructions.
->
-> All other features (manual entry, AI insights, shake-to-add, analytics) work immediately without any extra setup.
-
-### For Contributors
-If you're a developer looking to contribute, please reach out for access to the development setup guide and contribution guidelines.
-
----
-
-## 🎨 Design Language
-
-<div align="center">
-
-| Token | Hex | Usage |
-| :--- | :---: | :--- |
-| 🟢 **Mint Green** | `#7FBF9A` | Brand primary, accents, highlights |
-| 🟩 **Deep Green** | `#0B5D4C` | Headers, emphasis, premium elements |
-| 🟡 **Accent Yellow** | `#FFD60A` | CTAs, warnings, Pro badges |
-| ⬛ **Dark Background** | `#0E1812` | App canvas |
-| 🟫 **Dark Card** | `#182620` | Card surfaces |
-| 🟢 **Income Green** | `#4DD9A0` | Credit indicators |
-| 🔴 **Expense Coral** | `#E05C6A` | Debit indicators |
-| 🔵 **Info Sky** | `#4DB8FF` | Informational highlights |
-| ⚫ **Dim Text** | `#6B8A82` | Secondary labels |
-
-</div>
-
-Typography: **Playfair Display** for display headings · System font for body text
-Theme: **Dark-first** with light surfaces for onboarding and expense entry
-
----
-
-## 🗺️ Roadmap
-
-- [ ] 💳 **NFC Tap-to-Track** — Log transactions by tapping your wallet on your phone
-- [ ] 👨‍👩‍👧 **Family Sharing** — Shared wallets with household budget sync
-- [ ] 💻 **Desktop Companion** — Windows/macOS app with deep database reconciliation
-- [ ] 📊 **Prediction Engine** — AI forecasts your end-of-month balance from current burn rate
-- [ ] 🧾 **Receipt Scanner** — OCR-powered receipt capture and auto-categorization
-- [ ] 📈 **Investment Tracker** — Mutual funds, stocks, and SIP tracking in one place
-- [ ] 🏦 **Bank Sync (AA Framework)** — Account Aggregator integration for real-time balance sync
-
----
-
-## 🔒 Privacy & Security
-
-- 🔐 **Industry-standard encryption** for all locally stored financial data
-- 📵 **SMS data never leaves your device** — parsing is 100% on-device
-- ☁️ **Cloud sync** is limited to profile preferences and plan status — transaction data stays encrypted on your phone
-- 🚫 **No third-party tracking** — only first-party analytics for crash reporting
-- 💳 **Payment processor handles all card data** — Minty never sees or stores card numbers
-
----
-
-## 📊 By the Numbers
-
-| Metric | Value |
-| :--- | :--- |
-| **Supported Banks** | 20+ Indian banks |
-| **Currencies** | 8+ with live exchange rates |
-| **Custom Animations** | 5 hand-crafted UI components |
-| **Background Services** | Backup, Reminders, SMS, Push |
+| **Core Framework** | Flutter (Dart) - 120hz optimized |
+| **State Engine** | Riverpod |
+| **Native Processing** | Kotlin (Native SMS & Haptics) |
+| **Auth & Telemetry** | Firebase (Google Sign-In) |
+| **Payments Infrastructure** | Razorpay |
+| **Design Language** | Custom Bento UI, Playfair Display |
 
 ---
 
 <div align="center">
 
-  <img src="assets/images/logo.png" width="60" height="60" alt="Minty" />
+  <img src="assets/images/logo.png" width="60" height="60" alt="Minty Logo" style="border-radius: 14px;" />
 
-  <br/><br/>
-
-  **Minty** — *Stop guessing where your money goes. Start knowing.*
-
-  <br/>
+  <h3>Stop guessing where your money goes. Start knowing.</h3>
 
   <a href="https://minty41.netlify.app/">
-    <img src="https://img.shields.io/badge/📲_Download_Now_—_It's_Free-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
+    <img src="https://img.shields.io/badge/📲_Download_Minty_Now-0B5D4C?style=for-the-badge&logo=android&logoColor=7FBF9A" alt="Download Minty" />
   </a>
 
   <br/><br/>
 
-  <sub>Built with 🌿 in India · Crafted for every ₹ that matters</sub>
-
-  <br/><br/>
-
-  <p>
-    <img src="https://img.shields.io/badge/Made_with-Flutter-0B5D4C?style=for-the-badge&logo=flutter&logoColor=7FBF9A" />
-    <img src="https://img.shields.io/badge/Powered_by-Firebase-0B5D4C?style=for-the-badge&logo=firebase&logoColor=FFD60A" />
-    <img src="https://img.shields.io/badge/Designed_in-India_🇮🇳-0B5D4C?style=for-the-badge" />
-  </p>
+  <sub>Designed with obsession • Crafted for every ₹ that matters</sub>
 
 </div>
 
 ---
 
-`#minty` `#expense-tracker` `#personal-finance` `#flutter` `#ai-finance` `#bento-ui` `#sms-parsing` `#india-fintech` `#razorpay` `#firebase` `#riverpod` `#money-management` `#budget-tracker` `#savings-app` `#financial-advisor`
+`#minty` `#expense-tracker` `#personal-finance` `#flutter` `#ai-finance` `#bento-ui` `#kotlin` `#india-fintech` `#razorpay` `#firebase` `#riverpod`
