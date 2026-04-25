@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/images/logo.png" width="140" height="140" alt="Minty Logo" style="border-radius: 28px;" />
+  <img src="minty logo.png" width="140" height="140" alt="Minty Logo" style="border-radius: 28px;" />
 
   <h1>🌿 Minty</h1>
   <h3><i>Your Money. Your Rules. Zero Effort.</i></h3>
