@@ -115,7 +115,7 @@ For cash transactions:
 
 ---
 
-### ⚡ Pro — ₹149/month or ₹799/year
+### ⚡ Pro — ₹149/month or ₹499/year
 - Unlimited history  
 - Smart insights  
 - Export reports (tax-ready)  
